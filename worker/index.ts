@@ -11,7 +11,7 @@ import { pageMetadata, renderPage } from '../lib/climate/pages.ts';
 import { coordinates, namedLocations } from '../lib/climate/locations.ts';
 import type { Envelope } from '../lib/climate/envelope.ts';
 declare const STATIC_ASSETS: Record<string,{body:string;type:string}>;
-const sourceIds=['open-meteo-weather','open-meteo-flood','open-meteo-air','elevation','usgs','rainviewer','noaa','reliefweb','firms','eonet','openaq','power','chirps','worldpop','gdacs','osm','nasa-gibs'];
+const sourceIds=['open-meteo-weather','open-meteo-flood','open-meteo-air','elevation','usgs','rainviewer','noaa','reliefweb','firms','eonet','openaq','power','chirps','worldpop','gdacs','osm','nasa-gibs','daily-archive'];
 const limits = new Map<string,{count:number;reset:number}>();
 function response(body:unknown,status=200){return Response.json(body,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});}
 function allowed(request:Request){const id=request.headers.get('cf-connecting-ip')??'local';const now=Date.now();let row=limits.get(id);if(!row||row.reset<now){if(limits.size>2048)limits.clear();row={count:0,reset:now+60000};limits.set(id,row);}return ++row.count<=40;}
