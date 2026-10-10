@@ -1,7 +1,7 @@
 import { BaseConnector, FeedError, numeric } from './base.ts';
 import { coordinates } from '../locations.ts';
 import type { SourceSpec } from '../envelope.ts';
-const gdacsSpec:SourceSpec={id:'gdacs',name:'GDACS Disaster Alerts',url:'https://www.gdacs.org/feed_reference.aspx',endpoint:'https://www.gdacs.org/gdacsapi/api/events/geteventlist/SEARCH',tier:4,family:'gdacs',methodology:'GDACS reported events explicitly naming Pakistan as an affected country. Seven-day event-end search, bounded pagination; no district impact inference. No reported events does not establish safety.',temporal_kind:'report',stale_after_minutes:30,license:'GDACS attribution required; provider disclaimer applies'};
+const gdacsSpec:SourceSpec={id:'gdacs',name:'GDACS Disaster Alerts',url:'https://www.gdacs.org/feed_reference.aspx',endpoint:'https://www.gdacs.org/gdacsapi/api/events/geteventlist/SEARCH',tier:4,family:'gdacs',methodology:'GDACS reported events explicitly naming Pakistan as an affected country. Explicit Green/Orange/Red and hazard-type filters. Seven-day event-end search plus a separate ninety-day event archive, bounded pagination; no district impact inference. No reported events does not establish safety.',temporal_kind:'report',stale_after_minutes:30,license:'GDACS attribution required; provider disclaimer applies'};
 export function parseGdacs(raw:any){
  if(raw?.type!=='FeatureCollection'||!Array.isArray(raw.features)||raw.features.length>100)throw new FeedError('INVALID_PAYLOAD','Invalid GDACS feature collection');
  return raw.features.map((f:any)=>{
@@ -14,13 +14,20 @@ export function parseGdacs(raw:any){
   return {id:p.eventtype+'-'+p.eventid,episode:p.episodeid,name:String(p.name??p.description??p.eventtype),type:p.eventtype,level:p.alertlevel,lat,lon,url,from:utc(p.fromdate),to:utc(p.todate),updated_at:utc(p.datemodified),pakistan:p.iso3==='PAK'||p.affectedcountries.some((x:any)=>x.iso3==='PAK')};
  });
 }
-export class GdacsConnector extends BaseConnector<{events:ReturnType<typeof parseGdacs>;scope:string;complete:boolean;window:{start:string;end:string};note:string}> {
- constructor(){super(gdacsSpec,{ttl:360_000,timeout:8_000,retries:0,threshold:5,cooldown:60_000});}
+export function gdacsPartition(recent:ReturnType<typeof parseGdacs>,history:ReturnType<typeof parseGdacs>,start:string){
+ const unique=new Map<string,ReturnType<typeof parseGdacs>[number]>();
+ for(const e of [...recent,...history].filter(e=>e.pakistan)){const old=unique.get(e.id);if(!old||e.updated_at>old.updated_at||(e.updated_at===old.updated_at&&Number(e.episode)>Number(old.episode)))unique.set(e.id,e);}
+ const all=[...unique.values()].sort((a,b)=>b.to.localeCompare(a.to));
+ return {events:all.filter(e=>e.to.slice(0,10)>=start),archive:all.filter(e=>e.to.slice(0,10)<start),updated_at:all.map(e=>e.updated_at).sort().at(-1)??null};
+}
+export class GdacsConnector extends BaseConnector<{events:ReturnType<typeof parseGdacs>;archive:ReturnType<typeof parseGdacs>;scope:string;complete:boolean;window:{start:string;end:string};archive_window:{start:string;end:string;types:string[];complete:boolean};note:string}> {
+ constructor(transport:typeof fetch=fetch){super(gdacsSpec,{ttl:300_000,timeout:12_000,retries:0,threshold:5,cooldown:60_000},transport);}
  protected async load(){
-  const end=new Date().toISOString().slice(0,10),start=new Date(Date.now()-7*86400000).toISOString().slice(0,10);const all:ReturnType<typeof parseGdacs>=[];let complete=false;
-  for(let page=1;page<=5;page++){const raw=await this.json(gdacsSpec.endpoint+`?fromdate=${start}&todate=${end}&pagenumber=${page}&pagesize=100`);const events=parseGdacs(raw);all.push(...events);if(events.length<100){complete=true;break;}}
-  const latest=all.map(e=>e.updated_at).sort().at(-1)??null;const unique=new Map(all.filter(e=>e.pakistan).map(e=>[e.id,e]));
-  return {updated_at:latest,data:{events:[...unique.values()],scope:'GDACS country attribution: Pakistan; event points need not lie inside Pakistan',complete,window:{start,end},note:complete?'No events returned means no matching GDACS reports in this search, never no hazard.':'Search reached its 500-record cap; coverage is incomplete.'}};
+  const end=new Date().toISOString().slice(0,10),start=new Date(Date.now()-7*86400000).toISOString().slice(0,10),archiveStart=new Date(Date.now()-90*86400000).toISOString().slice(0,10);
+  const all:ReturnType<typeof parseGdacs>=[];let complete=false;
+  for(let page=1;page<=5;page++){const query=new URLSearchParams({fromdate:archiveStart,todate:end,country:'PAK',eventlist:'EQ;FL;TC;DR;WF;VO',alertlevel:'green;orange;red',pagenumber:String(page),pagesize:'100'});const events=parseGdacs(await this.json(gdacsSpec.endpoint+'?'+query));all.push(...events);if(events.length<100){complete=true;break;}}
+  const partition=gdacsPartition([],all,start);
+  return {updated_at:partition.updated_at,data:{events:partition.events,archive:partition.archive,scope:'GDACS country attribution: Pakistan; event points need not lie inside Pakistan',complete,window:{start,end},archive_window:{start:archiveStart,end:new Date(Date.parse(start)-86400000).toISOString().slice(0,10),types:['EQ','FL','TC','DR','WF','VO'],complete},note:'Recent reports are selected by provider event-end date, not confirmed active incidents. Green is a GDACS impact classification, not local safety. Empty results never establish absence of hazards.'+(!complete?' Country search reached its 500-record cap; recent and historical coverage may be incomplete.':'')}};
  }
 }
 const chirpsSpec:SourceSpec={id:'chirps',name:'CHIRPS · ClimateSERV',url:'https://climateserv.servirglobal.net/develop-api',endpoint:'https://climateserv.servirglobal.net/api/submitDataRequest/',tier:2,family:'chirps-station-satellite-blend',methodology:'Daily CHIRPS area-mean rainfall over a 0.05° square around the selected point. Latest thirty usable calendar days within a ninety-day query ending ten days before retrieval; publication lag and missing granules remain explicit. Not a forecast or gauge reading.',temporal_kind:'observation',stale_after_minutes:43200,license:'UCSB CHIRPS / ClimateSERV provider terms; attribution required'};

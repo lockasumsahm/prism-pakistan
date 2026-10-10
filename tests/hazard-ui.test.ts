@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {hazardDesk} from '../web/hazard-ui.js';
+const esc=v=>String(v??'').replace(/[<>"&]/g,c=>({'<':'&lt;','>':'&gt;','"':'&quot;','&':'&amp;'}[c]));
+const helpers={esc,fmt:v=>typeof v==='number'?String(v):'—',time:v=>v??'undated',safeUrl:esc,badge:e=>e.ok?'REPORT':'OFFLINE',provenance:()=>'<details>source receipt</details>',selector:()=>'<select aria-label="Monitoring location"></select>'};
+const ndma={ok:true,data:{advisories:[{title:'Official notice <script>',published_date:'2026-10-09',url:'https://ndma.gov.pk/storage/advisories/October2026/test.pdf'}],scope:'First page'}};
+const gdacs={ok:true,data:{events:[],archive:[{name:'Dated flood',type:'FL',level:'Green',to:'2026-09-02',updated_at:'2026-09-03',url:'https://www.gdacs.org/report.aspx'}],window:{start:'2026-10-03',end:'2026-10-10'},archive_window:{start:'2026-07-12',complete:true},complete:true,note:'Coverage note'}};
+const weather={ok:true,data:{temp_c:25,rain_next_24h_mm:0,rain_next_7d_mm:0},source:{updated_at:'2026-10-10T11:00:00Z',retrieved_at:'2026-10-10T11:01:00Z'}};
+const args={n:ndma,g:gdacs,q:{request_error:'HTTP 503'},f:{ok:true,data:{detections:[]}},s:{location:{name:'Sukkur',slug:'sukkur',province:'Sindh'},weather},helpers,checkedAt:Date.parse('2026-10-10T11:01:00Z')};
+test('empty report search and one failed request retain independent notices and real-zero forecast',()=>{const html=hazardDesk(args);assert.match(html,/Feed connected\. No matching recent reports/);assert.match(html,/Official notice &lt;script&gt;/);assert.match(html,/>0<small>mm/);assert.match(html,/HTTP 503/);assert.match(html,/Every 5 minutes/);assert.doesNotMatch(html,/No Pakistan-attributed GDACS reports matched/);assert.match(html,/ARCHIVE · FL/);assert.match(html,/historical context/);});
+test('offline NDMA remains explicit while other channels and district forecast render',()=>{const html=hazardDesk({...args,n:{ok:false,error:{code:'HTTP_500',message:'Upstream returned HTTP 500'}}});assert.match(html,/DATA SOURCE OFFLINE/);assert.match(html,/Sukkur/);assert.match(html,/Dated flood/);assert.doesNotMatch(html,/LATEST LISTED NDMA PUBLICATION/);});

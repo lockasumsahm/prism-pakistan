@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "PRISM Public Evidence API",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "description": "Principal public contracts for the existing PRISM monitoring pilot. Forecasts are model outputs, district centres are points, and risk remains UNASSESSED. No authentication is required for these read interfaces. Provider usage and commercial licensing terms apply."
   },
   "servers": [

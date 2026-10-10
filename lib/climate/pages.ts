@@ -15,7 +15,7 @@ export const pageMetadata: Record<string, {title:string;description:string}> = {
  '/terms':{title:'Terms of Use',description:'PRISM data licences, public information terms and independent platform limitations.'},
  '/changelog':{title:'Release Notes',description:'Changes to PRISM interfaces, telemetry, verification and scientific integrity.'},
  '/contact':{title:'Contact & Official Resources',description:'Official Pakistan disaster and weather resources and PRISM contact availability.'},
- '/alerts':{title:'Hazard Reports & Official Advisories',description:'Current availability of official warnings and automated notification delivery.'},
+ '/alerts':{title:'Hazard Reports & Official Advisories',description:'District forecast, official NDMA publications, recent GDACS reports and dated archives, with automatic feed checks and explicit coverage.'},
  '/auth':{title:'Account Availability',description:'Current PRISM account and identity-provider availability.'},
  '/reset-password':{title:'Account Recovery Status',description:'Current availability of PRISM cloud account recovery.'},
  '/settings.connectors':{title:'Connector Configuration',description:'Server-side credential requirements and source integration status.'},

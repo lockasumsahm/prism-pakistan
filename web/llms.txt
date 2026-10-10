@@ -58,3 +58,7 @@ Population, infrastructure and community-context public v1 endpoints accept a re
 - `/alerts` displays the titles, dates, provenance and links. The officer calls `official_advisories` for flood/warning/school-closure questions.
 - Publication dates are not an expiry or a district warning classification. PRISM does not interpret the PDFs. Empty/unparseable index or unexpected external links fail closed with data:null.
 - Flood risk remains unassessed until validated local calibration and independent hazard evidence exist. This is separate from core feed availability.
+
+## Hazard desk (0.6.0)
+`/alerts` combines a selected-district model forecast, official NDMA publications, GDACS reports, regional USGS earthquakes and NASA VIIRS detections. It checks every five minutes while visible and on return to the tab; provider caches and publication schedules apply. A failed browser request in one channel does not hide the other channels.
+GDACS uses explicit `country=PAK`, all six registered hazard types and Green/Orange/Red filters. A bounded 90-day search is partitioned into a seven-day event-end window and a dated archive. Neither GDACS Green nor a historical report indicates local safety or an active incident.
