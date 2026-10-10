@@ -10,7 +10,7 @@ An evidence-first climate intelligence pilot for Pakistan. A responsive institut
 
 Adds scoped historical widget caching, remembered places, PWA shortcuts, per-reading provenance inspection, missing-data briefing footers, GPS point evidence, named-question location routing, server-rendered route metadata, public API documentation and crawler files. Rainfall aggregation now respects Open-Meteo preceding-hour intervals. The operations ledger reports recovery state and supports authenticated, instance-local quarantine.
 
-See [the production verification matrix](docs/PRODUCTION_VERIFICATION.md) for the supplied checklist and remaining certification requirements. 84 automated tests pass. The dated OCHA/WFP registry includes 160 district names, while national comparison samples 12 city references; hazard scores remain unassessed.
+See [the production verification matrix](docs/PRODUCTION_VERIFICATION.md) for the supplied checklist and remaining certification requirements. 91 automated tests pass. The dated OCHA/WFP registry includes 160 district names, while national comparison samples 12 city references; hazard scores remain unassessed.
 
 ## Run
 
@@ -147,3 +147,7 @@ Consult official PMD and NDMA advisories for operational decisions. PRISM is ind
 Browser mapping and local AI use pinned CDN modules. The server still builds without npm installation. Inference runs on the visitor device; first use consumes download bandwidth and GPU memory.
 
 For release checks, incidents, rollback and remaining launch gates, see [the operations runbook](docs/OPERATIONS_RUNBOOK.md).
+
+## Real-date correction (0.4.1)
+
+The clock/date use uncached server time, shown in PKT, rather than trusting device wall-clock settings. Server forecast and browser evidence caches expire at UTC hour rollover. Freshness labels distinguish model outlooks, historical archives, static data and stale/undated observations. Daily publication validates both generation and evidence retrieval timestamps. Tests cover PKT midnight, UTC midnight, future/old timestamps and honest archive semantics.

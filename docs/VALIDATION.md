@@ -51,3 +51,9 @@ Production deployment `dpl_GuBeryJF94QCbcgotKNp6rUVuAbv` is READY on the existin
 The browser searched Sukkur, rendered real detailed fields, switched to its 48-hour wind curve, and downloaded CSV plus evidence JSON. Both files contain 168 hourly rows, Sukkur coordinates and the same trace/source provenance. The screenshot is `screenshots/prism-forecast-release.jpg`. Browser console errors inspected were extension metadata messages, not application errors. Print styling and responsive breakpoints are implemented; physical-device, print-output, local WebGPU and flight-mode QA remain unverified.
 
 Further live browser checks verified forecast → river/satellite navigation, switching a district detail page from Sukkur to Lahore, and a Lahore wind/humidity question returning all seven Officer sections with actual district_snapshot/weather_detail consultations and five evidence envelopes. Availability is explicitly distinct from independent hazard confidence.
+
+## Real-date audit and correction (0.4.1)
+
+Live audit on 2026-10-10 found fourteen successful registered evidence interfaces and five explicit configuration/integration gaps. Core readiness succeeded. Weather/CAMS valid times, USGS generation, past radar, NOAA Kp and GDACS report timestamps matched current-day provider data. CHIRPS was genuine August 31 archive data; scheduled briefings were generated today. Historical archives are not replaced with current-day invented dates.
+
+Corrections anchor the displayed date/clock to server UTC and monotonic elapsed time, expire forecast caches at UTC hour boundaries, distinguish stale/undated/forecast/archive/static statuses, and reject future or old generation/retrieval timestamps in daily collection. Regression coverage includes PKT midnight and UTC midnight; all 91 tests pass after correction.

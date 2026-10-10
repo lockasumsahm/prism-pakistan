@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "PRISM Public Evidence API",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "Principal public contracts for the existing PRISM monitoring pilot. Forecasts are model outputs, district centres are points, and risk remains UNASSESSED. No authentication is required for these read interfaces. Provider usage and commercial licensing terms apply."
   },
   "servers": [
@@ -397,6 +397,36 @@
           },
           "503": {
             "description": "At least one core feed unavailable; response contains checks and exact error codes"
+          }
+        }
+      }
+    },
+    "/api/public/v1/time": {
+      "get": {
+        "summary": "Uncached server UTC time and Asia/Karachi display timezone",
+        "responses": {
+          "200": {
+            "description": "Authoritative application server timestamp; no client wall-clock input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "server_time",
+                    "timezone"
+                  ],
+                  "properties": {
+                    "server_time": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "timezone": {
+                      "const": "Asia/Karachi"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

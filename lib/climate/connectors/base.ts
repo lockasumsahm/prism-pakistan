@@ -49,7 +49,7 @@ export abstract class BaseConnector<T> {
     try {
       const result = await this.load(args);
       const envelope: Envelope<T> = { ok: true, data: result.data, source: { ...this.spec, latency_ms: this.clock() - start, updated_at: result.updated_at, retrieved_at: new Date(this.clock()).toISOString() }, trace_id: crypto.randomUUID(), cached: false, error: null };
-      state.failures = 0; state.opened = 0; state.cache = { expires: this.clock() + this.options.ttl, envelope }; return envelope;
+      state.failures = 0; state.opened = 0; const completed=this.clock();const expires=this.spec.temporal_kind==='forecast'?Math.min(completed+this.options.ttl,(Math.floor(completed/3600000)+1)*3600000):completed+this.options.ttl;state.cache = { expires, envelope }; return envelope;
     } catch (error) {
       if (!(error instanceof FeedError && error.code === 'JOB_PENDING')) { state.failures++; if (state.failures >= this.options.threshold || state.opened) state.opened = this.clock(); }
       const code = error instanceof FeedError ? error.code : error instanceof Error && /timeout|abort/i.test(error.name) ? 'TIMEOUT' : error instanceof SyntaxError ? 'INVALID_PAYLOAD' : 'NETWORK_ERROR';

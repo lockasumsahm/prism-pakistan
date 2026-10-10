@@ -45,3 +45,6 @@ An envelope retains source identity, documentation URL, evidence tier, model fam
 GET /api/public/v1/weather-detail?location=karachi: provenance envelope with 168 future hourly slots, seven rolling 24-hour windows, apparent temperature, humidity, wind/gusts and precipitation probability. Null values are retained; incomplete aggregates are null. Same numerical-weather-models family as core weather, never an extra independent consensus vote. /forecast includes accessible charts, hourly text table, CSV/JSON export and print report. MCP weather_detail exposes the same contract. GET /openapi.json provides the principal public API specification.
 
 GET /api/public/v1/readiness checks the four core Karachi point feeds. HTTP 503 means degraded; HTTP 200 is scoped feed availability, not hazard safety or production certification. GET /api/public/v1/health checks application reachability.
+
+## Real date and freshness (0.4.1)
+GET /api/public/v1/time returns uncached server UTC time with the Asia/Karachi display timezone. Browser clocks are anchored to server time and a monotonic timer. Forecast caches expire at UTC hour boundaries, including midnight; source badges distinguish forecasts, archives, static data, stale observations and unverified timestamps. Archive data is never relabelled as today. Daily publication rejects future or old generation/retrieval times.

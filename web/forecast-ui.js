@@ -1,7 +1,7 @@
 // Presentation and export of verified forecasts; never supplies missing measurements.
 const escapeHTML=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const number=value=>typeof value==='number'&&Number.isFinite(value)?new Intl.NumberFormat('en-PK',{maximumFractionDigits:1}).format(value):'MISSING';
-const stamp=value=>new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Karachi',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(value))+' PKT';
+const stamp=value=>new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Karachi',day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(value))+' PKT';
 export function forecastChart(envelope,variable='precipitation_mm'){
  if(!envelope?.ok)return '';
  const specs={precipitation_mm:['Hourly precipitation','mm','#466f58'],temperature_c:['Air temperature at 2 m','°C','#ad6b42'],wind_kmh:['Wind speed at 10 m','km/h','#397b9b']};

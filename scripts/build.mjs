@@ -10,12 +10,12 @@ for(const file of await readdir('web')){const extension=file.slice(file.lastInde
 const fingerprint=body=>createHash('sha256').update(body).digest('hex').slice(0,12);
 const cachePath='/evidence-cache.js?v='+fingerprint(assets['/evidence-cache.js'].body);
 assets['/app.js'].body=assets['/app.js'].body.replace("'/evidence-cache.js'",JSON.stringify(cachePath));
-for(const name of ['live-map','free-ai','forecast-ui'])assets['/app.js'].body=assets['/app.js'].body.replace("'./"+name+".js'",JSON.stringify('/'+name+'.js?v='+fingerprint(assets['/'+name+'.js'].body)));
+for(const name of ['live-map','free-ai','forecast-ui','time-status'])assets['/app.js'].body=assets['/app.js'].body.replace("'./"+name+".js'",JSON.stringify('/'+name+'.js?v='+fingerprint(assets['/'+name+'.js'].body)));
 const appPath='/app.js?v='+fingerprint(assets['/app.js'].body);
 const stylePath='/styles.css?v='+fingerprint(assets['/styles.css'].body);
 assets['/index.html'].body=assets['/index.html'].body.replace('src="/app.js"','src="'+appPath+'"').replace('href="/styles.css"','href="'+stylePath+'"');
 assets['/sw.js'].body=assets['/sw.js'].body.replace("prism-shell-v2","prism-shell-"+fingerprint(appPath+stylePath)).replace("'/app.js'",JSON.stringify(appPath)).replace("'/styles.css'",JSON.stringify(stylePath)).replace("'/evidence-cache.js'",JSON.stringify(cachePath));
-for(const name of ['live-map','free-ai','forecast-ui'])assets['/sw.js'].body=assets['/sw.js'].body.replace("'/"+name+".js'",JSON.stringify('/'+name+'.js?v='+fingerprint(assets['/'+name+'.js'].body)));
+for(const name of ['live-map','free-ai','forecast-ui','time-status'])assets['/sw.js'].body=assets['/sw.js'].body.replace("'/"+name+".js'",JSON.stringify('/'+name+'.js?v='+fingerprint(assets['/'+name+'.js'].body)));
 await mkdir('dist/public',{recursive:true});
 for(const [path,asset] of Object.entries(assets)){await writeFile('dist/public'+path,asset.body);if(path.endsWith('.js'))execFileSync(process.execPath,['--check','dist/public'+path]);}
 let output='// PRISM reproducible Worker artifact. Generated from authored source.\nconst STATIC_ASSETS = '+JSON.stringify(assets)+';\n';
