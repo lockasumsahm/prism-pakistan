@@ -1,7 +1,7 @@
 {
   "provider": "Vercel",
   "url": "https://prism-pakistan.vercel.app",
-  "deployment_id": "dpl_43ikyf3rBxgEHpHS7h14gydmUosU",
+  "deployment_id": "dpl_Hdg4jwiHccJh6Yh8r69Sfkc5KSbA",
   "project_id": "prj_1SpCnkoqrkq0D0xpKcz8mLVO3DKm",
   "team_id": "team_uusrGZOTWX7CvZKOiZNfojtt",
   "target": "production",
@@ -26,16 +26,16 @@
   "github_upload": "release source and verification record committed to the existing repository",
   "limitations": [
     "Calibrated hazard models, gauge thresholds and district-wide spatial aggregation remain unavailable",
-    "Key-dependent source credentials remain unconfigured",
+    "OpenAQ key and approved ReliefWeb application name remain unconfigured",
     "Hosted LLM agent, durable operations and automated push remain unconfigured",
-    "WorldPop/Overpass spatial integrations remain unavailable",
+    "Hazard-footprint intersection and district-wide exposure aggregation remain unavailable",
     "Real-device PWA/offline and local WebGPU model generation remain unverified"
   ],
   "github_repository": "https://github.com/lockasumsahm/prism-pakistan",
-  "release": "0.4.1",
+  "release": "0.5.0",
   "source_base_commit": "4fec591007108379ad58279478e56101acac52e4",
-  "source_artifact_sha256": "f277a5632550d38351864a7ad1525f5183f22a2b050cbd568f687d784206f646",
-  "local_tests_passed": 91,
+  "source_artifact_sha256": "ccba7dedc4540dc2d458de77047c73c73790707a201e630aafa15970df3d90ab",
+  "local_tests_passed": 100,
   "browser_checks": [
     "reference readings loaded",
     "interactive Leaflet atlas loaded",
@@ -53,9 +53,11 @@
     "Lahore wind/humidity Officer returned seven complete sections, two actual tool consultations and five provenance envelopes",
     "Server-synchronized PKT clock and date: 10 October 2026",
     "All 19 source cards distinguish forecast, archive, static, report and offline states",
-    "CHIRPS retains 31 August 2026 upstream archive date"
+    "CHIRPS retains 31 August 2026 upstream archive date",
+    "Karachi community context displayed real WorldPop 2025 estimate and seven mapped facilities with separate source envelopes",
+    "Community context layout and query scope verified on final deployment"
   ],
-  "source_commit": "8f39b49d944126f89c95be94107d51b5c50baa3f",
+  "source_commit": "9e46dd9d025fef758a9095e7841fd69e1b9d8fac",
   "district_registry_records": 160,
   "named_location_routes": 162,
   "local_sitemap_routes_verified": 208,
@@ -95,9 +97,9 @@
   ],
   "github_workflows": {
     "verification": {
-      "run_id": 38024420240,
+      "run_id": 38035286869,
       "conclusion": "success",
-      "commit": "8f39b49d944126f89c95be94107d51b5c50baa3f"
+      "commit": "9e46dd9d025fef758a9095e7841fd69e1b9d8fac"
     },
     "daily_publication": {
       "run_id": 38024420245,
@@ -105,12 +107,126 @@
       "commit": "8f39b49d944126f89c95be94107d51b5c50baa3f"
     }
   },
-  "previous_release_deployment_id": "dpl_GuBeryJF94QCbcgotKNp6rUVuAbv",
+  "previous_release_deployment_id": "dpl_43ikyf3rBxgEHpHS7h14gydmUosU",
   "screenshots": [
     "docs/screenshots/prism-release.jpg",
     "docs/screenshots/prism-forecast-release.jpg",
-    "docs/screenshots/prism-realdate-release.jpg"
+    "docs/screenshots/prism-realdate-release.jpg",
+    "docs/screenshots/prism-community-final.jpg"
   ],
   "live_primary_pages_verified": 21,
-  "checked_at": "2026-10-10T04:33:33.677Z"
+  "checked_at": "2026-10-10T07:43:54.761614+00:00",
+  "connector_source_commit": "a9c0626141ea04246db6acfac916df918def9a0f",
+  "sources_returned_data": 17,
+  "sources_registered": 19,
+  "latest_live_routes": {
+    "checked_at": "2026-10-10T07:43:16.340597+00:00",
+    "routes": [
+      {
+        "path": "/",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/forecast",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/map",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/dashboard",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/officer",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/briefings",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/watch",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/widget",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/sources",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/ops",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/methodology",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/api",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/alerts",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/auth",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/reset-password",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/settings.connectors",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/settings.developer",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/privacy",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/terms",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/changelog",
+        "http": 200,
+        "metadata": true
+      },
+      {
+        "path": "/contact",
+        "http": 200,
+        "metadata": true
+      }
+    ]
+  }
 }

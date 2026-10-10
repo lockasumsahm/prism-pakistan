@@ -1,6 +1,6 @@
 # PRISM validation history — 2026-10-10
 
-Latest verified release: **0.4.1**, 91 tests, READY production deployment. Historical release evidence follows; current details are in the final section and DEPLOYMENT.json.
+Latest verified release: **0.5.0**, 100 tests, READY production deployment. Historical release evidence follows; current details are in the final section and DEPLOYMENT.json.
 
 ## Current result
 
@@ -62,3 +62,5 @@ Post-deployment verification: source commit `8f39b49d944126f89c95be94107d51b5c50
 
 ## Public community connectors (0.5.0)
 100 automated tests pass, including WorldPop real-zero/year/geometry contracts, failed population jobs, OSM node-to-way geometry joins, incomplete geometry rejection, bounded coordinates, public FIRMS region filtering and community Officer/API flows. Live provider calls returned a WorldPop 2025 query-square estimate, seven mapped Karachi facilities and 143 VIIRS thermal detections; the latter retained their actual older observation date. The official OSM v0.6 map API was used after public Overpass services returned 406/500 or timed out. ReliefWeb was migrated from retired v1 to v2, but its approved application identity and OpenAQ’s key are absent. Calibrated hazard classification, confirmed facility opening status and route safety are not established by these connectors. Post-deployment verification follows in DEPLOYMENT.json.
+
+Production verification returned data from 17/19 registered source interfaces. Only OpenAQ and ReliefWeb remained CONFIGURATION_REQUIRED. Karachi and Lahore community endpoints returned both envelopes; the live Officer returned seven sections and consulted district_snapshot, population_context and nearby_facilities (six source envelopes). Sukkur zero model days returned STEADY with null percentage change. All 21 primary pages returned HTTP 200 with route metadata on the final deployment. Verify PRISM run 38035286869 passed for final code commit 9e46dd9d025fef758a9095e7841fd69e1b9d8fac. Final READY deployment: dpl_Hdg4jwiHccJh6Yh8r69Sfkc5KSbA. Full evidence summaries are in CONNECTOR_AUDIT.json. Source availability does not establish freshness, independent consensus or flood safety; the actual FIRMS observation date remained older than retrieval.
