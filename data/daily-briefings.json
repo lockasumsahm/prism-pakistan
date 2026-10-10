@@ -1,7 +1,7 @@
 {
   "schema": "prism-daily-v1",
-  "generated_at": "2026-10-10T03:39:04.218Z",
-  "scope": "Daily snapshot of twelve city reference points; point evidence, not all-district warnings",
+  "generated_at": "2026-10-10T04:32:30.918Z",
+  "scope": "Ten national/provincial/family/agricultural briefing selections; point evidence, not all-district warnings",
   "briefings": [
     {
       "kind": "national",
@@ -21,7 +21,7 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-10-10T03:00:00.000Z: temperature 27.9 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-10-10T04:00:00.000Z: temperature 29.0 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -41,21 +41,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-10-10T03:39:01.528Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T03:39:01.499Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T03:39:01.502Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T03:39:01.528Z"
+          "text": "Open-Meteo Weather: retrieved 2026-10-10T04:32:27.532Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T04:32:27.499Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T04:32:27.490Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T04:32:27.534Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 27.9,
+            "temp_c": 29,
             "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
             "soil_moisture": 0.082,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-10-10T03:00:00.000Z",
+            "window_start": "2026-10-10T04:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -70,10 +70,10 @@
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
             "latency_ms": 418,
-            "updated_at": "2026-10-10T03:00:00.000Z",
-            "retrieved_at": "2026-10-10T03:39:01.528Z"
+            "updated_at": "2026-10-10T04:00:00.000Z",
+            "retrieved_at": "2026-10-10T04:32:27.532Z"
           },
-          "trace_id": "17bca92e-3e62-4f2f-9f14-dbcc4b2b0ebd",
+          "trace_id": "f12b1707-729e-4e6c-b4ee-de2140db0a79",
           "cached": false,
           "error": null
         },
@@ -98,20 +98,20 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 388,
+            "latency_ms": 384,
             "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.499Z"
+            "retrieved_at": "2026-10-10T04:32:27.499Z"
           },
-          "trace_id": "a01038c8-d271-48f7-9619-5a2c7642a424",
+          "trace_id": "aeeff7a8-758b-499a-a122-c8bc34576a07",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 27.6,
-            "pm10": 73.3,
-            "us_aqi": 81
+            "pm25": 29.1,
+            "pm10": 80.3,
+            "us_aqi": 82
           },
           "source": {
             "id": "open-meteo-air",
@@ -124,11 +124,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 390,
-            "updated_at": "2026-10-10T03:00Z",
-            "retrieved_at": "2026-10-10T03:39:01.502Z"
+            "latency_ms": 374,
+            "updated_at": "2026-10-10T04:00Z",
+            "retrieved_at": "2026-10-10T04:32:27.490Z"
           },
-          "trace_id": "a9c4b8a7-a1df-4ff4-b72e-3544d5dbc107",
+          "trace_id": "7a79d8b7-217f-4457-81e3-875a9c3370da",
           "cached": false,
           "error": null
         },
@@ -149,11 +149,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 415,
+            "latency_ms": 417,
             "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.528Z"
+            "retrieved_at": "2026-10-10T04:32:27.534Z"
           },
-          "trace_id": "b8c9cafd-a61f-4f2e-b961-feb1214aa39b",
+          "trace_id": "39b43c99-8162-4542-baaf-1590513ecd4f",
           "cached": false,
           "error": null
         }
@@ -164,7 +164,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-10-10T03:39:01.528Z",
+      "generated_at": "2026-10-10T04:32:27.534Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -186,7 +186,7 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-10-10T03:00:00.000Z: temperature 27.9 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-10-10T04:00:00.000Z: temperature 29.0 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -206,21 +206,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-10-10T03:39:01.528Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T03:39:01.499Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T03:39:01.502Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T03:39:01.528Z"
+          "text": "Open-Meteo Weather: retrieved 2026-10-10T04:32:27.532Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T04:32:27.499Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T04:32:27.490Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T04:32:27.534Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 27.9,
+            "temp_c": 29,
             "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
             "soil_moisture": 0.082,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-10-10T03:00:00.000Z",
+            "window_start": "2026-10-10T04:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -235,10 +235,10 @@
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
             "latency_ms": 418,
-            "updated_at": "2026-10-10T03:00:00.000Z",
-            "retrieved_at": "2026-10-10T03:39:01.528Z"
+            "updated_at": "2026-10-10T04:00:00.000Z",
+            "retrieved_at": "2026-10-10T04:32:27.532Z"
           },
-          "trace_id": "c33fec0d-12fc-491a-aef6-8facfb38382d",
+          "trace_id": "e6b09b8b-0c87-4234-a4fd-48bce8ebcb57",
           "cached": true,
           "error": null
         },
@@ -263,20 +263,20 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 388,
+            "latency_ms": 384,
             "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.499Z"
+            "retrieved_at": "2026-10-10T04:32:27.499Z"
           },
-          "trace_id": "a4855ba7-195d-4805-a4c2-3857ee5767a6",
+          "trace_id": "cbcb272e-1570-44f2-8e2f-7dc50b102e91",
           "cached": true,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 27.6,
-            "pm10": 73.3,
-            "us_aqi": 81
+            "pm25": 29.1,
+            "pm10": 80.3,
+            "us_aqi": 82
           },
           "source": {
             "id": "open-meteo-air",
@@ -289,11 +289,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 390,
-            "updated_at": "2026-10-10T03:00Z",
-            "retrieved_at": "2026-10-10T03:39:01.502Z"
+            "latency_ms": 374,
+            "updated_at": "2026-10-10T04:00Z",
+            "retrieved_at": "2026-10-10T04:32:27.490Z"
           },
-          "trace_id": "61444943-f2a9-41e0-8a52-ade5cf634909",
+          "trace_id": "d3567006-1f67-4483-90e6-c2fb8a7dffd2",
           "cached": true,
           "error": null
         },
@@ -314,11 +314,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 415,
+            "latency_ms": 417,
             "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.528Z"
+            "retrieved_at": "2026-10-10T04:32:27.534Z"
           },
-          "trace_id": "3012ef98-68c7-4865-a1ed-e89a7fcc45c9",
+          "trace_id": "d59afb29-ad3d-4604-b67c-192fa805b80e",
           "cached": true,
           "error": null
         }
@@ -329,7 +329,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-10-10T03:39:03.134Z",
+      "generated_at": "2026-10-10T04:32:29.125Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -340,9 +340,12 @@
         "slug": "lahore",
         "name": "Lahore",
         "province": "Punjab",
-        "lat": 31.5204,
-        "lon": 74.3587,
-        "profile": "Urban & coastal"
+        "lat": 31.48633616,
+        "lon": 74.40526669,
+        "profile": "Urban & coastal",
+        "pcode": "PK617",
+        "valid_on": "2022-09-09",
+        "coordinate_kind": "OCHA/WFP published district centre"
       },
       "sections": [
         {
@@ -351,11 +354,11 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-10-10T03:00:00.000Z: temperature 25.0 °C, next 24-hour rainfall 4.1 mm."
+          "text": "Model forecast valid 2026-10-10T04:00:00.000Z: temperature 26.4 °C, next 24-hour rainfall 4.3 mm."
         },
         {
           "title": "What May Happen Next",
-          "text": "Modelled seven-day cumulative rainfall: 19.5 mm. This is a forecast, not an observed rainfall total."
+          "text": "Modelled seven-day cumulative rainfall: 25.9 mm. This is a forecast, not an observed rainfall total."
         },
         {
           "title": "Why It Matters",
@@ -371,186 +374,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-10-10T03:39:01.643Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T03:39:01.638Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T03:39:01.638Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T03:39:01.949Z"
+          "text": "Open-Meteo Weather: retrieved 2026-10-10T04:32:29.522Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T04:32:29.512Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T04:32:29.510Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T04:32:29.523Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 25,
-            "rain_past_24h_mm": 1.2999999999999998,
+            "temp_c": 26.4,
+            "rain_past_24h_mm": 1.1,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.18,
-            "rain_next_24h_mm": 4.1,
-            "rain_next_7d_mm": 19.499999999999996,
-            "peak_hourly_next_48h_mm": 2.3,
-            "window_start": "2026-10-10T03:00:00.000Z",
-            "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
-          },
-          "source": {
-            "id": "open-meteo-weather",
-            "name": "Open-Meteo Weather",
-            "url": "https://open-meteo.com/en/docs",
-            "endpoint": "https://api.open-meteo.com/v1/forecast",
-            "tier": 3,
-            "family": "numerical-weather-models",
-            "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 90,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 115,
-            "updated_at": "2026-10-10T03:00:00.000Z",
-            "retrieved_at": "2026-10-10T03:39:01.643Z"
-          },
-          "trace_id": "b99ab5ee-f714-4853-86dd-5d926e60db88",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "discharge_cms": 0.17,
-            "peak_7d_cms": 0.42,
-            "return_period": null,
-            "change_24h_pct": 6.250000000000005,
-            "peak_change_pct": 147.05882352941174,
-            "trend": "rising"
-          },
-          "source": {
-            "id": "open-meteo-flood",
-            "name": "GloFAS · Open-Meteo Flood",
-            "url": "https://open-meteo.com/en/docs/flood-api",
-            "endpoint": "https://flood-api.open-meteo.com/v1/flood",
-            "tier": 3,
-            "family": "glofas",
-            "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 1440,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 109,
-            "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.638Z"
-          },
-          "trace_id": "96d241ea-76c6-4c41-97a6-66870a150f28",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "pm25": 86.8,
-            "pm10": 213.3,
-            "us_aqi": 158
-          },
-          "source": {
-            "id": "open-meteo-air",
-            "name": "CAMS · Open-Meteo Air",
-            "url": "https://open-meteo.com/en/docs/air-quality-api",
-            "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
-            "tier": 3,
-            "family": "cams",
-            "methodology": "Modelled surface air quality; not a physical ground monitor.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 90,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 109,
-            "updated_at": "2026-10-10T03:00Z",
-            "retrieved_at": "2026-10-10T03:39:01.638Z"
-          },
-          "trace_id": "2aa56935-dfc8-47b0-8dbe-fbdb73af145a",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "elevation_m": 220,
-            "slope": null
-          },
-          "source": {
-            "id": "elevation",
-            "name": "Copernicus DEM · Open-Meteo",
-            "url": "https://open-meteo.com/en/docs/elevation-api",
-            "endpoint": "https://api.open-meteo.com/v1/elevation",
-            "tier": 3,
-            "family": "copernicus-dem",
-            "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
-            "temporal_kind": "static",
-            "stale_after_minutes": 525600,
-            "license": "Provider terms; see linked source",
-            "latency_ms": 420,
-            "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.949Z"
-          },
-          "trace_id": "15fa8ca9-af66-4f5b-9235-32074ddc86b7",
-          "cached": true,
-          "error": null
-        }
-      ],
-      "missing_data": [],
-      "coverage": {
-        "available": 4,
-        "total": 4,
-        "meaning": "Connector availability, not hazard confidence"
-      },
-      "generated_at": "2026-10-10T03:39:03.237Z",
-      "mode": "deterministic-evidence-brief",
-      "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
-    },
-    {
-      "kind": "regional",
-      "scope": "ICT reference locations",
-      "location": {
-        "slug": "islamabad",
-        "name": "Islamabad",
-        "province": "ICT",
-        "lat": 33.6844,
-        "lon": 73.0479,
-        "profile": "Urban & coastal"
-      },
-      "sections": [
-        {
-          "title": "Executive Answer",
-          "text": "ICT reference locations: hazard status remains unassessed. 1/1 reference-location weather forecasts available. Highest next-24-hour forecast rainfall among these points: 6.5 mm. No count of warning or critical districts is produced because risk is unassessed."
-        },
-        {
-          "title": "Current Situation",
-          "text": "Model forecast valid 2026-10-10T03:00:00.000Z: temperature 22.8 °C, next 24-hour rainfall 6.5 mm."
-        },
-        {
-          "title": "What May Happen Next",
-          "text": "Modelled seven-day cumulative rainfall: 15.5 mm. This is a forecast, not an observed rainfall total."
-        },
-        {
-          "title": "Why It Matters",
-          "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
-        },
-        {
-          "title": "Confidence & Evidence",
-          "text": "INSUFFICIENT for critical alerts. 4/4 connectors returned data. Connector availability is not independent hazard consensus."
-        },
-        {
-          "title": "Recommended Operational Actions",
-          "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued."
-        },
-        {
-          "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-10-10T03:39:01.950Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T03:39:01.924Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T03:39:01.923Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T03:39:01.943Z"
-        }
-      ],
-      "evidence": [
-        {
-          "ok": true,
-          "data": {
-            "temp_c": 22.8,
-            "rain_past_24h_mm": 1.3,
-            "past_rain_kind": "modelled",
-            "soil_moisture": 0.215,
-            "rain_next_24h_mm": 6.500000000000001,
-            "rain_next_7d_mm": 15.5,
+            "soil_moisture": 0.264,
+            "rain_next_24h_mm": 4.3,
+            "rain_next_7d_mm": 25.900000000000002,
             "peak_hourly_next_48h_mm": 3,
-            "window_start": "2026-10-10T03:00:00.000Z",
+            "window_start": "2026-10-10T04:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -564,22 +402,22 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 420,
-            "updated_at": "2026-10-10T03:00:00.000Z",
-            "retrieved_at": "2026-10-10T03:39:01.950Z"
+            "latency_ms": 109,
+            "updated_at": "2026-10-10T04:00:00.000Z",
+            "retrieved_at": "2026-10-10T04:32:29.522Z"
           },
-          "trace_id": "7cac14a0-d4ba-4710-953b-34f384ffd719",
-          "cached": true,
+          "trace_id": "a8888b15-6645-4c07-a400-167b25e42b49",
+          "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "discharge_cms": 0.14,
-            "peak_7d_cms": 0.37,
+            "discharge_cms": 0.05,
+            "peak_7d_cms": 0.13,
             "return_period": null,
             "change_24h_pct": 0,
-            "peak_change_pct": 164.28571428571425,
+            "peak_change_pct": 160,
             "trend": "steady"
           },
           "source": {
@@ -593,20 +431,20 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 393,
+            "latency_ms": 99,
             "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.924Z"
+            "retrieved_at": "2026-10-10T04:32:29.512Z"
           },
-          "trace_id": "b98d046f-e1a6-4e64-9c23-b154243690b9",
-          "cached": true,
+          "trace_id": "8b87603b-0da9-4db9-9436-b653b271d1fa",
+          "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 47.5,
-            "pm10": 52.7,
-            "us_aqi": 146
+            "pm25": 89.9,
+            "pm10": 227.7,
+            "us_aqi": 159
           },
           "source": {
             "id": "open-meteo-air",
@@ -619,18 +457,18 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 390,
-            "updated_at": "2026-10-10T03:00Z",
-            "retrieved_at": "2026-10-10T03:39:01.923Z"
+            "latency_ms": 97,
+            "updated_at": "2026-10-10T04:00Z",
+            "retrieved_at": "2026-10-10T04:32:29.510Z"
           },
-          "trace_id": "de98c66e-5b23-4fe9-9c8d-ea3fda4dc4ff",
-          "cached": true,
+          "trace_id": "ec580a02-71af-41ff-84b9-0f7f71c2ca11",
+          "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "elevation_m": 527,
+            "elevation_m": 218,
             "slope": null
           },
           "source": {
@@ -644,12 +482,12 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 410,
+            "latency_ms": 109,
             "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.943Z"
+            "retrieved_at": "2026-10-10T04:32:29.523Z"
           },
-          "trace_id": "de40c7ca-e456-47f8-8356-f4fe7c710155",
-          "cached": true,
+          "trace_id": "7139b353-a9b9-4e0b-8f58-855c1be44abf",
+          "cached": false,
           "error": null
         }
       ],
@@ -659,33 +497,36 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-10-10T03:39:03.360Z",
+      "generated_at": "2026-10-10T04:32:29.523Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
     {
       "kind": "regional",
-      "scope": "Khyber Pakhtunkhwa reference locations",
+      "scope": "Islamabad reference locations",
       "location": {
-        "slug": "peshawar",
-        "name": "Peshawar",
-        "province": "Khyber Pakhtunkhwa",
-        "lat": 34.0151,
-        "lon": 71.5249,
-        "profile": "Riverine"
+        "slug": "islamabad",
+        "name": "Islamabad",
+        "province": "Islamabad",
+        "lat": 33.65087509,
+        "lon": 72.95796258,
+        "profile": "Urban & coastal",
+        "pcode": "PK401",
+        "valid_on": "2022-09-09",
+        "coordinate_kind": "OCHA/WFP published district centre"
       },
       "sections": [
         {
           "title": "Executive Answer",
-          "text": "Khyber Pakhtunkhwa reference locations: hazard status remains unassessed. 2/2 reference-location weather forecasts available. Highest next-24-hour forecast rainfall among these points: 4.8 mm. No count of warning or critical districts is produced because risk is unassessed."
+          "text": "Islamabad reference locations: hazard status remains unassessed. 0/0 reference-location weather forecasts available. Rainfall comparison unavailable. No count of warning or critical districts is produced because risk is unassessed."
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-10-10T03:00:00.000Z: temperature 23.0 °C, next 24-hour rainfall 4.8 mm."
+          "text": "Model forecast valid 2026-10-10T04:00:00.000Z: temperature 25.4 °C, next 24-hour rainfall 5.7 mm."
         },
         {
           "title": "What May Happen Next",
-          "text": "Modelled seven-day cumulative rainfall: 7.7 mm. This is a forecast, not an observed rainfall total."
+          "text": "Modelled seven-day cumulative rainfall: 16.2 mm. This is a forecast, not an observed rainfall total."
         },
         {
           "title": "Why It Matters",
@@ -701,21 +542,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-10-10T03:39:01.946Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T03:39:01.918Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T03:39:01.907Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T03:39:01.943Z"
+          "text": "Open-Meteo Weather: retrieved 2026-10-10T04:32:29.827Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T04:32:29.818Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T04:32:29.817Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T04:32:29.825Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 23,
-            "rain_past_24h_mm": 0.1,
+            "temp_c": 25.4,
+            "rain_past_24h_mm": 1.9000000000000001,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.362,
-            "rain_next_24h_mm": 4.8,
-            "rain_next_7d_mm": 7.699999999999999,
-            "peak_hourly_next_48h_mm": 2.4,
-            "window_start": "2026-10-10T03:00:00.000Z",
+            "soil_moisture": 0.234,
+            "rain_next_24h_mm": 5.699999999999999,
+            "rain_next_7d_mm": 16.2,
+            "peak_hourly_next_48h_mm": 3.5,
+            "window_start": "2026-10-10T04:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -729,22 +570,190 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 412,
-            "updated_at": "2026-10-10T03:00:00.000Z",
-            "retrieved_at": "2026-10-10T03:39:01.946Z"
+            "latency_ms": 109,
+            "updated_at": "2026-10-10T04:00:00.000Z",
+            "retrieved_at": "2026-10-10T04:32:29.827Z"
           },
-          "trace_id": "24d4a081-bcd8-41dd-bced-bed23259f7b1",
-          "cached": true,
+          "trace_id": "7a528aa2-d9e0-4ba0-883f-48fa96069cca",
+          "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "discharge_cms": 3.73,
-            "peak_7d_cms": 6.74,
+            "discharge_cms": 0.25,
+            "peak_7d_cms": 1.32,
             "return_period": null,
-            "change_24h_pct": -12.85046728971963,
-            "peak_change_pct": 80.69705093833781,
+            "change_24h_pct": 0,
+            "peak_change_pct": 428,
+            "trend": "steady"
+          },
+          "source": {
+            "id": "open-meteo-flood",
+            "name": "GloFAS · Open-Meteo Flood",
+            "url": "https://open-meteo.com/en/docs/flood-api",
+            "endpoint": "https://flood-api.open-meteo.com/v1/flood",
+            "tier": 3,
+            "family": "glofas",
+            "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 1440,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 99,
+            "updated_at": null,
+            "retrieved_at": "2026-10-10T04:32:29.818Z"
+          },
+          "trace_id": "b2035aa3-3a24-4783-b57d-8e1ab8e16efc",
+          "cached": false,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "pm25": 49.7,
+            "pm10": 61.5,
+            "us_aqi": 128
+          },
+          "source": {
+            "id": "open-meteo-air",
+            "name": "CAMS · Open-Meteo Air",
+            "url": "https://open-meteo.com/en/docs/air-quality-api",
+            "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
+            "tier": 3,
+            "family": "cams",
+            "methodology": "Modelled surface air quality; not a physical ground monitor.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 90,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 98,
+            "updated_at": "2026-10-10T04:00Z",
+            "retrieved_at": "2026-10-10T04:32:29.817Z"
+          },
+          "trace_id": "f4164456-c6a7-427c-ac46-047e78ed6c77",
+          "cached": false,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "elevation_m": 591,
+            "slope": null
+          },
+          "source": {
+            "id": "elevation",
+            "name": "Copernicus DEM · Open-Meteo",
+            "url": "https://open-meteo.com/en/docs/elevation-api",
+            "endpoint": "https://api.open-meteo.com/v1/elevation",
+            "tier": 3,
+            "family": "copernicus-dem",
+            "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
+            "temporal_kind": "static",
+            "stale_after_minutes": 525600,
+            "license": "Provider terms; see linked source",
+            "latency_ms": 105,
+            "updated_at": null,
+            "retrieved_at": "2026-10-10T04:32:29.825Z"
+          },
+          "trace_id": "6110ad3e-96b2-4c94-b02f-7bf911b3c467",
+          "cached": false,
+          "error": null
+        }
+      ],
+      "missing_data": [],
+      "coverage": {
+        "available": 4,
+        "total": 4,
+        "meaning": "Connector availability, not hazard confidence"
+      },
+      "generated_at": "2026-10-10T04:32:29.827Z",
+      "mode": "deterministic-evidence-brief",
+      "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
+    },
+    {
+      "kind": "regional",
+      "scope": "Khyber Pakhtunkhwa reference locations",
+      "location": {
+        "slug": "peshawar",
+        "name": "Peshawar",
+        "province": "Khyber Pakhtunkhwa",
+        "lat": 33.94172579,
+        "lon": 71.60001124,
+        "profile": "Riverine",
+        "pcode": "PK528",
+        "valid_on": "2022-09-09",
+        "coordinate_kind": "OCHA/WFP published district centre"
+      },
+      "sections": [
+        {
+          "title": "Executive Answer",
+          "text": "Khyber Pakhtunkhwa reference locations: hazard status remains unassessed. 2/2 reference-location weather forecasts available. Highest next-24-hour forecast rainfall among these points: 5.0 mm. No count of warning or critical districts is produced because risk is unassessed."
+        },
+        {
+          "title": "Current Situation",
+          "text": "Model forecast valid 2026-10-10T04:00:00.000Z: temperature 25.1 °C, next 24-hour rainfall 3.1 mm."
+        },
+        {
+          "title": "What May Happen Next",
+          "text": "Modelled seven-day cumulative rainfall: 4.6 mm. This is a forecast, not an observed rainfall total."
+        },
+        {
+          "title": "Why It Matters",
+          "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
+        },
+        {
+          "title": "Confidence & Evidence",
+          "text": "INSUFFICIENT for critical alerts. 4/4 connectors returned data. Connector availability is not independent hazard consensus."
+        },
+        {
+          "title": "Recommended Operational Actions",
+          "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued."
+        },
+        {
+          "title": "Verifiable Sources",
+          "text": "Open-Meteo Weather: retrieved 2026-10-10T04:32:30.121Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T04:32:30.111Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T04:32:30.110Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T04:32:30.119Z"
+        }
+      ],
+      "evidence": [
+        {
+          "ok": true,
+          "data": {
+            "temp_c": 25.1,
+            "rain_past_24h_mm": 0,
+            "past_rain_kind": "modelled",
+            "soil_moisture": 0.393,
+            "rain_next_24h_mm": 3.100000000000001,
+            "rain_next_7d_mm": 4.599999999999999,
+            "peak_hourly_next_48h_mm": 1.7,
+            "window_start": "2026-10-10T04:00:00.000Z",
+            "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
+          },
+          "source": {
+            "id": "open-meteo-weather",
+            "name": "Open-Meteo Weather",
+            "url": "https://open-meteo.com/en/docs",
+            "endpoint": "https://api.open-meteo.com/v1/forecast",
+            "tier": 3,
+            "family": "numerical-weather-models",
+            "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 90,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 108,
+            "updated_at": "2026-10-10T04:00:00.000Z",
+            "retrieved_at": "2026-10-10T04:32:30.121Z"
+          },
+          "trace_id": "90929248-2704-48cc-94d2-e4e929b44806",
+          "cached": false,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "discharge_cms": 0.26,
+            "peak_7d_cms": 0.28,
+            "return_period": null,
+            "change_24h_pct": -23.529411764705884,
+            "peak_change_pct": 7.692307692307699,
             "trend": "falling"
           },
           "source": {
@@ -758,19 +767,19 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 383,
+            "latency_ms": 97,
             "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.918Z"
+            "retrieved_at": "2026-10-10T04:32:30.111Z"
           },
-          "trace_id": "28400e03-ac12-4a79-ab4a-7f0c18b24902",
-          "cached": true,
+          "trace_id": "dfadb221-5fe8-4002-bfa8-0a499c7b0dc1",
+          "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 56.5,
-            "pm10": 59.5,
+            "pm25": 46,
+            "pm10": 51.2,
             "us_aqi": 139
           },
           "source": {
@@ -784,12 +793,12 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 371,
-            "updated_at": "2026-10-10T03:00Z",
-            "retrieved_at": "2026-10-10T03:39:01.907Z"
+            "latency_ms": 96,
+            "updated_at": "2026-10-10T04:00Z",
+            "retrieved_at": "2026-10-10T04:32:30.110Z"
           },
-          "trace_id": "e4819860-4de1-4a89-b525-5ff2ea702483",
-          "cached": true,
+          "trace_id": "bfa4d2a9-86dc-49a3-9c91-3ca74adbdc38",
+          "cached": false,
           "error": null
         },
         {
@@ -809,12 +818,12 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 406,
+            "latency_ms": 105,
             "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.943Z"
+            "retrieved_at": "2026-10-10T04:32:30.119Z"
           },
-          "trace_id": "96f22d45-303d-4ccb-a0ab-ff1b50a39b63",
-          "cached": true,
+          "trace_id": "bced7876-821f-409f-a6b1-34ff8cdf40eb",
+          "cached": false,
           "error": null
         }
       ],
@@ -824,7 +833,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-10-10T03:39:03.466Z",
+      "generated_at": "2026-10-10T04:32:30.121Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -835,9 +844,12 @@
         "slug": "quetta",
         "name": "Quetta",
         "province": "Balochistan",
-        "lat": 30.1798,
-        "lon": 66.975,
-        "profile": "Arid & flash basin"
+        "lat": 30.14141302,
+        "lon": 67.07743419,
+        "profile": "Arid & flash basin",
+        "pcode": "PK226",
+        "valid_on": "2022-09-09",
+        "coordinate_kind": "OCHA/WFP published district centre"
       },
       "sections": [
         {
@@ -846,7 +858,508 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-10-10T03:00:00.000Z: temperature 19.6 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-10-10T04:00:00.000Z: temperature 18.5 °C, next 24-hour rainfall 0.0 mm."
+        },
+        {
+          "title": "What May Happen Next",
+          "text": "Modelled seven-day cumulative rainfall: 0.1 mm. This is a forecast, not an observed rainfall total."
+        },
+        {
+          "title": "Why It Matters",
+          "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
+        },
+        {
+          "title": "Confidence & Evidence",
+          "text": "INSUFFICIENT for critical alerts. 4/4 connectors returned data. Connector availability is not independent hazard consensus."
+        },
+        {
+          "title": "Recommended Operational Actions",
+          "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued."
+        },
+        {
+          "title": "Verifiable Sources",
+          "text": "Open-Meteo Weather: retrieved 2026-10-10T04:32:30.417Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T04:32:30.408Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T04:32:30.407Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T04:32:30.415Z"
+        }
+      ],
+      "evidence": [
+        {
+          "ok": true,
+          "data": {
+            "temp_c": 18.5,
+            "rain_past_24h_mm": 0,
+            "past_rain_kind": "modelled",
+            "soil_moisture": 0.112,
+            "rain_next_24h_mm": 0,
+            "rain_next_7d_mm": 0.1,
+            "peak_hourly_next_48h_mm": 0,
+            "window_start": "2026-10-10T04:00:00.000Z",
+            "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
+          },
+          "source": {
+            "id": "open-meteo-weather",
+            "name": "Open-Meteo Weather",
+            "url": "https://open-meteo.com/en/docs",
+            "endpoint": "https://api.open-meteo.com/v1/forecast",
+            "tier": 3,
+            "family": "numerical-weather-models",
+            "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 90,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 109,
+            "updated_at": "2026-10-10T04:00:00.000Z",
+            "retrieved_at": "2026-10-10T04:32:30.417Z"
+          },
+          "trace_id": "e8d67ff9-69dc-414e-bc25-6f324f936b83",
+          "cached": false,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "discharge_cms": 0,
+            "peak_7d_cms": 0,
+            "return_period": null,
+            "change_24h_pct": null,
+            "peak_change_pct": null,
+            "trend": "unknown"
+          },
+          "source": {
+            "id": "open-meteo-flood",
+            "name": "GloFAS · Open-Meteo Flood",
+            "url": "https://open-meteo.com/en/docs/flood-api",
+            "endpoint": "https://flood-api.open-meteo.com/v1/flood",
+            "tier": 3,
+            "family": "glofas",
+            "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 1440,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 99,
+            "updated_at": null,
+            "retrieved_at": "2026-10-10T04:32:30.408Z"
+          },
+          "trace_id": "ca649e03-978a-431b-a674-14bc4db938cf",
+          "cached": false,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "pm25": 14.6,
+            "pm10": 43.8,
+            "us_aqi": 56
+          },
+          "source": {
+            "id": "open-meteo-air",
+            "name": "CAMS · Open-Meteo Air",
+            "url": "https://open-meteo.com/en/docs/air-quality-api",
+            "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
+            "tier": 3,
+            "family": "cams",
+            "methodology": "Modelled surface air quality; not a physical ground monitor.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 90,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 98,
+            "updated_at": "2026-10-10T04:00Z",
+            "retrieved_at": "2026-10-10T04:32:30.407Z"
+          },
+          "trace_id": "73d37ad6-2235-4848-8edb-e15ba4349174",
+          "cached": false,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "elevation_m": 2506,
+            "slope": null
+          },
+          "source": {
+            "id": "elevation",
+            "name": "Copernicus DEM · Open-Meteo",
+            "url": "https://open-meteo.com/en/docs/elevation-api",
+            "endpoint": "https://api.open-meteo.com/v1/elevation",
+            "tier": 3,
+            "family": "copernicus-dem",
+            "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
+            "temporal_kind": "static",
+            "stale_after_minutes": 525600,
+            "license": "Provider terms; see linked source",
+            "latency_ms": 106,
+            "updated_at": null,
+            "retrieved_at": "2026-10-10T04:32:30.415Z"
+          },
+          "trace_id": "a1779a63-7fe7-4e80-af36-5d256dc7514f",
+          "cached": false,
+          "error": null
+        }
+      ],
+      "missing_data": [],
+      "coverage": {
+        "available": 4,
+        "total": 4,
+        "meaning": "Connector availability, not hazard confidence"
+      },
+      "generated_at": "2026-10-10T04:32:30.417Z",
+      "mode": "deterministic-evidence-brief",
+      "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
+    },
+    {
+      "kind": "regional",
+      "scope": "Gilgit Baltistan reference locations",
+      "location": {
+        "slug": "gilgit",
+        "name": "Gilgit",
+        "province": "Gilgit Baltistan",
+        "lat": 35.96682929,
+        "lon": 74.50875764,
+        "profile": "Mountain & GLOF",
+        "pcode": "PK305",
+        "valid_on": "2022-09-09",
+        "coordinate_kind": "OCHA/WFP published district centre"
+      },
+      "sections": [
+        {
+          "title": "Executive Answer",
+          "text": "Gilgit Baltistan reference locations: hazard status remains unassessed. 0/0 reference-location weather forecasts available. Rainfall comparison unavailable. No count of warning or critical districts is produced because risk is unassessed."
+        },
+        {
+          "title": "Current Situation",
+          "text": "Model forecast valid 2026-10-10T04:00:00.000Z: temperature 15.8 °C, next 24-hour rainfall 1.0 mm."
+        },
+        {
+          "title": "What May Happen Next",
+          "text": "Modelled seven-day cumulative rainfall: 100.6 mm. This is a forecast, not an observed rainfall total."
+        },
+        {
+          "title": "Why It Matters",
+          "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
+        },
+        {
+          "title": "Confidence & Evidence",
+          "text": "INSUFFICIENT for critical alerts. 4/4 connectors returned data. Connector availability is not independent hazard consensus."
+        },
+        {
+          "title": "Recommended Operational Actions",
+          "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued."
+        },
+        {
+          "title": "Verifiable Sources",
+          "text": "Open-Meteo Weather: retrieved 2026-10-10T04:28:23.468Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T04:28:23.438Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T04:28:23.429Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T04:28:23.470Z"
+        }
+      ],
+      "evidence": [
+        {
+          "ok": true,
+          "data": {
+            "temp_c": 15.8,
+            "rain_past_24h_mm": 0,
+            "past_rain_kind": "modelled",
+            "soil_moisture": 0.345,
+            "rain_next_24h_mm": 1,
+            "rain_next_7d_mm": 100.6000000000001,
+            "peak_hourly_next_48h_mm": 2.3,
+            "window_start": "2026-10-10T04:00:00.000Z",
+            "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
+          },
+          "source": {
+            "id": "open-meteo-weather",
+            "name": "Open-Meteo Weather",
+            "url": "https://open-meteo.com/en/docs",
+            "endpoint": "https://api.open-meteo.com/v1/forecast",
+            "tier": 3,
+            "family": "numerical-weather-models",
+            "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 90,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 421,
+            "updated_at": "2026-10-10T04:00:00.000Z",
+            "retrieved_at": "2026-10-10T04:28:23.468Z"
+          },
+          "trace_id": "b51961ff-1fdd-4bc1-a31d-33677957522a",
+          "cached": true,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "discharge_cms": 0.4,
+            "peak_7d_cms": 0.4,
+            "return_period": null,
+            "change_24h_pct": 2.5641025641025665,
+            "peak_change_pct": 0,
+            "trend": "steady"
+          },
+          "source": {
+            "id": "open-meteo-flood",
+            "name": "GloFAS · Open-Meteo Flood",
+            "url": "https://open-meteo.com/en/docs/flood-api",
+            "endpoint": "https://flood-api.open-meteo.com/v1/flood",
+            "tier": 3,
+            "family": "glofas",
+            "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 1440,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 390,
+            "updated_at": null,
+            "retrieved_at": "2026-10-10T04:28:23.438Z"
+          },
+          "trace_id": "b2893875-8b37-4287-aeda-78d3ae642bce",
+          "cached": true,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "pm25": 5.6,
+            "pm10": 14.3,
+            "us_aqi": 44
+          },
+          "source": {
+            "id": "open-meteo-air",
+            "name": "CAMS · Open-Meteo Air",
+            "url": "https://open-meteo.com/en/docs/air-quality-api",
+            "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
+            "tier": 3,
+            "family": "cams",
+            "methodology": "Modelled surface air quality; not a physical ground monitor.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 90,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 380,
+            "updated_at": "2026-10-10T04:00Z",
+            "retrieved_at": "2026-10-10T04:28:23.429Z"
+          },
+          "trace_id": "b51b37a7-9e06-4ed4-95b3-7556bc42febc",
+          "cached": true,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "elevation_m": 2468,
+            "slope": null
+          },
+          "source": {
+            "id": "elevation",
+            "name": "Copernicus DEM · Open-Meteo",
+            "url": "https://open-meteo.com/en/docs/elevation-api",
+            "endpoint": "https://api.open-meteo.com/v1/elevation",
+            "tier": 3,
+            "family": "copernicus-dem",
+            "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
+            "temporal_kind": "static",
+            "stale_after_minutes": 525600,
+            "license": "Provider terms; see linked source",
+            "latency_ms": 420,
+            "updated_at": null,
+            "retrieved_at": "2026-10-10T04:28:23.470Z"
+          },
+          "trace_id": "c17218f8-1784-4ee3-99c5-50aa493a413d",
+          "cached": true,
+          "error": null
+        }
+      ],
+      "missing_data": [],
+      "coverage": {
+        "available": 4,
+        "total": 4,
+        "meaning": "Connector availability, not hazard confidence"
+      },
+      "generated_at": "2026-10-10T04:32:30.507Z",
+      "mode": "deterministic-evidence-brief",
+      "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
+    },
+    {
+      "kind": "regional",
+      "scope": "Azad Kashmir reference locations",
+      "location": {
+        "slug": "muzaffarabad",
+        "name": "Muzaffarabad",
+        "province": "Azad Kashmir",
+        "lat": 34.32343504,
+        "lon": 73.57999271,
+        "profile": "Mountain & GLOF",
+        "pcode": "PK107",
+        "valid_on": "2022-09-09",
+        "coordinate_kind": "OCHA/WFP published district centre"
+      },
+      "sections": [
+        {
+          "title": "Executive Answer",
+          "text": "Azad Kashmir reference locations: hazard status remains unassessed. 0/0 reference-location weather forecasts available. Rainfall comparison unavailable. No count of warning or critical districts is produced because risk is unassessed."
+        },
+        {
+          "title": "Current Situation",
+          "text": "Model forecast valid 2026-10-10T04:00:00.000Z: temperature 19.9 °C, next 24-hour rainfall 4.5 mm."
+        },
+        {
+          "title": "What May Happen Next",
+          "text": "Modelled seven-day cumulative rainfall: 26.1 mm. This is a forecast, not an observed rainfall total."
+        },
+        {
+          "title": "Why It Matters",
+          "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
+        },
+        {
+          "title": "Confidence & Evidence",
+          "text": "INSUFFICIENT for critical alerts. 4/4 connectors returned data. Connector availability is not independent hazard consensus."
+        },
+        {
+          "title": "Recommended Operational Actions",
+          "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued."
+        },
+        {
+          "title": "Verifiable Sources",
+          "text": "Open-Meteo Weather: retrieved 2026-10-10T04:32:30.706Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T04:32:30.695Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T04:32:30.693Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T04:32:30.704Z"
+        }
+      ],
+      "evidence": [
+        {
+          "ok": true,
+          "data": {
+            "temp_c": 19.9,
+            "rain_past_24h_mm": 0,
+            "past_rain_kind": "modelled",
+            "soil_moisture": 0.366,
+            "rain_next_24h_mm": 4.5,
+            "rain_next_7d_mm": 26.10000000000001,
+            "peak_hourly_next_48h_mm": 2.7,
+            "window_start": "2026-10-10T04:00:00.000Z",
+            "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
+          },
+          "source": {
+            "id": "open-meteo-weather",
+            "name": "Open-Meteo Weather",
+            "url": "https://open-meteo.com/en/docs",
+            "endpoint": "https://api.open-meteo.com/v1/forecast",
+            "tier": 3,
+            "family": "numerical-weather-models",
+            "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 90,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 109,
+            "updated_at": "2026-10-10T04:00:00.000Z",
+            "retrieved_at": "2026-10-10T04:32:30.706Z"
+          },
+          "trace_id": "5bbb411f-5263-42b4-9a93-ce94f675517a",
+          "cached": false,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "discharge_cms": 0.1,
+            "peak_7d_cms": 0.11,
+            "return_period": null,
+            "change_24h_pct": 0,
+            "peak_change_pct": 9.999999999999995,
+            "trend": "steady"
+          },
+          "source": {
+            "id": "open-meteo-flood",
+            "name": "GloFAS · Open-Meteo Flood",
+            "url": "https://open-meteo.com/en/docs/flood-api",
+            "endpoint": "https://flood-api.open-meteo.com/v1/flood",
+            "tier": 3,
+            "family": "glofas",
+            "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 1440,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 97,
+            "updated_at": null,
+            "retrieved_at": "2026-10-10T04:32:30.695Z"
+          },
+          "trace_id": "90fa8afa-eb0b-41fb-a463-7bdba1f22938",
+          "cached": false,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "pm25": 21.8,
+            "pm10": 32.5,
+            "us_aqi": 75
+          },
+          "source": {
+            "id": "open-meteo-air",
+            "name": "CAMS · Open-Meteo Air",
+            "url": "https://open-meteo.com/en/docs/air-quality-api",
+            "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
+            "tier": 3,
+            "family": "cams",
+            "methodology": "Modelled surface air quality; not a physical ground monitor.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 90,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 95,
+            "updated_at": "2026-10-10T04:00Z",
+            "retrieved_at": "2026-10-10T04:32:30.693Z"
+          },
+          "trace_id": "d679574d-b740-4b6c-aa8a-9a4f92ac45aa",
+          "cached": false,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "elevation_m": 1511,
+            "slope": null
+          },
+          "source": {
+            "id": "elevation",
+            "name": "Copernicus DEM · Open-Meteo",
+            "url": "https://open-meteo.com/en/docs/elevation-api",
+            "endpoint": "https://api.open-meteo.com/v1/elevation",
+            "tier": 3,
+            "family": "copernicus-dem",
+            "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
+            "temporal_kind": "static",
+            "stale_after_minutes": 525600,
+            "license": "Provider terms; see linked source",
+            "latency_ms": 106,
+            "updated_at": null,
+            "retrieved_at": "2026-10-10T04:32:30.704Z"
+          },
+          "trace_id": "ff97d69c-c9d8-4db7-b115-185039f84afd",
+          "cached": false,
+          "error": null
+        }
+      ],
+      "missing_data": [],
+      "coverage": {
+        "available": 4,
+        "total": 4,
+        "meaning": "Connector availability, not hazard confidence"
+      },
+      "generated_at": "2026-10-10T04:32:30.706Z",
+      "mode": "deterministic-evidence-brief",
+      "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
+    },
+    {
+      "kind": "family",
+      "scope": "Karachi",
+      "location": {
+        "slug": "karachi",
+        "name": "Karachi",
+        "province": "Sindh",
+        "lat": 24.8607,
+        "lon": 67.0011,
+        "profile": "Urban & coastal"
+      },
+      "sections": [
+        {
+          "title": "Executive Answer",
+          "text": "Karachi: hazard status remains unassessed. Modelled PM2.5 29.1 µg/m³; US AQI 82. Road waterlogging, visibility and route safety are not assessed."
+        },
+        {
+          "title": "Current Situation",
+          "text": "Model forecast valid 2026-10-10T04:00:00.000Z: temperature 29.0 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -866,21 +1379,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-10-10T03:39:02.067Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T03:39:02.058Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T03:39:02.058Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T03:39:02.064Z"
+          "text": "Open-Meteo Weather: retrieved 2026-10-10T04:32:27.532Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T04:32:27.499Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T04:32:27.490Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T04:32:27.534Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 19.6,
+            "temp_c": 29,
             "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.069,
+            "soil_moisture": 0.082,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-10-10T03:00:00.000Z",
+            "window_start": "2026-10-10T04:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -894,11 +1407,179 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 116,
-            "updated_at": "2026-10-10T03:00:00.000Z",
-            "retrieved_at": "2026-10-10T03:39:02.067Z"
+            "latency_ms": 418,
+            "updated_at": "2026-10-10T04:00:00.000Z",
+            "retrieved_at": "2026-10-10T04:32:27.532Z"
           },
-          "trace_id": "5d255848-d655-4845-94e9-eccf1578c7bf",
+          "trace_id": "aa7cfe38-127e-4578-a2a7-0a7f41b805e5",
+          "cached": true,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "discharge_cms": 0.89,
+            "peak_7d_cms": 0.89,
+            "return_period": null,
+            "change_24h_pct": 0,
+            "peak_change_pct": 0,
+            "trend": "steady"
+          },
+          "source": {
+            "id": "open-meteo-flood",
+            "name": "GloFAS · Open-Meteo Flood",
+            "url": "https://open-meteo.com/en/docs/flood-api",
+            "endpoint": "https://flood-api.open-meteo.com/v1/flood",
+            "tier": 3,
+            "family": "glofas",
+            "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 1440,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 384,
+            "updated_at": null,
+            "retrieved_at": "2026-10-10T04:32:27.499Z"
+          },
+          "trace_id": "a65d34aa-5415-4b15-95bb-b58f2c370d9b",
+          "cached": true,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "pm25": 29.1,
+            "pm10": 80.3,
+            "us_aqi": 82
+          },
+          "source": {
+            "id": "open-meteo-air",
+            "name": "CAMS · Open-Meteo Air",
+            "url": "https://open-meteo.com/en/docs/air-quality-api",
+            "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
+            "tier": 3,
+            "family": "cams",
+            "methodology": "Modelled surface air quality; not a physical ground monitor.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 90,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 374,
+            "updated_at": "2026-10-10T04:00Z",
+            "retrieved_at": "2026-10-10T04:32:27.490Z"
+          },
+          "trace_id": "236081db-6f58-4ed0-be91-6d53f9d609f2",
+          "cached": true,
+          "error": null
+        },
+        {
+          "ok": true,
+          "data": {
+            "elevation_m": 7,
+            "slope": null
+          },
+          "source": {
+            "id": "elevation",
+            "name": "Copernicus DEM · Open-Meteo",
+            "url": "https://open-meteo.com/en/docs/elevation-api",
+            "endpoint": "https://api.open-meteo.com/v1/elevation",
+            "tier": 3,
+            "family": "copernicus-dem",
+            "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
+            "temporal_kind": "static",
+            "stale_after_minutes": 525600,
+            "license": "Provider terms; see linked source",
+            "latency_ms": 417,
+            "updated_at": null,
+            "retrieved_at": "2026-10-10T04:32:27.534Z"
+          },
+          "trace_id": "eb21b053-bd43-4789-a2cc-74ca2426239e",
+          "cached": true,
+          "error": null
+        }
+      ],
+      "missing_data": [],
+      "coverage": {
+        "available": 4,
+        "total": 4,
+        "meaning": "Connector availability, not hazard confidence"
+      },
+      "generated_at": "2026-10-10T04:32:30.789Z",
+      "mode": "deterministic-evidence-brief",
+      "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
+    },
+    {
+      "kind": "agriculture",
+      "scope": "Sukkur",
+      "location": {
+        "slug": "sukkur",
+        "name": "Sukkur",
+        "province": "Sindh",
+        "lat": 27.5452996,
+        "lon": 69.06538781,
+        "profile": "Riverine",
+        "pcode": "PK723",
+        "valid_on": "2022-09-09",
+        "coordinate_kind": "OCHA/WFP published district centre"
+      },
+      "sections": [
+        {
+          "title": "Executive Answer",
+          "text": "Sukkur: hazard status remains unassessed. Modelled topsoil moisture (0–7 cm): 0.057 m³/m³. Crop stress or irrigation requirements cannot be established from a universal moisture threshold; soil type and crop context are missing."
+        },
+        {
+          "title": "Current Situation",
+          "text": "Model forecast valid 2026-10-10T04:00:00.000Z: temperature 28.2 °C, next 24-hour rainfall 0.0 mm."
+        },
+        {
+          "title": "What May Happen Next",
+          "text": "Modelled seven-day cumulative rainfall: 0.0 mm. This is a forecast, not an observed rainfall total."
+        },
+        {
+          "title": "Why It Matters",
+          "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
+        },
+        {
+          "title": "Confidence & Evidence",
+          "text": "INSUFFICIENT for critical alerts. 4/4 connectors returned data. Connector availability is not independent hazard consensus."
+        },
+        {
+          "title": "Recommended Operational Actions",
+          "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued."
+        },
+        {
+          "title": "Verifiable Sources",
+          "text": "Open-Meteo Weather: retrieved 2026-10-10T04:28:23.694Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T04:28:23.685Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T04:28:23.683Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T04:28:23.692Z"
+        }
+      ],
+      "evidence": [
+        {
+          "ok": true,
+          "data": {
+            "temp_c": 28.2,
+            "rain_past_24h_mm": 0,
+            "past_rain_kind": "modelled",
+            "soil_moisture": 0.057,
+            "rain_next_24h_mm": 0,
+            "rain_next_7d_mm": 0,
+            "peak_hourly_next_48h_mm": 0,
+            "window_start": "2026-10-10T04:00:00.000Z",
+            "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
+          },
+          "source": {
+            "id": "open-meteo-weather",
+            "name": "Open-Meteo Weather",
+            "url": "https://open-meteo.com/en/docs",
+            "endpoint": "https://api.open-meteo.com/v1/forecast",
+            "tier": 3,
+            "family": "numerical-weather-models",
+            "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
+            "temporal_kind": "forecast",
+            "stale_after_minutes": 90,
+            "license": "CC BY 4.0; free API subject to non-commercial limits",
+            "latency_ms": 109,
+            "updated_at": "2026-10-10T04:00:00.000Z",
+            "retrieved_at": "2026-10-10T04:28:23.694Z"
+          },
+          "trace_id": "463953de-c976-4b74-a2e2-382aaf9dda49",
           "cached": true,
           "error": null
         },
@@ -923,20 +1604,20 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 107,
+            "latency_ms": 99,
             "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:02.058Z"
+            "retrieved_at": "2026-10-10T04:28:23.685Z"
           },
-          "trace_id": "33b01ea8-4f1b-4c89-923f-d83dc2f8b76c",
+          "trace_id": "c979f4ba-c73a-43a5-b949-dc4d0f4c06f7",
           "cached": true,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 14.3,
-            "pm10": 50.5,
-            "us_aqi": 50
+            "pm25": 21.2,
+            "pm10": 41.4,
+            "us_aqi": 74
           },
           "source": {
             "id": "open-meteo-air",
@@ -949,18 +1630,18 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 107,
-            "updated_at": "2026-10-10T03:00Z",
-            "retrieved_at": "2026-10-10T03:39:02.058Z"
+            "latency_ms": 97,
+            "updated_at": "2026-10-10T04:00Z",
+            "retrieved_at": "2026-10-10T04:28:23.683Z"
           },
-          "trace_id": "7f46ec5d-8e03-4b6d-8a5a-088a2ef1fe16",
+          "trace_id": "547c62fc-f9bd-4324-8399-d7a2f884cfbf",
           "cached": true,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "elevation_m": 1645,
+            "elevation_m": 58,
             "slope": null
           },
           "source": {
@@ -974,11 +1655,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 113,
+            "latency_ms": 106,
             "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:02.064Z"
+            "retrieved_at": "2026-10-10T04:28:23.692Z"
           },
-          "trace_id": "3dab5267-00e5-40b6-b5cf-2a1224730be3",
+          "trace_id": "adb7f464-8c27-42df-86b4-039486169eb3",
           "cached": true,
           "error": null
         }
@@ -989,667 +1670,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-10-10T03:39:03.653Z",
-      "mode": "deterministic-evidence-brief",
-      "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
-    },
-    {
-      "kind": "regional",
-      "scope": "Gilgit-Baltistan reference locations",
-      "location": {
-        "slug": "gilgit",
-        "name": "Gilgit",
-        "province": "Gilgit-Baltistan",
-        "lat": 35.9208,
-        "lon": 74.3089,
-        "profile": "Mountain & GLOF"
-      },
-      "sections": [
-        {
-          "title": "Executive Answer",
-          "text": "Gilgit-Baltistan reference locations: hazard status remains unassessed. 2/2 reference-location weather forecasts available. Highest next-24-hour forecast rainfall among these points: 0.4 mm. No count of warning or critical districts is produced because risk is unassessed."
-        },
-        {
-          "title": "Current Situation",
-          "text": "Model forecast valid 2026-10-10T03:00:00.000Z: temperature 21.4 °C, next 24-hour rainfall 0.4 mm."
-        },
-        {
-          "title": "What May Happen Next",
-          "text": "Modelled seven-day cumulative rainfall: 46.1 mm. This is a forecast, not an observed rainfall total."
-        },
-        {
-          "title": "Why It Matters",
-          "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
-        },
-        {
-          "title": "Confidence & Evidence",
-          "text": "INSUFFICIENT for critical alerts. 4/4 connectors returned data. Connector availability is not independent hazard consensus."
-        },
-        {
-          "title": "Recommended Operational Actions",
-          "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued."
-        },
-        {
-          "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-10-10T03:39:02.066Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T03:39:02.342Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T03:39:02.340Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T03:39:02.365Z"
-        }
-      ],
-      "evidence": [
-        {
-          "ok": true,
-          "data": {
-            "temp_c": 21.4,
-            "rain_past_24h_mm": 0,
-            "past_rain_kind": "modelled",
-            "soil_moisture": 0.302,
-            "rain_next_24h_mm": 0.4,
-            "rain_next_7d_mm": 46.100000000000044,
-            "peak_hourly_next_48h_mm": 0.8,
-            "window_start": "2026-10-10T03:00:00.000Z",
-            "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
-          },
-          "source": {
-            "id": "open-meteo-weather",
-            "name": "Open-Meteo Weather",
-            "url": "https://open-meteo.com/en/docs",
-            "endpoint": "https://api.open-meteo.com/v1/forecast",
-            "tier": 3,
-            "family": "numerical-weather-models",
-            "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 90,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 113,
-            "updated_at": "2026-10-10T03:00:00.000Z",
-            "retrieved_at": "2026-10-10T03:39:02.066Z"
-          },
-          "trace_id": "b93fc277-2344-475f-a744-41b0c6017969",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "discharge_cms": 377.44,
-            "peak_7d_cms": 377.44,
-            "return_period": null,
-            "change_24h_pct": -3.4037979218917975,
-            "peak_change_pct": 0,
-            "trend": "steady"
-          },
-          "source": {
-            "id": "open-meteo-flood",
-            "name": "GloFAS · Open-Meteo Flood",
-            "url": "https://open-meteo.com/en/docs/flood-api",
-            "endpoint": "https://flood-api.open-meteo.com/v1/flood",
-            "tier": 3,
-            "family": "glofas",
-            "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 1440,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 389,
-            "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:02.342Z"
-          },
-          "trace_id": "ab2a8cee-beee-48f8-83a9-62b4d8127e9c",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "pm25": 6.9,
-            "pm10": 14.3,
-            "us_aqi": 44
-          },
-          "source": {
-            "id": "open-meteo-air",
-            "name": "CAMS · Open-Meteo Air",
-            "url": "https://open-meteo.com/en/docs/air-quality-api",
-            "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
-            "tier": 3,
-            "family": "cams",
-            "methodology": "Modelled surface air quality; not a physical ground monitor.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 90,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 386,
-            "updated_at": "2026-10-10T03:00Z",
-            "retrieved_at": "2026-10-10T03:39:02.340Z"
-          },
-          "trace_id": "84a56736-7dc7-4125-a15a-95970644a353",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "elevation_m": 1470,
-            "slope": null
-          },
-          "source": {
-            "id": "elevation",
-            "name": "Copernicus DEM · Open-Meteo",
-            "url": "https://open-meteo.com/en/docs/elevation-api",
-            "endpoint": "https://api.open-meteo.com/v1/elevation",
-            "tier": 3,
-            "family": "copernicus-dem",
-            "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
-            "temporal_kind": "static",
-            "stale_after_minutes": 525600,
-            "license": "Provider terms; see linked source",
-            "latency_ms": 410,
-            "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:02.365Z"
-          },
-          "trace_id": "3e09bf77-7584-4a71-96d8-fabe2e596f1d",
-          "cached": true,
-          "error": null
-        }
-      ],
-      "missing_data": [],
-      "coverage": {
-        "available": 4,
-        "total": 4,
-        "meaning": "Connector availability, not hazard confidence"
-      },
-      "generated_at": "2026-10-10T03:39:03.763Z",
-      "mode": "deterministic-evidence-brief",
-      "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
-    },
-    {
-      "kind": "regional",
-      "scope": "AJK reference locations",
-      "location": {
-        "slug": "muzaffarabad",
-        "name": "Muzaffarabad",
-        "province": "AJK",
-        "lat": 34.37,
-        "lon": 73.4711,
-        "profile": "Mountain & GLOF"
-      },
-      "sections": [
-        {
-          "title": "Executive Answer",
-          "text": "AJK reference locations: hazard status remains unassessed. 1/1 reference-location weather forecasts available. Highest next-24-hour forecast rainfall among these points: 4.9 mm. No count of warning or critical districts is produced because risk is unassessed."
-        },
-        {
-          "title": "Current Situation",
-          "text": "Model forecast valid 2026-10-10T03:00:00.000Z: temperature 22.5 °C, next 24-hour rainfall 4.9 mm."
-        },
-        {
-          "title": "What May Happen Next",
-          "text": "Modelled seven-day cumulative rainfall: 22.1 mm. This is a forecast, not an observed rainfall total."
-        },
-        {
-          "title": "Why It Matters",
-          "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
-        },
-        {
-          "title": "Confidence & Evidence",
-          "text": "INSUFFICIENT for critical alerts. 4/4 connectors returned data. Connector availability is not independent hazard consensus."
-        },
-        {
-          "title": "Recommended Operational Actions",
-          "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued."
-        },
-        {
-          "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-10-10T03:39:02.887Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T03:39:02.867Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T03:39:02.524Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T03:39:02.527Z"
-        }
-      ],
-      "evidence": [
-        {
-          "ok": true,
-          "data": {
-            "temp_c": 22.5,
-            "rain_past_24h_mm": 0,
-            "past_rain_kind": "modelled",
-            "soil_moisture": 0.299,
-            "rain_next_24h_mm": 4.9,
-            "rain_next_7d_mm": 22.100000000000005,
-            "peak_hourly_next_48h_mm": 3.6,
-            "window_start": "2026-10-10T03:00:00.000Z",
-            "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
-          },
-          "source": {
-            "id": "open-meteo-weather",
-            "name": "Open-Meteo Weather",
-            "url": "https://open-meteo.com/en/docs",
-            "endpoint": "https://api.open-meteo.com/v1/forecast",
-            "tier": 3,
-            "family": "numerical-weather-models",
-            "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 90,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 472,
-            "updated_at": "2026-10-10T03:00:00.000Z",
-            "retrieved_at": "2026-10-10T03:39:02.887Z"
-          },
-          "trace_id": "f2283bd8-c3ec-4ed8-8e83-b31ac0d9e00b",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "discharge_cms": 0.1,
-            "peak_7d_cms": 0.11,
-            "return_period": null,
-            "change_24h_pct": 0,
-            "peak_change_pct": 9.999999999999995,
-            "trend": "steady"
-          },
-          "source": {
-            "id": "open-meteo-flood",
-            "name": "GloFAS · Open-Meteo Flood",
-            "url": "https://open-meteo.com/en/docs/flood-api",
-            "endpoint": "https://flood-api.open-meteo.com/v1/flood",
-            "tier": 3,
-            "family": "glofas",
-            "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 1440,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 451,
-            "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:02.867Z"
-          },
-          "trace_id": "d41f94c8-362f-4015-88de-d538a038c379",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "pm25": 22.8,
-            "pm10": 30.2,
-            "us_aqi": 75
-          },
-          "source": {
-            "id": "open-meteo-air",
-            "name": "CAMS · Open-Meteo Air",
-            "url": "https://open-meteo.com/en/docs/air-quality-api",
-            "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
-            "tier": 3,
-            "family": "cams",
-            "methodology": "Modelled surface air quality; not a physical ground monitor.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 90,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 108,
-            "updated_at": "2026-10-10T03:00Z",
-            "retrieved_at": "2026-10-10T03:39:02.524Z"
-          },
-          "trace_id": "3026a001-5d65-4777-a4b5-4de2c585f211",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "elevation_m": 740,
-            "slope": null
-          },
-          "source": {
-            "id": "elevation",
-            "name": "Copernicus DEM · Open-Meteo",
-            "url": "https://open-meteo.com/en/docs/elevation-api",
-            "endpoint": "https://api.open-meteo.com/v1/elevation",
-            "tier": 3,
-            "family": "copernicus-dem",
-            "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
-            "temporal_kind": "static",
-            "stale_after_minutes": 525600,
-            "license": "Provider terms; see linked source",
-            "latency_ms": 111,
-            "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:02.527Z"
-          },
-          "trace_id": "a5b91868-d85f-4596-a911-4924905f4ef1",
-          "cached": true,
-          "error": null
-        }
-      ],
-      "missing_data": [],
-      "coverage": {
-        "available": 4,
-        "total": 4,
-        "meaning": "Connector availability, not hazard confidence"
-      },
-      "generated_at": "2026-10-10T03:39:03.959Z",
-      "mode": "deterministic-evidence-brief",
-      "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
-    },
-    {
-      "kind": "family",
-      "scope": "Karachi",
-      "location": {
-        "slug": "karachi",
-        "name": "Karachi",
-        "province": "Sindh",
-        "lat": 24.8607,
-        "lon": 67.0011,
-        "profile": "Urban & coastal"
-      },
-      "sections": [
-        {
-          "title": "Executive Answer",
-          "text": "Karachi: hazard status remains unassessed. Modelled PM2.5 27.6 µg/m³; US AQI 81. Road waterlogging, visibility and route safety are not assessed."
-        },
-        {
-          "title": "Current Situation",
-          "text": "Model forecast valid 2026-10-10T03:00:00.000Z: temperature 27.9 °C, next 24-hour rainfall 0.0 mm."
-        },
-        {
-          "title": "What May Happen Next",
-          "text": "Modelled seven-day cumulative rainfall: 0.0 mm. This is a forecast, not an observed rainfall total."
-        },
-        {
-          "title": "Why It Matters",
-          "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
-        },
-        {
-          "title": "Confidence & Evidence",
-          "text": "INSUFFICIENT for critical alerts. 4/4 connectors returned data. Connector availability is not independent hazard consensus."
-        },
-        {
-          "title": "Recommended Operational Actions",
-          "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued."
-        },
-        {
-          "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-10-10T03:39:01.528Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T03:39:01.499Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T03:39:01.502Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T03:39:01.528Z"
-        }
-      ],
-      "evidence": [
-        {
-          "ok": true,
-          "data": {
-            "temp_c": 27.9,
-            "rain_past_24h_mm": 0,
-            "past_rain_kind": "modelled",
-            "soil_moisture": 0.082,
-            "rain_next_24h_mm": 0,
-            "rain_next_7d_mm": 0,
-            "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-10-10T03:00:00.000Z",
-            "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
-          },
-          "source": {
-            "id": "open-meteo-weather",
-            "name": "Open-Meteo Weather",
-            "url": "https://open-meteo.com/en/docs",
-            "endpoint": "https://api.open-meteo.com/v1/forecast",
-            "tier": 3,
-            "family": "numerical-weather-models",
-            "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 90,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 418,
-            "updated_at": "2026-10-10T03:00:00.000Z",
-            "retrieved_at": "2026-10-10T03:39:01.528Z"
-          },
-          "trace_id": "2860b6cf-21a4-4ce3-b6a6-c5a63e4fe84c",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "discharge_cms": 0.89,
-            "peak_7d_cms": 0.89,
-            "return_period": null,
-            "change_24h_pct": 0,
-            "peak_change_pct": 0,
-            "trend": "steady"
-          },
-          "source": {
-            "id": "open-meteo-flood",
-            "name": "GloFAS · Open-Meteo Flood",
-            "url": "https://open-meteo.com/en/docs/flood-api",
-            "endpoint": "https://flood-api.open-meteo.com/v1/flood",
-            "tier": 3,
-            "family": "glofas",
-            "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 1440,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 388,
-            "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.499Z"
-          },
-          "trace_id": "a57d0986-73fb-4f2c-b5c2-e6599383a7ec",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "pm25": 27.6,
-            "pm10": 73.3,
-            "us_aqi": 81
-          },
-          "source": {
-            "id": "open-meteo-air",
-            "name": "CAMS · Open-Meteo Air",
-            "url": "https://open-meteo.com/en/docs/air-quality-api",
-            "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
-            "tier": 3,
-            "family": "cams",
-            "methodology": "Modelled surface air quality; not a physical ground monitor.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 90,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 390,
-            "updated_at": "2026-10-10T03:00Z",
-            "retrieved_at": "2026-10-10T03:39:01.502Z"
-          },
-          "trace_id": "cc7170e9-8da8-4ca6-a0f6-9f1aaeb760fa",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "elevation_m": 7,
-            "slope": null
-          },
-          "source": {
-            "id": "elevation",
-            "name": "Copernicus DEM · Open-Meteo",
-            "url": "https://open-meteo.com/en/docs/elevation-api",
-            "endpoint": "https://api.open-meteo.com/v1/elevation",
-            "tier": 3,
-            "family": "copernicus-dem",
-            "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
-            "temporal_kind": "static",
-            "stale_after_minutes": 525600,
-            "license": "Provider terms; see linked source",
-            "latency_ms": 415,
-            "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:01.528Z"
-          },
-          "trace_id": "b58eacda-87cb-44ac-9d1c-547e306a457f",
-          "cached": true,
-          "error": null
-        }
-      ],
-      "missing_data": [],
-      "coverage": {
-        "available": 4,
-        "total": 4,
-        "meaning": "Connector availability, not hazard confidence"
-      },
-      "generated_at": "2026-10-10T03:39:04.060Z",
-      "mode": "deterministic-evidence-brief",
-      "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
-    },
-    {
-      "kind": "agriculture",
-      "scope": "Sukkur",
-      "location": {
-        "slug": "sukkur",
-        "name": "Sukkur",
-        "province": "Sindh",
-        "lat": 27.7052,
-        "lon": 68.8574,
-        "profile": "Riverine"
-      },
-      "sections": [
-        {
-          "title": "Executive Answer",
-          "text": "Sukkur: hazard status remains unassessed. Modelled topsoil moisture (0–7 cm): 0.099 m³/m³. Crop stress or irrigation requirements cannot be established from a universal moisture threshold; soil type and crop context are missing."
-        },
-        {
-          "title": "Current Situation",
-          "text": "Model forecast valid 2026-10-10T03:00:00.000Z: temperature 26.7 °C, next 24-hour rainfall 0.0 mm."
-        },
-        {
-          "title": "What May Happen Next",
-          "text": "Modelled seven-day cumulative rainfall: 0.0 mm. This is a forecast, not an observed rainfall total."
-        },
-        {
-          "title": "Why It Matters",
-          "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
-        },
-        {
-          "title": "Confidence & Evidence",
-          "text": "INSUFFICIENT for critical alerts. 4/4 connectors returned data. Connector availability is not independent hazard consensus."
-        },
-        {
-          "title": "Recommended Operational Actions",
-          "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued."
-        },
-        {
-          "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-10-10T03:39:02.068Z · GloFAS · Open-Meteo Flood: retrieved 2026-10-10T03:39:02.059Z · CAMS · Open-Meteo Air: retrieved 2026-10-10T03:39:02.056Z · Copernicus DEM · Open-Meteo: retrieved 2026-10-10T03:39:02.415Z"
-        }
-      ],
-      "evidence": [
-        {
-          "ok": true,
-          "data": {
-            "temp_c": 26.7,
-            "rain_past_24h_mm": 0,
-            "past_rain_kind": "modelled",
-            "soil_moisture": 0.099,
-            "rain_next_24h_mm": 0,
-            "rain_next_7d_mm": 0,
-            "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-10-10T03:00:00.000Z",
-            "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
-          },
-          "source": {
-            "id": "open-meteo-weather",
-            "name": "Open-Meteo Weather",
-            "url": "https://open-meteo.com/en/docs",
-            "endpoint": "https://api.open-meteo.com/v1/forecast",
-            "tier": 3,
-            "family": "numerical-weather-models",
-            "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 90,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 117,
-            "updated_at": "2026-10-10T03:00:00.000Z",
-            "retrieved_at": "2026-10-10T03:39:02.068Z"
-          },
-          "trace_id": "b3b9e5d4-fe4c-4120-b5b1-c424c7821b5e",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "discharge_cms": 3317.94,
-            "peak_7d_cms": 3317.94,
-            "return_period": null,
-            "change_24h_pct": -2.7262359532444167,
-            "peak_change_pct": 0,
-            "trend": "steady"
-          },
-          "source": {
-            "id": "open-meteo-flood",
-            "name": "GloFAS · Open-Meteo Flood",
-            "url": "https://open-meteo.com/en/docs/flood-api",
-            "endpoint": "https://flood-api.open-meteo.com/v1/flood",
-            "tier": 3,
-            "family": "glofas",
-            "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 1440,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 108,
-            "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:02.059Z"
-          },
-          "trace_id": "963150c4-b37d-4d8d-8fbf-cf430e7cc50b",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "pm25": 21.9,
-            "pm10": 36.8,
-            "us_aqi": 77
-          },
-          "source": {
-            "id": "open-meteo-air",
-            "name": "CAMS · Open-Meteo Air",
-            "url": "https://open-meteo.com/en/docs/air-quality-api",
-            "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
-            "tier": 3,
-            "family": "cams",
-            "methodology": "Modelled surface air quality; not a physical ground monitor.",
-            "temporal_kind": "forecast",
-            "stale_after_minutes": 90,
-            "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 104,
-            "updated_at": "2026-10-10T03:00Z",
-            "retrieved_at": "2026-10-10T03:39:02.056Z"
-          },
-          "trace_id": "5c8db942-75e5-4137-b398-f365f11557a7",
-          "cached": true,
-          "error": null
-        },
-        {
-          "ok": true,
-          "data": {
-            "elevation_m": 72,
-            "slope": null
-          },
-          "source": {
-            "id": "elevation",
-            "name": "Copernicus DEM · Open-Meteo",
-            "url": "https://open-meteo.com/en/docs/elevation-api",
-            "endpoint": "https://api.open-meteo.com/v1/elevation",
-            "tier": 3,
-            "family": "copernicus-dem",
-            "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
-            "temporal_kind": "static",
-            "stale_after_minutes": 525600,
-            "license": "Provider terms; see linked source",
-            "latency_ms": 463,
-            "updated_at": null,
-            "retrieved_at": "2026-10-10T03:39:02.415Z"
-          },
-          "trace_id": "f4c19808-f065-49ce-bf2b-23dcd68b7255",
-          "cached": true,
-          "error": null
-        }
-      ],
-      "missing_data": [],
-      "coverage": {
-        "available": 4,
-        "total": 4,
-        "meaning": "Connector availability, not hazard confidence"
-      },
-      "generated_at": "2026-10-10T03:39:04.172Z",
+      "generated_at": "2026-10-10T04:32:30.880Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     }
