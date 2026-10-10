@@ -16,9 +16,9 @@ export const sourceGuides={
  'noaa-goes':['Satellite observation time','GOES one-minute solar X-ray averages. Flagged contaminated records excluded; no flare impact inferred.'],
  worldpop:['Dataset release year','Estimated population in the query square. Flood exposure requires a verified inundation boundary and spatial intersection.'],
  osm:['Map publication time not supplied','Mapped facilities in a query square. No confirmation of opening status, safe routes or flood impacts.'],
- 'nasa-gibs':['Selected imagery date','Daily imagery and three-day flood composites. Clouds and missing pixels can hide floodwater.'],
+ 'nasa-gibs':['Imagery catalog issue time not supplied','Inspect each selected layer’s publication date separately. Daily imagery and three-day flood composites can hide floodwater under clouds or missing pixels.'],
  power:['Archive publication time not supplied','Daily NASA POWER archive; each data day is separate from retrieval time.'],
- 'daily-archive':['Archive publication time not supplied','Historical model archive, not current observations or an established local climate baseline.'],
+ 'daily-archive':['Derived briefing generation time','PRISM scheduled briefings inherit original provider timestamps and limitations. This archive is not an independent upstream source.'],
  ndma:['Publication date only','Official NDMA document titles and links. Open the PDF for affected areas and validity; no time of day invented.'],
  eonet:['Catalog update time not supplied','Curated event geometries and upstream references; coverage is not complete hazard detection.']
 };

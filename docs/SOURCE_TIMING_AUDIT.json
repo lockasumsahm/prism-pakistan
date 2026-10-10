@@ -1,0 +1,252 @@
+{
+  "verified_at": "2026-10-10T14:38:16.353Z",
+  "deployment": "dpl_2cu8iMW6eUsP9Yf8vzer5fGPWZaC",
+  "tested_commit": "10daa23eab2b3aed94f6a8b3ecd24a065f639d38",
+  "tests_passed": 119,
+  "registered_sources": 21,
+  "responses_with_data": 19,
+  "scope": "Point feeds sampled at Karachi. Success means provider response with data, not current coverage everywhere or independent hazard confidence.",
+  "sources": [
+    {
+      "id": "open-meteo-weather",
+      "ok": true,
+      "temporal_kind": "forecast",
+      "provider_time": "2026-10-10T14:00:00.000Z",
+      "retrieved_at": "2026-10-10T14:38:16.603Z",
+      "latency_ms": 200,
+      "endpoint": "https://api.open-meteo.com/v1/forecast",
+      "error": null
+    },
+    {
+      "id": "open-meteo-detail",
+      "ok": true,
+      "temporal_kind": "forecast",
+      "provider_time": "2026-10-10T15:00:00.000Z",
+      "retrieved_at": "2026-10-10T14:38:16.607Z",
+      "latency_ms": 191,
+      "endpoint": "https://api.open-meteo.com/v1/forecast",
+      "error": null
+    },
+    {
+      "id": "open-meteo-flood",
+      "ok": true,
+      "temporal_kind": "forecast",
+      "provider_time": null,
+      "retrieved_at": "2026-10-10T14:38:16.837Z",
+      "latency_ms": 419,
+      "endpoint": "https://flood-api.open-meteo.com/v1/flood",
+      "error": null
+    },
+    {
+      "id": "open-meteo-air",
+      "ok": true,
+      "temporal_kind": "forecast",
+      "provider_time": "2026-10-10T14:00Z",
+      "retrieved_at": "2026-10-10T14:38:16.839Z",
+      "latency_ms": 419,
+      "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
+      "error": null
+    },
+    {
+      "id": "elevation",
+      "ok": true,
+      "temporal_kind": "static",
+      "provider_time": null,
+      "retrieved_at": "2026-10-10T14:38:16.578Z",
+      "latency_ms": 155,
+      "endpoint": "https://api.open-meteo.com/v1/elevation",
+      "error": null
+    },
+    {
+      "id": "usgs",
+      "ok": true,
+      "temporal_kind": "observation",
+      "provider_time": "2026-10-10T14:38:16.000Z",
+      "retrieved_at": "2026-10-10T14:38:16.601Z",
+      "latency_ms": 176,
+      "endpoint": "https://earthquake.usgs.gov/fdsnws/event/1/query",
+      "error": null
+    },
+    {
+      "id": "rainviewer",
+      "ok": true,
+      "temporal_kind": "observation",
+      "provider_time": "2026-10-10T14:30:00.000Z",
+      "retrieved_at": "2026-10-10T14:38:16.796Z",
+      "latency_ms": 367,
+      "endpoint": "https://api.rainviewer.com/public/weather-maps.json",
+      "error": null
+    },
+    {
+      "id": "noaa",
+      "ok": true,
+      "temporal_kind": "observation",
+      "provider_time": "2026-10-10T14:35:00.000Z",
+      "retrieved_at": "2026-10-10T14:38:16.565Z",
+      "latency_ms": 134,
+      "endpoint": "https://services.swpc.noaa.gov/json/planetary_k_index_1m.json",
+      "error": null
+    },
+    {
+      "id": "noaa-goes",
+      "ok": true,
+      "temporal_kind": "observation",
+      "provider_time": "2026-10-10T14:35:00Z",
+      "retrieved_at": "2026-10-10T14:38:16.664Z",
+      "latency_ms": 232,
+      "endpoint": "https://services.swpc.noaa.gov/json/goes/primary/xrays-6-hour.json",
+      "error": null
+    },
+    {
+      "id": "reliefweb",
+      "ok": false,
+      "temporal_kind": "report",
+      "provider_time": null,
+      "retrieved_at": "2026-10-10T14:38:16.452Z",
+      "latency_ms": 20,
+      "endpoint": "https://api.reliefweb.int/v2/reports",
+      "error": {
+        "code": "CONFIGURATION_REQUIRED",
+        "message": "Approved ReliefWeb application name is not configured"
+      }
+    },
+    {
+      "id": "firms",
+      "ok": true,
+      "temporal_kind": "observation",
+      "provider_time": "2026-10-10T09:07:00Z",
+      "retrieved_at": "2026-10-10T14:38:16.647Z",
+      "latency_ms": 210,
+      "endpoint": "https://firms.modaps.eosdis.nasa.gov/data/active_fire/suomi-npp-viirs-c2/csv/SUOMI_VIIRS_C2_South_Asia_24h.csv",
+      "error": null
+    },
+    {
+      "id": "eonet",
+      "ok": true,
+      "temporal_kind": "report",
+      "provider_time": null,
+      "retrieved_at": "2026-10-10T14:38:21.727Z",
+      "latency_ms": 5289,
+      "endpoint": "https://eonet.gsfc.nasa.gov/api/v3/events",
+      "error": null
+    },
+    {
+      "id": "openaq",
+      "ok": false,
+      "temporal_kind": "observation",
+      "provider_time": null,
+      "retrieved_at": "2026-10-10T14:38:16.454Z",
+      "latency_ms": 15,
+      "endpoint": "https://api.openaq.org/v3/locations",
+      "error": {
+        "code": "CONFIGURATION_REQUIRED",
+        "message": "OpenAQ API key is not configured"
+      }
+    },
+    {
+      "id": "power",
+      "ok": true,
+      "temporal_kind": "observation",
+      "provider_time": null,
+      "retrieved_at": "2026-10-10T14:38:17.016Z",
+      "latency_ms": 576,
+      "endpoint": "https://power.larc.nasa.gov/api/temporal/daily/point",
+      "error": null
+    },
+    {
+      "id": "gdacs",
+      "ok": true,
+      "temporal_kind": "report",
+      "provider_time": "2026-09-21T12:39:48.000Z",
+      "retrieved_at": "2026-10-10T14:38:16.957Z",
+      "latency_ms": 516,
+      "endpoint": "https://www.gdacs.org/gdacsapi/api/events/geteventlist/SEARCH",
+      "error": null
+    },
+    {
+      "id": "ndma",
+      "ok": true,
+      "temporal_kind": "report",
+      "provider_time": null,
+      "retrieved_at": "2026-10-10T14:38:17.855Z",
+      "latency_ms": 1413,
+      "endpoint": "https://ndma.gov.pk/advisories/search",
+      "error": null
+    },
+    {
+      "id": "chirps",
+      "ok": true,
+      "temporal_kind": "observation",
+      "provider_time": "2026-08-31T00:00:00Z",
+      "retrieved_at": "2026-10-10T14:38:21.913Z",
+      "latency_ms": 5470,
+      "endpoint": "https://climateserv.servirglobal.net/api/submitDataRequest/",
+      "error": null
+    },
+    {
+      "id": "daily-archive",
+      "ok": true,
+      "temporal_kind": "report",
+      "provider_time": "2026-10-10T04:32:30.918Z",
+      "retrieved_at": "2026-10-10T14:38:16.671Z",
+      "latency_ms": 226,
+      "endpoint": "https://raw.githubusercontent.com/lockasumsahm/prism-pakistan/main/data/daily-briefings.json",
+      "error": null
+    },
+    {
+      "id": "worldpop",
+      "ok": true,
+      "temporal_kind": "static",
+      "provider_time": null,
+      "retrieved_at": "2026-10-10T14:38:17.166Z",
+      "latency_ms": 720,
+      "endpoint": "https://api.worldpop.org/v2/population",
+      "error": null
+    },
+    {
+      "id": "osm",
+      "ok": true,
+      "temporal_kind": "static",
+      "provider_time": null,
+      "retrieved_at": "2026-10-10T14:38:17.568Z",
+      "latency_ms": 1119,
+      "endpoint": "https://api.openstreetmap.org/api/0.6/map.json",
+      "error": null
+    },
+    {
+      "id": "nasa-gibs",
+      "ok": true,
+      "temporal_kind": "observation",
+      "provider_time": null,
+      "retrieved_at": "2026-10-10T14:38:16.681Z",
+      "latency_ms": 231,
+      "endpoint": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi",
+      "error": null
+    }
+  ],
+  "solar_observations": {
+    "channels": [
+      {
+        "energy": "0.1-0.8nm",
+        "flux_w_m2": 3.837615167867625e-06,
+        "observed_flux_w_m2": 3.861258392134914e-06,
+        "satellite": 18,
+        "observed_at": "2026-10-10T14:35:00Z"
+      },
+      {
+        "energy": "0.05-0.4nm",
+        "flux_w_m2": 1.7700703835998866e-07,
+        "observed_flux_w_m2": 1.824203366140864e-07,
+        "satellite": 18,
+        "observed_at": "2026-10-10T14:35:00Z"
+      }
+    ],
+    "record_count": 639,
+    "note": "Latest unflagged observation per band in a rolling six-hour provider file. One-minute averages; channel timestamps can differ. No solar flare event or local impact inferred."
+  },
+  "external_access_limit": {
+    "source": "PMD / FFD river-state and discharge-report-carousel",
+    "status": 403,
+    "scope": "Both official pages returned HTTP 403 to this coding server. No automatic gauge ingestion or gauge observations are claimed."
+  }
+}
