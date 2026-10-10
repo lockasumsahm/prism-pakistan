@@ -50,25 +50,25 @@ export const imageryTiles=new ImageryTileConnector();
 
 // Decode the displayed NASA PNG, not a scientific raster or inundation model.
 export async function pngPixel(bytes:Uint8Array,px:number,py:number):Promise<number[]> {
- const view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);let width=0,height=0,kind=0,parts:Uint8Array[]=[],palette:Uint8Array|undefined,alpha:Uint8Array|undefined;
+ const view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);let width=0,height=0,kind=0,depth=0,parts:Uint8Array[]=[],palette:Uint8Array|undefined,alpha:Uint8Array|undefined;
  for(let offset=8;offset+12<=bytes.length;){const size=view.getUint32(offset),end=offset+12+size;if(end>bytes.length)throw new FeedError('INVALID_TILE','Truncated PNG chunk');const type=new TextDecoder().decode(bytes.subarray(offset+4,offset+8)),data=bytes.subarray(offset+8,offset+8+size);
-  if(type==='IHDR'){if(size!==13)throw new FeedError('INVALID_TILE','Invalid PNG header');width=view.getUint32(offset+8);height=view.getUint32(offset+12);kind=data[9];if(data[8]!==8||data[12]!==0||![2,3,6].includes(kind)||width<1||height<1||width>512||height>512)throw new FeedError('UNSUPPORTED_TILE','Only bounded non-interlaced eight-bit PNG imagery is supported');}
+  if(type==='IHDR'){if(size!==13)throw new FeedError('INVALID_TILE','Invalid PNG header');width=view.getUint32(offset+8);height=view.getUint32(offset+12);kind=data[9];depth=data[8];if(!([0,3].includes(kind)?[1,2,4,8].includes(depth):depth===8)||data[10]!==0||data[11]!==0||data[12]!==0||![0,2,3,4,6].includes(kind)||width<1||height<1||width>512||height>512)throw new FeedError('UNSUPPORTED_TILE','Only bounded non-interlaced RGB/RGBA, grayscale or indexed PNG imagery is supported');}
   if(type==='IDAT')parts.push(data);if(type==='PLTE')palette=data;if(type==='tRNS')alpha=data;offset=end;if(type==='IEND')break;
  }
  if(!width||!parts.length||px<0||py<0||px>=width||py>=height)throw new FeedError('INVALID_TILE','PNG pixel is outside the image');
- const channels=kind===6?4:kind===2?3:1,stride=width*channels,expected=(stride+1)*height;
+ const channels=kind===6?4:kind===2?3:kind===4?2:1,stride=Math.ceil(width*channels*depth/8),bpp=Math.max(1,Math.ceil(channels*depth/8)),expected=(stride+1)*height;
  const reader=new Blob(parts).stream().pipeThrough(new DecompressionStream('deflate')).getReader(),inflated:Uint8Array[]= [];let length=0;
  while(true){const {done,value}=await reader.read();if(done)break;length+=value.length;if(length>expected){await reader.cancel();throw new FeedError('INVALID_TILE','Inflated image exceeds declared size');}inflated.push(value);}
  if(length!==expected)throw new FeedError('INVALID_TILE','PNG scanline size mismatch');const raw=new Uint8Array(length);let offset=0;for(const p of inflated){raw.set(p,offset);offset+=p.length;}
  let previous=new Uint8Array(stride);
  for(let row=0;row<=py;row++){const filter=raw[row*(stride+1)],current=raw.slice(row*(stride+1)+1,(row+1)*(stride+1));if(filter>4)throw new FeedError('INVALID_TILE','Invalid PNG filter');
-  for(let i=0;i<stride;i++){const left=i>=channels?current[i-channels]:0,up=previous[i],upperLeft=i>=channels?previous[i-channels]:0;let predictor=0;
+  for(let i=0;i<stride;i++){const left=i>=bpp?current[i-bpp]:0,up=previous[i],upperLeft=i>=bpp?previous[i-bpp]:0;let predictor=0;
    if(filter===1)predictor=left;if(filter===2)predictor=up;if(filter===3)predictor=Math.floor((left+up)/2);if(filter===4){const p=left+up-upperLeft,a=Math.abs(p-left),b=Math.abs(p-up),c=Math.abs(p-upperLeft);predictor=a<=b&&a<=c?left:b<=c?up:upperLeft;}
    current[i]=(current[i]+predictor)&255;
   }
   previous=current;
  }
- const i=px*channels;if(kind===3){const index=previous[i];if(!palette||index*3+2>=palette.length)throw new FeedError('INVALID_TILE','Missing PNG palette');return [palette[index*3],palette[index*3+1],palette[index*3+2],alpha?.[index]??255];}
+ const i=px*channels;if(kind===0){const bit=px*depth,sample=(previous[Math.floor(bit/8)]>>(8-depth-bit%8))&((1<<depth)-1),gray=Math.round(sample*255/((1<<depth)-1)),transparent=alpha?.length===2&&((alpha[0]<<8)|alpha[1])===sample;return [gray,gray,gray,transparent?0:255];}if(kind===4)return [previous[i],previous[i],previous[i],previous[i+1]];if(kind===3){const bit=px*depth,index=(previous[Math.floor(bit/8)]>>(8-depth-bit%8))&((1<<depth)-1);if(!palette||index*3+2>=palette.length)throw new FeedError('INVALID_TILE','Missing PNG palette');return [palette[index*3],palette[index*3+1],palette[index*3+2],alpha?.[index]??255];}
  return [previous[i],previous[i+1],previous[i+2],kind===6?previous[i+3]:255];
 }
 export function floodPixelClass(rgba:number[]):string {
