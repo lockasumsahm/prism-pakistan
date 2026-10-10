@@ -1,3 +1,4 @@
+import { detailedForecast } from './forecast.ts';
 import { dailyArchive } from './archive.ts';
 import { gdacs, chirps } from './extended.ts';
 import { BaseConnector, FeedError, numeric, series } from './base.ts';
@@ -106,4 +107,4 @@ export const unavailable = [
  new UnavailableConnector('worldpop','WorldPop Exposure','https://www.worldpop.org',3,'Population raster release and geospatial zonal calculation are not configured'),
  new UnavailableConnector('osm','OpenStreetMap Infrastructure','https://www.openstreetmap.org',4,'Infrastructure query and verified geospatial intersection are not yet implemented'),
 ];
-export const connectors=[weather,flood,air,elevation,quakes,radar,space,reports,firms,eonet,openaq,power,gdacs,chirps,dailyArchive,...unavailable];
+export const connectors=[weather,detailedForecast,flood,air,elevation,quakes,radar,space,reports,firms,eonet,openaq,power,gdacs,chirps,dailyArchive,...unavailable];

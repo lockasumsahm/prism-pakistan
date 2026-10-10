@@ -1,0 +1,655 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "PRISM Public Evidence API",
+    "version": "0.4.0",
+    "description": "Principal public contracts for the existing PRISM monitoring pilot. Forecasts are model outputs, district centres are points, and risk remains UNASSESSED. No authentication is required for these read interfaces. Provider usage and commercial licensing terms apply."
+  },
+  "servers": [
+    {
+      "url": "https://prism-pakistan.vercel.app"
+    }
+  ],
+  "paths": {
+    "/api/public/v1/locations": {
+      "get": {
+        "summary": "Published district centres and preserved city aliases",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/public/v1/district-registry": {
+      "get": {
+        "summary": "Dated OCHA/WFP registry, PCodes and source metadata",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/public/v1/weather-detail": {
+      "get": {
+        "summary": "168 hourly point forecasts with explicit missing-data coverage",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "required": false,
+            "description": "Registered slug; defaults to karachi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetailedForecastEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/public/v1/districts/{slug}": {
+      "get": {
+        "summary": "Point forecast snapshot; hazard scores remain null",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Registered district or city slug",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/public/v1/point": {
+      "get": {
+        "summary": "Coordinate snapshot inside the monitoring rectangle; no boundary inference",
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "minimum": 23.5,
+              "maximum": 37.5
+            }
+          },
+          {
+            "name": "lon",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "minimum": 60.5,
+              "maximum": 78
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/public/v1/briefings": {
+      "get": {
+        "summary": "Seven-section deterministic briefing",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "required": false,
+            "description": "Registered slug; defaults to karachi",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "schema": {
+              "enum": [
+                "national",
+                "regional",
+                "family",
+                "agriculture"
+              ],
+              "default": "national"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/public/v1/sources": {
+      "get": {
+        "summary": "Provider envelopes and instance-local circuit health",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/public/v1/gdacs": {
+      "get": {
+        "summary": "Country-attributed GDACS report context",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/public/v1/chirps": {
+      "get": {
+        "summary": "Asynchronous publication-lag-aware satellite rainfall archive",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "required": false,
+            "description": "Registered slug; JOB_PENDING means retry later",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/public/v1/scheduled-briefings": {
+      "get": {
+        "summary": "Historical daily archive; never live substitute data",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/officer": {
+      "post": {
+        "summary": "Deterministic tool-backed seven-section evidence briefing",
+        "description": "Hosted conversational LLM is not configured. Accept application/x-ndjson for status/evidence/section/complete events.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "message"
+                ],
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "enum": [
+                      "officer",
+                      "family",
+                      "agriculture"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Inspect ok and error: an upstream offline envelope can still be returned with HTTP 200.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "application/x-ndjson": {
+                "schema": {
+                  "type": "string",
+                  "description": "Newline-delimited status, evidence, section, complete and error events. Only complete contains the final full brief."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid location or coordinates"
+          },
+          "429": {
+            "description": "Best-effort per-instance request budget exceeded; retry later"
+          }
+        }
+      }
+    },
+    "/api/public/v1/readiness": {
+      "get": {
+        "summary": "Four core Karachi feeds; not nationwide or hazard certification",
+        "responses": {
+          "200": {
+            "description": "Four cached/fresh core envelopes available"
+          },
+          "503": {
+            "description": "At least one core feed unavailable; response contains checks and exact error codes"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Source": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tier",
+          "family",
+          "temporal_kind",
+          "latency_ms",
+          "retrieved_at",
+          "updated_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Redacted provider endpoint; credentials are never exposed"
+          },
+          "tier": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "family": {
+            "type": "string"
+          },
+          "temporal_kind": {
+            "enum": [
+              "forecast",
+              "observation",
+              "report",
+              "static"
+            ]
+          },
+          "latency_ms": {
+            "type": "number",
+            "minimum": 0
+          },
+          "retrieved_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "description": "Source valid time when provided, not an invented issuance time"
+          }
+        }
+      },
+      "Envelope": {
+        "type": "object",
+        "required": [
+          "ok",
+          "data",
+          "source",
+          "trace_id",
+          "cached",
+          "error"
+        ],
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "data": {
+            "description": "Validated provider data when ok=true; null when offline"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "trace_id": {
+            "type": "string"
+          },
+          "cached": {
+            "type": "boolean"
+          },
+          "error": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "code",
+                  "message"
+                ],
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "description": "Never substitute null with zero. A last_success member, if present, is historical and must not be rendered as a live reading."
+      },
+      "ForecastHour": {
+        "type": "object",
+        "required": [
+          "time",
+          "temperature_c",
+          "feels_like_c",
+          "precipitation_mm",
+          "rain_probability_pct",
+          "humidity_pct",
+          "wind_kmh",
+          "gust_kmh"
+        ],
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "temperature_c": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "feels_like_c": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "precipitation_mm": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "rain_probability_pct": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "humidity_pct": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "wind_kmh": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "gust_kmh": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        }
+      },
+      "DetailedForecastData": {
+        "type": "object",
+        "required": [
+          "hours",
+          "windows",
+          "coverage",
+          "window_start",
+          "note"
+        ],
+        "properties": {
+          "hours": {
+            "type": "array",
+            "minItems": 168,
+            "maxItems": 168,
+            "items": {
+              "$ref": "#/components/schemas/ForecastHour"
+            }
+          },
+          "windows": {
+            "type": "array",
+            "minItems": 7,
+            "maxItems": 7,
+            "items": {
+              "type": "object",
+              "description": "Rolling 24-hour windows, not calendar days. Incomplete aggregates are null."
+            }
+          },
+          "coverage": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "available",
+                "total"
+              ],
+              "properties": {
+                "available": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 168
+                },
+                "total": {
+                  "const": 168
+                }
+              }
+            }
+          },
+          "window_start": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      },
+      "DetailedForecastEnvelope": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Envelope"
+          },
+          {
+            "properties": {
+              "data": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/DetailedForecastData"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

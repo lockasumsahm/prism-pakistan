@@ -32,7 +32,7 @@ export default async function handler(req, res) {
 `;
 await writeFile(directory+'/api/prism.mjs',worker+adapter);
 for(const file of (await readdir('dist/public')).filter(file=>file!=='index.html'))await writeFile(directory+'/'+file,await readFile('dist/public/'+file));
-const pageRoutes=['','api','map','dashboard','officer','briefings','watch','widget','sources','ops','methodology','auth','reset-password','settings.connectors','settings.developer','alerts','privacy','terms','changelog','contact'];
+const pageRoutes=['','forecast','api','map','dashboard','officer','briefings','watch','widget','sources','ops','methodology','auth','reset-password','settings.connectors','settings.developer','alerts','privacy','terms','changelog','contact'];
 const config={version:2,functions:{'api/prism.mjs':{maxDuration:60}},rewrites:[
  {source:'/api/tiles/:path*',destination:'/api/prism?prism_path=/api/tiles/:path*'},
  {source:'/api/public/v1/:path*',destination:'/api/prism?prism_path=/api/public/v1/:path*'},
@@ -49,5 +49,5 @@ const config={version:2,functions:{'api/prism.mjs':{maxDuration:60}},rewrites:[
  ...pageRoutes.map(page=>({source:'/'+page,destination:'/api/prism?prism_path=/'+page})),
 ],headers:[{source:'/(.*)',headers:[{key:'X-Content-Type-Options',value:'nosniff'},{key:'Referrer-Policy',value:'strict-origin-when-cross-origin'}]}]};
 await writeFile(directory+'/vercel.json',JSON.stringify(config,null,2));
-await writeFile(directory+'/package.json',JSON.stringify({name:'prism-pakistan',version:'0.3.0',type:'module',private:true,engines:{node:'24.x'}}));
+await writeFile(directory+'/package.json',JSON.stringify({name:'prism-pakistan',version:'0.4.0',type:'module',private:true,engines:{node:'24.x'}}));
 console.log('Prepared dependency-free Vercel upload');

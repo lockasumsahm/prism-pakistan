@@ -24,14 +24,14 @@ The supplied statement that sections 1–5 and 7 all pass is not supported by th
 | 5. Briefings | Four distinct request-driven tracks, point/province scope, source ledger, explicit missing-data and uncertainty footer. | Daily GitHub collection and public historical archive are implemented; first hosted daily publication succeeded. No route/school closure authority. |
 | 6. Watch / widget | Browser-local saved places; remembered selection; per-location/per-track historical storage; cached age label; last verified history is not overwritten by all-offline data. PWA shell and shortcuts for widget/watch/officer. | 160 dated OCHA/WFP district records are implemented with source PCodes and provider centre coordinates, plus preserved city references. Current legal boundaries and district-wide aggregation are not certified. Cache logic is tested with storage fixtures; actual flight-mode/installability validation needs browser/device testing. No automated critical push service. |
 | 7. Operations | Source health ledger, fresh-response median latency, HALF-OPEN reporting, authenticated manual instance quarantine. Unconfigured operator access returns 503; unauthorized requests return 401. | Distributed quarantine, durable metrics, historical SLO compliance and distributed rate enforcement unavailable. |
-| 7. Routes / SEO | 20 named pages plus registered dynamic pages. `/api`, `robots.txt`, `llms.txt`, generated sitemap; server-rendered title, description, canonical and OpenGraph. Unknown dynamic paths return 404. | Live deployment/browser checks are recorded separately. Successful HTTP does not certify behavior or emergency accuracy. |
+| 7. Routes / SEO | 21 named pages plus registered dynamic pages. `/api`, `robots.txt`, `llms.txt`, generated sitemap; server-rendered title, description, canonical and OpenGraph. Unknown dynamic paths return 404. | Live deployment/browser checks are recorded separately. Successful HTTP does not certify behavior or emergency accuracy. |
 | 7. Documentation | Privacy, terms and methodology describe current behavior and limitations. | Jurisdiction-specific legal review and operational service agreement are not established by written pages. |
 
 The live browser inspection identified a token-required CARTO basemap image. It was replaced by standard OpenStreetMap viewport tiles with attribution, an origin Referer and normal browser HTTP caching. Tiles are not prefetched or stored by the offline service worker. The offline widget caches briefings, not maps. A dedicated tile service remains necessary for guaranteed operational map availability at scale.
 
 ## Automated validation
 
-73 tests pass in the dependency-free Node 24 build, including original regressions and new tests for geographic/track cache isolation, cache age and retention, storage failures, precipitation boundary correctness, duplicate timestamps, HALF-OPEN reporting, authenticated quarantine, device-coordinate validation, named-location routing and route metadata. Test transports contain explicit fixtures; those fixtures do not enter production artifacts.
+84 tests pass in the dependency-free Node 24 build, including original regressions and new tests for geographic/track cache isolation, cache age and retention, storage failures, precipitation boundary correctness, duplicate timestamps, HALF-OPEN reporting, authenticated quarantine, device-coordinate validation, named-location routing and route metadata. Test transports contain explicit fixtures; those fixtures do not enter production artifacts.
 
 ## Operator configuration
 
@@ -54,3 +54,9 @@ The Officer now streams consultation progress, evidence, seven sections and a fi
 7. Verify offline and PWA behavior on real devices, accessibility, load/failure behavior and external operational/legal review.
 
 Live completion checks: GDACS, CHIRPS and daily-archive envelopes returned `ok: true`; CHIRPS returned 30 actual archive days and explicitly showed approximately 40 days of lag. GitHub Verify PRISM run 38021299636 and Publish daily evidence briefings run 38021299646 both completed successfully. Browser search/save of Sujawal and streamed seven-section Karachi South evidence were verified.
+
+## Detailed forecast release 0.4
+
+The existing site now includes the detailed forecast workspace, hourly model wind/gusts, humidity, apparent temperature and precipitation probability, seven rolling accumulation windows, explicit per-variable coverage, accessible charts/table, complete hourly CSV/JSON and print exports. The OpenAPI specification covers principal implemented read interfaces. Readiness distinguishes application reachability from four-core-feed availability (HTTP 503 when degraded). The tenth MCP tool and Officer weather-detail consultation share the original weather family; they do not increase independent consensus.
+
+The extended provider variables follow [official Open-Meteo documentation](https://open-meteo.com/en/docs). Live upstream validation returned 168 usable future slots for all seven variables. Commercial provider plans, secrets, calibrated hazard models and durable operational services remain explicit launch gates.

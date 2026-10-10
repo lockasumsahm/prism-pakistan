@@ -7,7 +7,7 @@ export async function pointSnapshot(location: {slug:string;name:string;province:
 export async function overview(){ const rows=[]; // bounded concurrency protects provider budgets
  for(let i=0;i<referenceLocations.length;i+=4)rows.push(...await Promise.all(referenceLocations.slice(i,i+4).map(l=>pointSnapshot(l))));
  return { locations:rows,scope:'12 reference locations; not complete administrative district coverage',generated_at:new Date().toISOString(),warning:'Forecast models are not ground observations. PRISM does not issue official evacuation alerts.' }; }
-export async function sourceLedger(){return Promise.all([...connectors,nasaImagery].map(async c=>{const envelope=await c.execute(['open-meteo-weather','open-meteo-flood','open-meteo-air','elevation','power','chirps'].includes(c.spec.id)?{lat:24.8607,lon:67.0011}:{});return {health:c.health(),envelope};}));}
+export async function sourceLedger(){return Promise.all([...connectors,nasaImagery].map(async c=>{const envelope=await c.execute(['open-meteo-weather','open-meteo-detail','open-meteo-flood','open-meteo-air','elevation','power','chirps'].includes(c.spec.id)?{lat:24.8607,lon:67.0011}:{});return {health:c.health(),envelope};}));}
 export async function briefing(kind='national',slug='karachi'){
  if(!['national','regional','family','agriculture','officer'].includes(kind))throw new Error('Invalid briefing kind');
  const s=await snapshot(slug);

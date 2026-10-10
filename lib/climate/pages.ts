@@ -1,5 +1,6 @@
 export const pageMetadata: Record<string, {title:string;description:string}> = {
  '/':{title:'Pakistan Climate Intelligence',description:'Traceable climate forecasts and environmental monitoring for Pakistan. Source provenance, reference-location coverage and explicit missing data.'},
+ '/forecast':{title:'Detailed District Forecast',description:'Inspect seven-day hourly rainfall, temperature, humidity, wind and gust forecasts with provenance, missing-data coverage and downloadable reports.'},
  '/map':{title:'Live Atlas',description:'Explore NASA flood composites, satellite imagery, past radar and point model evidence across the Pakistan monitoring rectangle. Missing pixels do not establish safety.'},
  '/dashboard':{title:'Forecast Analytics',description:'Compare rainfall, temperature and modelled river discharge across registered Pakistan reference locations.'},
  '/officer':{title:'Evidence Officer',description:'Request seven-section evidence briefings with units, timestamps, source ledgers and missing-input notices.'},

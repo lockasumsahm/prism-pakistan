@@ -10,7 +10,7 @@ An evidence-first climate intelligence pilot for Pakistan. A responsive institut
 
 Adds scoped historical widget caching, remembered places, PWA shortcuts, per-reading provenance inspection, missing-data briefing footers, GPS point evidence, named-question location routing, server-rendered route metadata, public API documentation and crawler files. Rainfall aggregation now respects Open-Meteo preceding-hour intervals. The operations ledger reports recovery state and supports authenticated, instance-local quarantine.
 
-See [the production verification matrix](docs/PRODUCTION_VERIFICATION.md) for the supplied checklist and remaining certification requirements. 73 automated tests pass. The dated OCHA/WFP registry includes 160 district names, while national comparison samples 12 city references; hazard scores remain unassessed.
+See [the production verification matrix](docs/PRODUCTION_VERIFICATION.md) for the supplied checklist and remaining certification requirements. 84 automated tests pass. The dated OCHA/WFP registry includes 160 district names, while national comparison samples 12 city references; hazard scores remain unassessed.
 
 ## Run
 
@@ -31,6 +31,9 @@ npm run check
 `npm test` assumes the Worker has been built. Fixtures live only in `tests/`; they never enter the deployed artifact. The build uses Node's experimental TypeScript transformation and emits one dependency-free Cloudflare Worker at `dist/server/index.js`, with embedded HTML, CSS, JavaScript, and PWA assets.
 
 ## Latest additions
+
+- Detailed district forecast workspace (`/forecast`): 168 hourly slots, seven rolling 24-hour windows, temperature/apparent temperature, humidity, precipitation probability, wind/gusts, chart switches, accessible text table, CSV/JSON export and print report. Missing inputs invalidate only affected aggregates; this remains the same upstream weather model family.
+- Principal OpenAPI 3.1 specification (`/openapi.json`), a scoped core-feed readiness probe (HTTP 503 when degraded), and the tenth MCP tool (`weather_detail`). Officer wind/humidity questions consult that real connector.
 
 - 160 sourced OCHA/WFP district records with PCodes, provider centre coordinates and dated attribution; district search, centre forecasts and saved-place routes.
 - GDACS country-attributed reports and a real USGS hazard-report page.
@@ -87,6 +90,9 @@ Open-Meteo's free endpoint is subject to its non-commercial limits. Review provi
 
 | Endpoint | Contract |
 | --- | --- |
+| `GET /api/public/v1/weather-detail?location=karachi` | Seven-day detailed forecast envelope and per-variable coverage |
+| `GET /api/public/v1/readiness` | Four core Karachi feeds; HTTP 503 when degraded, not nationwide certification |
+| `GET /openapi.json` | Principal public API OpenAPI 3.1 specification |
 | `GET /api/public/v1/imagery` | NASA published imagery domains and classification legend |
 | `GET /api/public/v1/flood-observation?lat=27.7056&lon=68.8574` | Nearest displayed NASA flood pixel and limitations |
 | `GET /api/public/v1/snapshot?lat=27.7056&lon=68.8574` | Arbitrary coordinate forecast/discharge/elevation envelopes |
@@ -139,3 +145,5 @@ Consult official PMD and NDMA advisories for operational decisions. PRISM is ind
 - WebLLM API and model configuration: https://github.com/mlc-ai/web-llm and https://webllm.mlc.ai/docs/
 
 Browser mapping and local AI use pinned CDN modules. The server still builds without npm installation. Inference runs on the visitor device; first use consumes download bandwidth and GPU memory.
+
+For release checks, incidents, rollback and remaining launch gates, see [the operations runbook](docs/OPERATIONS_RUNBOOK.md).
