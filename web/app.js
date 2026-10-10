@@ -23,6 +23,7 @@ const client = new EvidenceClient();
 const serverClock=new ServerClock();
 const realNow=()=>serverClock.now()??Date.now();
 let renderEpoch=0;
+let refreshing=false;
 const state = {locations:[],overview:null,selected:'karachi',snapshot:null,forecast:null,sources:null,view:'overview',briefKind:'national',point:null,satellite:null,layer:'context',zoom:5,query:''};
 const descriptions = {
  alerts:['Know what is changing.<br><em>Stay a step ahead.</em>','Your district forecast and official publications, alongside seismic and satellite reports.<br class="desktop-br"> Source times, coverage and update status stay in view.'],
@@ -93,7 +94,6 @@ async function synchronizeClock(){try{const response=await fetch('/api/public/v1
 updateClock();await synchronizeClock();setInterval(updateClock,10000);setInterval(synchronizeClock,300000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){synchronizeClock();if(state.view==='alerts'&&!refreshing){refreshing=true;render(true).finally(()=>refreshing=false);}}});
 try{const r=await client.get('locations');state.locations=r.locations;const requested=new URLSearchParams(location.search).get('location');try{const selected=localStorage.getItem('prism.selected.v1');if(state.locations.some(l=>l.slug===selected))state.selected=selected;}catch{}if(state.locations.some(l=>l.slug===requested))state.selected=requested;await render();}catch(error){$('#content').innerHTML=`<div class="error-box">${esc(error.message)}. Location registry unavailable.</div>`;}
-let refreshing=false;
 setInterval(async()=>{if(document.hidden||refreshing)return;refreshing=true;try{if(['overview','map','dashboard','officer'].includes(state.view)){state.snapshot=await client.get(selectedSnapshotPath(),true);updatePointPanels();if(['overview','dashboard'].includes(state.view)){state.overview=await client.get('districts',true);const stats=$('.stat-grid');if(stats)stats.outerHTML=nationalStats();if(state.view==='dashboard')await render();}if(atlas){atlas.imagery=await client.get('imagery',true);atlas.radar=await client.get('radar',true);await atlas.update();}}else if(state.view==='widget'||state.view==='forecast'||state.view==='alerts')await render(true);}catch(e){toast('Automatic refresh failed: '+e.message);}finally{refreshing=false;}},300000);
 
 
