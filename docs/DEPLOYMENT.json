@@ -19,11 +19,12 @@
     "reference_locations": 12,
     "available_weather_locations": 12
   },
-  "github_upload": "blocked_integration_write_permission_403",
+  "github_upload": "verified",
   "limitations": [
     "Browser rendering unverified",
     "Cloud auth and LLM not configured",
     "Hazard risk calibration unavailable"
   ],
-  "github_repository": "https://github.com/lockasumsahm/prism-pakistan"
+  "github_repository": "https://github.com/lockasumsahm/prism-pakistan",
+  "github_source_commit": "fe4394ce15bb47bf1a26c9ec5920535aa7a962f1"
 }

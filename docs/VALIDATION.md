@@ -26,4 +26,4 @@ The source ledger returned valid responses for weather, discharge, modelled air,
 
 These HTTP checks do not establish browser rendering, installability, calibrated hazard prediction or production readiness.
 
-Update: deployment dpl_Bm7xUXTXexQ3jCaKzHcKK936njBU is READY. NASA POWER and MCP discovery returned HTTP 200; POWER returned real archive humidity/temperature while missing solar remained null. GitHub contents upload failed with 403 Resource not accessible by integration.
+Update: deployment dpl_Bm7xUXTXexQ3jCaKzHcKK936njBU is READY. NASA POWER and MCP discovery returned HTTP 200; POWER returned real archive humidity/temperature while missing solar remained null. GitHub access was subsequently corrected: all 32 source files uploaded to main; package, worker and CI workflow verified through GitHub.
