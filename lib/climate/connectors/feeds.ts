@@ -16,9 +16,20 @@ export class WeatherConnector extends BaseConnector<Weather> {
     return { updated_at: new Date(times[first]*1000).toISOString(), data: { temp_c: temps[first], soil_moisture: soil[first], rain_next_24h_mm: indexes.filter(x => x.t < now+86400).reduce((s,x)=>s+rain[x.i],0), rain_next_7d_mm: indexes.reduce((s,x)=>s+rain[x.i],0), peak_hourly_next_48h_mm: Math.max(...indexes.filter(x=>x.t<now+48*3600).map(x=>rain[x.i])), hours: indexes.map(x=>({time:new Date(x.t*1000).toISOString(),rain:rain[x.i],temp:temps[x.i]})) } };
   }
 }
-export class FloodConnector extends BaseConnector<{ discharge_cms: number; peak_7d_cms: number; return_period: null; days: { time: string; discharge: number }[] }> {
-  constructor() { super(spec('open-meteo-flood','GloFAS · Open-Meteo Flood','https://open-meteo.com/en/docs/flood-api',3,'glofas','Modelled discharge for the largest river in a 5 km area. Not a gauging-station reading. Return periods require independent calibrated historical thresholds.','forecast',1440)); }
-  protected async load(args: Record<string, unknown>) { const r = await this.json(`https://flood-api.open-meteo.com/v1/flood?${coords(args)}&daily=river_discharge&forecast_days=7`); if (r.daily_units?.river_discharge !== 'm³/s') throw new FeedError('INVALID_UNITS','Discharge unit must be m³/s'); const values = series(r.daily?.river_discharge,'river discharge'); const dates = r.daily?.time; if (!Array.isArray(dates)||dates.length!==values.length) throw new FeedError('INVALID_PAYLOAD','Discharge dates are incomplete'); return { updated_at: null, data: { discharge_cms:values[0],peak_7d_cms:Math.max(...values),return_period:null,days:values.map((v,i)=>({time:dates[i],discharge:v})) } }; }
+export class FloodConnector extends BaseConnector<{ discharge_cms:number;peak_7d_cms:number;return_period:null;trend:string;change_24h_pct:number|null;peak_change_pct:number|null;days:{time:string;discharge:number;period:string}[] }> {
+ constructor(){super(spec('open-meteo-flood','GloFAS · Open-Meteo Flood','https://open-meteo.com/en/docs/flood-api',3,'glofas','Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.','forecast',1440));}
+ protected async load(a:Record<string,unknown>){
+  const r=await this.json(`https://flood-api.open-meteo.com/v1/flood?${coords(a)}&daily=river_discharge&forecast_days=7&past_days=7`);
+  if(r.daily_units?.river_discharge!=='m³/s')throw new FeedError('INVALID_UNITS','Discharge unit must be m³/s');
+  const values=series(r.daily?.river_discharge,'river discharge'),dates=r.daily?.time;
+  if(!Array.isArray(dates)||dates.length!==values.length||values.some(v=>v<0)||dates.some((d:any)=>typeof d!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(d)))throw new FeedError('INVALID_PAYLOAD','Invalid discharge dates or values');
+  const today=new Date().toISOString().slice(0,10),index=dates.indexOf(today);
+  if(index<0)throw new FeedError('NO_COVERAGE','No model discharge for the current UTC day');
+  const future=values.slice(index,index+7);if(future.length<7)throw new FeedError('NO_COVERAGE','Incomplete discharge outlook');
+  const current=values[index],previous=index>0?values[index-1]:null;
+  const change=previous!==null&&previous>0?(current-previous)/previous*100:null,peak=Math.max(...future);
+  return {updated_at:null,data:{discharge_cms:current,peak_7d_cms:peak,return_period:null,change_24h_pct:change,peak_change_pct:current>0?(peak-current)/current*100:null,trend:change===null?'unknown':change>5?'rising':change< -5?'falling':'steady',days:values.map((v,i)=>({time:dates[i],discharge:v,period:dates[i]<today?'hindcast':'forecast'}))}};
+ }
 }
 export class AirConnector extends BaseConnector<{ pm25: number; pm10: number; us_aqi: number }> {
  constructor() { super(spec('open-meteo-air','CAMS · Open-Meteo Air','https://open-meteo.com/en/docs/air-quality-api',3,'cams','Modelled surface air quality; not a physical ground monitor.','forecast')); }

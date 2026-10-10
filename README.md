@@ -26,7 +26,12 @@ npm run check
 
 ## What works
 
-- Responsive national overview, geographic reference atlas, location comparison dashboard, hourly forecast charts, and location detail pages.
+- Leaflet interactive map: pan/zoom, NASA MODIS three-day flood imagery, VIIRS true colour, date and opacity controls, RainViewer past-radar playback, and arbitrary Pakistan coordinate inspection. NASA GIBS does not require a key.
+- Nearest NASA visualization pixel flood classification, with explicit transparent/no-data ambiguity. This is not scientific inundation analysis.
+- Free browser-local AI summaries via WebLLM 0.2.85 / Qwen2.5 0.5B. Opt-in model download, WebGPU required; validated output selects only original evidence facts. Browser inference is not yet end-to-end verified.
+- Five-minute automatic telemetry refresh with original provider timestamps; upstream cadence is hourly/daily, not second-by-second sensors.
+
+- Responsive national overview, interactive flood atlas, location comparison dashboard, hourly forecast charts, and location detail pages.
 - Weather, GloFAS discharge, CAMS air quality, elevation, USGS earthquakes, RainViewer past-radar metadata, NOAA planetary Kp and NASA EONET connectors.
 - Implemented credential-dependent OpenAQ station/sensor joins, NASA FIRMS CSV detection ingestion, and ReliefWeb reports. These remain offline until configured and live-tested.
 - Standard provenance envelopes, HTTP timeouts, bounded response size, transient retries, bounded per-location caching, request deduplication, five-failure circuits and a single cooldown probe.
@@ -42,7 +47,7 @@ This is **a working pilot, not the complete production blueprint**. It intention
 
 - Complete 160-district coverage, verified administrative polygons or river station/basin digital twins. The registry contains 12 reference coordinates across seven regions.
 - Calibrated risk scores, flood return periods, district inundation, GLOF prediction, population exposure, road safety, evacuation advice or validated alert thresholds.
-- Conversational LLM tool calling; the officer is explicitly deterministic.
+- Hosted conversational LLM tool calling. Free local WebLLM selects existing evidence facts; generated factual claims are never displayed.
 - Hosted PostgreSQL, cloud sign-in, user-role workflows, email/push notification delivery, scheduled monitoring or deployed public developer keys.
 - Implemented CHIRPS async jobs, WorldPop zonal statistics, GDACS XML geography, NASA POWER historical baselines or Overpass infrastructure intersection. CHIRPS, WorldPop, GDACS and Overpass have explicit offline envelopes. NASA POWER daily archive is implemented; calibrated historical baselines remain unavailable.
 
@@ -66,6 +71,9 @@ Open-Meteo's free endpoint is subject to its non-commercial limits. Review provi
 
 | Endpoint | Contract |
 | --- | --- |
+| `GET /api/public/v1/imagery` | NASA published imagery domains and classification legend |
+| `GET /api/public/v1/flood-observation?lat=27.7056&lon=68.8574` | Nearest displayed NASA flood pixel and limitations |
+| `GET /api/public/v1/snapshot?lat=27.7056&lon=68.8574` | Arbitrary coordinate forecast/discharge/elevation envelopes |
 | `GET /api/public/v1/locations` | Explicit reference-coordinate registry |
 | `GET /api/public/v1/districts` | Reference-point forecasts and unassessed risk |
 | `GET /api/public/v1/districts/:slug` | Point snapshot with four envelopes |
@@ -99,3 +107,12 @@ The Worker artifact has a standard `default.fetch(request, env)` export. The Sit
 Forecast output is not a ground observation. Forecast valid time is not source issuance time. A point elevation is not a slope. A thermal anomaly is not a fire perimeter. A provider's API success is not independent multi-source agreement. Missing evidence is not safety.
 
 Consult official PMD and NDMA advisories for operational decisions. PRISM is independent and does not represent a government authority.
+
+## Open-source references
+
+- NASA GIBS API and examples: https://nasa-gibs.github.io/gibs-api-docs/ and https://github.com/nasa-gibs/gibs-web-examples
+- NASA classification colours: https://gibs.earthdata.nasa.gov/colormaps/v1.3/output/MODIS_Flood.html
+- Leaflet stable 1.9.4: https://leafletjs.com and https://github.com/Leaflet/Leaflet
+- WebLLM API and model configuration: https://github.com/mlc-ai/web-llm and https://webllm.mlc.ai/docs/
+
+Browser mapping and local AI use pinned CDN modules. The server still builds without npm installation. Inference runs on the visitor device; first use consumes download bandwidth and GPU memory.

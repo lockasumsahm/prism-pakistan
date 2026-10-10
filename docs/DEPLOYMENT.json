@@ -1,10 +1,10 @@
 {
   "provider": "Vercel",
   "url": "https://prism-pakistan.vercel.app",
-  "deployment_id": "dpl_Bm7xUXTXexQ3jCaKzHcKK936njBU",
+  "deployment_id": "dpl_65o6pjAN9AeQKphVdFbB3uN2BKYr",
   "project_id": "prj_1SpCnkoqrkq0D0xpKcz8mLVO3DKm",
   "team_id": "team_uusrGZOTWX7CvZKOiZNfojtt",
-  "source_commit": "bbfd534",
+  "source_commit": "96a78a7",
   "target": "production",
   "state": "READY",
   "live_checks": {
@@ -17,12 +17,18 @@
     "karachi_snapshot": 200,
     "reference_overview": 200,
     "reference_locations": 12,
-    "available_weather_locations": 12
+    "available_weather_locations": 12,
+    "nasa_publication_metadata": 200,
+    "nasa_flood_png_tile": 200,
+    "nasa_viirs_jpeg_tile": 200,
+    "coordinate_snapshot": 200,
+    "nasa_pixel_decode": 200
   },
   "github_upload": "verified",
   "limitations": [
     "Browser rendering unverified",
-    "Cloud auth and LLM not configured",
+    "Local WebGPU AI model download/generation unverified",
+    "Cloud auth and hosted LLM not configured",
     "Hazard risk calibration unavailable"
   ],
   "github_repository": "https://github.com/lockasumsahm/prism-pakistan",

@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process';
 execFileSync(process.execPath,['scripts/build.mjs'],{stdio:'inherit'});
 const directory='.vercel-upload';
 await mkdir(directory+'/api',{recursive:true});
-const worker=(await readFile('dist/server/index.js','utf8')).replace('export default {','const prismWorker = {');
+const worker=(await readFile('dist/server/index.js','utf8')).replace('export default {','const prismWorker = {').replace(/^const STATIC_ASSETS = .*;\n/m,'const STATIC_ASSETS = {};\n');
 const adapter=`
 export default async function handler(req, res) {
  try {
@@ -35,6 +35,7 @@ for(const file of await readdir('web'))await writeFile(directory+'/'+file,await 
 const pageRoutes=['map','dashboard','officer','briefings','watch','widget','sources','ops','methodology','auth','reset-password','settings.connectors','settings.developer','alerts','privacy','terms','changelog','contact'];
 const config={version:2,functions:{'api/prism.mjs':{maxDuration:60}},rewrites:[
  {source:'/api/public/v1/:path*',destination:'/api/prism?prism_path=/api/public/v1/:path*'},
+ {source:'/api/tiles/:path*',destination:'/api/prism?prism_path=/api/tiles/:path*'},
  {source:'/api/officer',destination:'/api/prism?prism_path=/api/officer'},
  {source:'/[.mcp]/list-tools',destination:'/api/prism?prism_path=/[.mcp]/list-tools'},
  {source:'/[.mcp]/invoke-tool/:tool',destination:'/api/prism?prism_path=/[.mcp]/invoke-tool/:tool'},
@@ -43,7 +44,7 @@ const config={version:2,functions:{'api/prism.mjs':{maxDuration:60}},rewrites:[
  {source:'/flood-risk/:location',destination:'/index.html'},
  {source:'/river/:river',destination:'/index.html'},
  ...pageRoutes.map(page=>({source:'/'+page,destination:'/index.html'})),
-],headers:[{source:'/(.*)',headers:[{key:'X-Content-Type-Options',value:'nosniff'},{key:'Referrer-Policy',value:'strict-origin-when-cross-origin'}]}]};
+],headers:[{source:'/(.*)',headers:[{key:'X-Content-Type-Options',value:'nosniff'},{key:'Referrer-Policy',value:'strict-origin-when-cross-origin'},{key:'Content-Security-Policy',value:"default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://cdn.jsdelivr.net https://esm.sh; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://basemaps.cartocdn.com; connect-src 'self' https://esm.sh https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"}]}]};
 await writeFile(directory+'/vercel.json',JSON.stringify(config,null,2));
 await writeFile(directory+'/package.json',JSON.stringify({name:'prism-pakistan',version:'0.1.0',type:'module',private:true,engines:{node:'24.x'}}));
 console.log('Prepared dependency-free Vercel upload');

@@ -1,6 +1,6 @@
 import { readFile, writeFile, mkdir, readdir, rename } from 'node:fs/promises';
 import { stripTypeScriptTypes } from 'node:module';
-const modules=['lib/climate/connectors/base.ts','lib/climate/locations.ts','lib/climate/consensus.ts','lib/climate/connectors/feeds.ts','lib/climate/service.ts'];
+const modules=['lib/climate/connectors/base.ts','lib/climate/locations.ts','lib/climate/consensus.ts','lib/climate/connectors/feeds.ts','lib/climate/connectors/imagery.ts','lib/climate/service.ts'];
 const assets={};
 const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.webmanifest':'application/manifest+json'};
 for(const file of await readdir('web')){const extension=file.slice(file.lastIndexOf('.'));assets['/'+file]={body:await readFile('web/'+file,'utf8'),type:types[extension]??'text/plain'};}
