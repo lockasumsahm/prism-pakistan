@@ -31,7 +31,7 @@ The live browser inspection identified a token-required CARTO basemap image. It 
 
 ## Automated validation
 
-70 tests pass in the dependency-free Node 24 build, including original regressions and new tests for geographic/track cache isolation, cache age and retention, storage failures, precipitation boundary correctness, duplicate timestamps, HALF-OPEN reporting, authenticated quarantine, device-coordinate validation, named-location routing and route metadata. Test transports contain explicit fixtures; those fixtures do not enter production artifacts.
+73 tests pass in the dependency-free Node 24 build, including original regressions and new tests for geographic/track cache isolation, cache age and retention, storage failures, precipitation boundary correctness, duplicate timestamps, HALF-OPEN reporting, authenticated quarantine, device-coordinate validation, named-location routing and route metadata. Test transports contain explicit fixtures; those fixtures do not enter production artifacts.
 
 ## Operator configuration
 

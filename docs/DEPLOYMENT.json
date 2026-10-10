@@ -1,7 +1,7 @@
 {
   "provider": "Vercel",
   "url": "https://prism-pakistan.vercel.app",
-  "deployment_id": "dpl_7P4uxamcftR854pxjLsg2fqsr3RJ",
+  "deployment_id": "dpl_Fy1hjhAoCjvSVwpLpcFEeHS8pEh8",
   "project_id": "prj_1SpCnkoqrkq0D0xpKcz8mLVO3DKm",
   "team_id": "team_uusrGZOTWX7CvZKOiZNfojtt",
   "target": "production",
@@ -25,23 +25,57 @@
   },
   "github_upload": "release source and verification record committed to the existing repository",
   "limitations": [
-    "160-district registry and calibrated hazard models unavailable",
-    "CHIRPS/GDACS integrations incomplete",
-    "Key-dependent source credentials not configured",
-    "Hosted LLM tool calling not configured; local WebGPU model generation unverified",
-    "Real-device flight-mode/PWA installability not verified",
-    "Operational state and quarantine remain instance-local"
+    "Calibrated hazard models, gauge thresholds and district-wide spatial aggregation remain unavailable",
+    "Key-dependent source credentials remain unconfigured",
+    "Hosted LLM agent, durable operations and automated push remain unconfigured",
+    "WorldPop/Overpass spatial integrations remain unavailable",
+    "Real-device PWA/offline and local WebGPU model generation remain unverified"
   ],
   "github_repository": "https://github.com/lockasumsahm/prism-pakistan",
-  "release": "0.2.0",
+  "release": "0.3.0",
   "source_base_commit": "3350186ef19f2d1aeae67ea30d9ac1956bcd7f49",
-  "source_artifact_sha256": "2c71e30d9a733193c3ffdd3851aad4a932788f481952d0f46083c8c37acb6dd6",
-  "local_tests_passed": 59,
+  "source_artifact_sha256": "7fe78ed7b8830c828eb9f00592a8fbc4098ef7476bd3274412eb96ed1f3b0fa5",
+  "local_tests_passed": 73,
   "browser_checks": [
     "reference readings loaded",
     "interactive Leaflet atlas loaded",
     "NASA imagery date and pixel check loaded",
     "seven-section Lahore family briefing returned",
-    "Karachi watchlist save persisted across navigation"
-  ]
+    "Karachi watchlist save persisted across navigation",
+    "Sujawal district search/save",
+    "South Karachi streamed seven-section evidence response",
+    "Live GDACS and USGS reports",
+    "160-record district registry overview"
+  ],
+  "source_commit": "0c6c068759803f3319cf89d6d092a1f85b560d51",
+  "district_registry_records": 160,
+  "named_location_routes": 162,
+  "local_sitemap_routes_verified": 206,
+  "latest_live_checks": {
+    "/api/public/v1/health": {
+      "http": 200,
+      "ok": true,
+      "classification": null
+    },
+    "/api/public/v1/flood-observation?lat=24.38807462&lon=68.15959914": {
+      "http": 200,
+      "ok": true,
+      "classification": "NO_VISIBLE_CLASSIFICATION"
+    },
+    "/api/public/v1/scheduled-briefings": {
+      "http": 200,
+      "ok": true,
+      "classification": null
+    }
+  },
+  "github_workflows": {
+    "verification": {
+      "run_id": 38021299636,
+      "conclusion": "success"
+    },
+    "daily_publication": {
+      "run_id": 38021299646,
+      "conclusion": "success"
+    }
+  }
 }
