@@ -1,7 +1,7 @@
 {
   "provider": "Vercel",
   "url": "https://prism-pakistan.vercel.app",
-  "deployment_id": "dpl_Fy1hjhAoCjvSVwpLpcFEeHS8pEh8",
+  "deployment_id": "dpl_GuBeryJF94QCbcgotKNp6rUVuAbv",
   "project_id": "prj_1SpCnkoqrkq0D0xpKcz8mLVO3DKm",
   "team_id": "team_uusrGZOTWX7CvZKOiZNfojtt",
   "target": "production",
@@ -32,10 +32,10 @@
     "Real-device PWA/offline and local WebGPU model generation remain unverified"
   ],
   "github_repository": "https://github.com/lockasumsahm/prism-pakistan",
-  "release": "0.3.0",
-  "source_base_commit": "3350186ef19f2d1aeae67ea30d9ac1956bcd7f49",
-  "source_artifact_sha256": "7fe78ed7b8830c828eb9f00592a8fbc4098ef7476bd3274412eb96ed1f3b0fa5",
-  "local_tests_passed": 73,
+  "release": "0.4.0",
+  "source_base_commit": "61cabf1007d79eda6b2188dd1d907840478838ba",
+  "source_artifact_sha256": "f3721a7f3e5a890aeaf41729dc4fde52999fd2c652fc80fc34ad873fb9ba8e7f",
+  "local_tests_passed": 84,
   "browser_checks": [
     "reference readings loaded",
     "interactive Leaflet atlas loaded",
@@ -45,37 +45,65 @@
     "Sujawal district search/save",
     "South Karachi streamed seven-section evidence response",
     "Live GDACS and USGS reports",
-    "160-record district registry overview"
+    "160-record district registry overview",
+    "Sukkur detailed forecast search and 48-hour wind chart switch",
+    "CSV and JSON browser downloads contain 168 matching provenance hours",
+    "Forecast-to-river/satellite evidence navigation",
+    "District detail selector navigated from Sukkur to Lahore",
+    "Lahore wind/humidity Officer returned seven complete sections, two actual tool consultations and five provenance envelopes"
   ],
-  "source_commit": "0c6c068759803f3319cf89d6d092a1f85b560d51",
+  "source_commit": "1076a6600d20a91176c468ef827714bb171bb8b0",
   "district_registry_records": 160,
   "named_location_routes": 162,
-  "local_sitemap_routes_verified": 206,
-  "latest_live_checks": {
-    "/api/public/v1/health": {
-      "http": 200,
+  "local_sitemap_routes_verified": 208,
+  "latest_live_checks": [
+    {
+      "path": "/api/public/v1/health",
+      "status": 200,
+      "version": "0.4.0",
       "ok": true,
-      "classification": null
+      "metadata": false
     },
-    "/api/public/v1/flood-observation?lat=24.38807462&lon=68.15959914": {
-      "http": 200,
-      "ok": true,
-      "classification": "NO_VISIBLE_CLASSIFICATION"
+    {
+      "path": "/api/public/v1/readiness",
+      "status": 200,
+      "ready": true,
+      "metadata": false
     },
-    "/api/public/v1/scheduled-briefings": {
-      "http": 200,
+    {
+      "path": "/api/public/v1/weather-detail?location=karachi",
+      "status": 200,
       "ok": true,
-      "classification": null
+      "hours": 168,
+      "windows": 7,
+      "error": null,
+      "metadata": false
+    },
+    {
+      "path": "/forecast?location=karachi",
+      "status": 200,
+      "metadata": true
+    },
+    {
+      "path": "/openapi.json",
+      "status": 200,
+      "metadata": false
     }
-  },
+  ],
   "github_workflows": {
     "verification": {
-      "run_id": 38021299636,
-      "conclusion": "success"
+      "run_id": 38023693352,
+      "conclusion": "success",
+      "commit": "1076a6600d20a91176c468ef827714bb171bb8b0"
     },
     "daily_publication": {
       "run_id": 38021299646,
       "conclusion": "success"
     }
-  }
+  },
+  "previous_release_deployment_id": "dpl_Fy1hjhAoCjvSVwpLpcFEeHS8pEh8",
+  "screenshots": [
+    "docs/screenshots/prism-release.jpg",
+    "docs/screenshots/prism-forecast-release.jpg"
+  ]
 }

@@ -1,4 +1,6 @@
-# Release 0.2 validation — 2026-10-10
+# PRISM validation history — 2026-10-10
+
+Latest verified release: **0.4**, 84 tests, READY production deployment. Historical release evidence follows; current details are in the final section and DEPLOYMENT.json.
 
 ## Current result
 
@@ -41,3 +43,11 @@ Final release: 73 tests pass, including all 206 published sitemap routes checked
 84 automated checks pass, including scoped readiness, the detailed forecast API/MCP/Officer flow, null/zero/incomplete aggregates, CSV provenance and formula-injection protection, disconnected line segments, 208 local sitemap routes with metadata, and the OpenAPI contract. The build syntax-checks every emitted browser module as well as the Worker. A fresh official Open-Meteo request returned HTTP 200 and parsed into 168 future slots, all seven variables usable, plus seven complete rolling windows.
 
 District detail selection now navigates to the chosen district. Changing an overview/map point updates the consulted source ledger alongside measurements. NDJSON section events render progressively. Live deployed browser/export evidence is recorded separately after release; this baseline is not a real-device/offline or commercial certification.
+
+## Release 0.4 live evidence
+
+Production deployment `dpl_GuBeryJF94QCbcgotKNp6rUVuAbv` is READY on the existing alias. Source commit `1076a6600d20a91176c468ef827714bb171bb8b0`; GitHub Verify PRISM run `38023693352` passed. Targeted live health (version 0.4), readiness (four core feeds available), detailed weather (168 hours/seven windows), forecast metadata and OpenAPI checks returned HTTP 200. These are targeted live checks; the 208-route sweep is local.
+
+The browser searched Sukkur, rendered real detailed fields, switched to its 48-hour wind curve, and downloaded CSV plus evidence JSON. Both files contain 168 hourly rows, Sukkur coordinates and the same trace/source provenance. The screenshot is `screenshots/prism-forecast-release.jpg`. Browser console errors inspected were extension metadata messages, not application errors. Print styling and responsive breakpoints are implemented; physical-device, print-output, local WebGPU and flight-mode QA remain unverified.
+
+Further live browser checks verified forecast → river/satellite navigation, switching a district detail page from Sukkur to Lahore, and a Lahore wind/humidity question returning all seven Officer sections with actual district_snapshot/weather_detail consultations and five evidence envelopes. Availability is explicitly distinct from independent hazard confidence.
