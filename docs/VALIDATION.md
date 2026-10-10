@@ -1,6 +1,6 @@
 # PRISM validation history — 2026-10-10
 
-Latest verified release: **0.4**, 84 tests, READY production deployment. Historical release evidence follows; current details are in the final section and DEPLOYMENT.json.
+Latest verified release: **0.4.1**, 91 tests, READY production deployment. Historical release evidence follows; current details are in the final section and DEPLOYMENT.json.
 
 ## Current result
 
@@ -57,3 +57,5 @@ Further live browser checks verified forecast → river/satellite navigation, sw
 Live audit on 2026-10-10 found fourteen successful registered evidence interfaces and five explicit configuration/integration gaps. Core readiness succeeded. Weather/CAMS valid times, USGS generation, past radar, NOAA Kp and GDACS report timestamps matched current-day provider data. CHIRPS was genuine August 31 archive data; scheduled briefings were generated today. Historical archives are not replaced with current-day invented dates.
 
 Corrections anchor the displayed date/clock to server UTC and monotonic elapsed time, expire forecast caches at UTC hour boundaries, distinguish stale/undated/forecast/archive/static statuses, and reject future or old generation/retrieval timestamps in daily collection. Regression coverage includes PKT midnight and UTC midnight; all 91 tests pass after correction.
+
+Post-deployment verification: source commit `8f39b49d944126f89c95be94107d51b5c50baa3f`, READY deployment `dpl_43ikyf3rBxgEHpHS7h14gydmUosU`. All 21 primary pages and five public discovery files returned HTTP 200. Fresh Karachi South, Sukkur, Gilgit and Quetta snapshots plus Lahore detailed weather returned HTTP 200. Browser clock showed 10 October 2026 in PKT, anchored to server time. The ledger retained CHIRPS’s actual 31 August archive date. Verify PRISM run 38024420240 and daily publication run 38024420245 succeeded. Evidence summaries and screenshot are in REAL_DATE_AUDIT.json and screenshots/prism-realdate-release.jpg. Fourteen of nineteen source interfaces returned data; five remained explicitly unavailable. Readiness applies only to four core Karachi point connectors.

@@ -1,7 +1,7 @@
 {
   "provider": "Vercel",
   "url": "https://prism-pakistan.vercel.app",
-  "deployment_id": "dpl_GuBeryJF94QCbcgotKNp6rUVuAbv",
+  "deployment_id": "dpl_43ikyf3rBxgEHpHS7h14gydmUosU",
   "project_id": "prj_1SpCnkoqrkq0D0xpKcz8mLVO3DKm",
   "team_id": "team_uusrGZOTWX7CvZKOiZNfojtt",
   "target": "production",
@@ -32,10 +32,10 @@
     "Real-device PWA/offline and local WebGPU model generation remain unverified"
   ],
   "github_repository": "https://github.com/lockasumsahm/prism-pakistan",
-  "release": "0.4.0",
-  "source_base_commit": "61cabf1007d79eda6b2188dd1d907840478838ba",
-  "source_artifact_sha256": "f3721a7f3e5a890aeaf41729dc4fde52999fd2c652fc80fc34ad873fb9ba8e7f",
-  "local_tests_passed": 84,
+  "release": "0.4.1",
+  "source_base_commit": "4fec591007108379ad58279478e56101acac52e4",
+  "source_artifact_sha256": "f277a5632550d38351864a7ad1525f5183f22a2b050cbd568f687d784206f646",
+  "local_tests_passed": 91,
   "browser_checks": [
     "reference readings loaded",
     "interactive Leaflet atlas loaded",
@@ -50,60 +50,67 @@
     "CSV and JSON browser downloads contain 168 matching provenance hours",
     "Forecast-to-river/satellite evidence navigation",
     "District detail selector navigated from Sukkur to Lahore",
-    "Lahore wind/humidity Officer returned seven complete sections, two actual tool consultations and five provenance envelopes"
+    "Lahore wind/humidity Officer returned seven complete sections, two actual tool consultations and five provenance envelopes",
+    "Server-synchronized PKT clock and date: 10 October 2026",
+    "All 19 source cards distinguish forecast, archive, static, report and offline states",
+    "CHIRPS retains 31 August 2026 upstream archive date"
   ],
-  "source_commit": "1076a6600d20a91176c468ef827714bb171bb8b0",
+  "source_commit": "8f39b49d944126f89c95be94107d51b5c50baa3f",
   "district_registry_records": 160,
   "named_location_routes": 162,
   "local_sitemap_routes_verified": 208,
   "latest_live_checks": [
     {
-      "path": "/api/public/v1/health",
-      "status": 200,
-      "version": "0.4.0",
-      "ok": true,
-      "metadata": false
+      "path": "time",
+      "http": 200
     },
     {
-      "path": "/api/public/v1/readiness",
-      "status": 200,
-      "ready": true,
-      "metadata": false
+      "path": "health",
+      "http": 200
     },
     {
-      "path": "/api/public/v1/weather-detail?location=karachi",
-      "status": 200,
-      "ok": true,
-      "hours": 168,
-      "windows": 7,
-      "error": null,
-      "metadata": false
+      "path": "readiness",
+      "http": 200
     },
     {
-      "path": "/forecast?location=karachi",
-      "status": 200,
-      "metadata": true
+      "path": "districts/karachi-south",
+      "http": 200
     },
     {
-      "path": "/openapi.json",
-      "status": 200,
-      "metadata": false
+      "path": "districts/sukkur",
+      "http": 200
+    },
+    {
+      "path": "districts/quetta",
+      "http": 200
+    },
+    {
+      "path": "weather-detail?location=lahore",
+      "http": 200
+    },
+    {
+      "path": "districts/gilgit",
+      "http": 200
     }
   ],
   "github_workflows": {
     "verification": {
-      "run_id": 38023693352,
+      "run_id": 38024420240,
       "conclusion": "success",
-      "commit": "1076a6600d20a91176c468ef827714bb171bb8b0"
+      "commit": "8f39b49d944126f89c95be94107d51b5c50baa3f"
     },
     "daily_publication": {
-      "run_id": 38021299646,
-      "conclusion": "success"
+      "run_id": 38024420245,
+      "conclusion": "success",
+      "commit": "8f39b49d944126f89c95be94107d51b5c50baa3f"
     }
   },
-  "previous_release_deployment_id": "dpl_Fy1hjhAoCjvSVwpLpcFEeHS8pEh8",
+  "previous_release_deployment_id": "dpl_GuBeryJF94QCbcgotKNp6rUVuAbv",
   "screenshots": [
     "docs/screenshots/prism-release.jpg",
-    "docs/screenshots/prism-forecast-release.jpg"
-  ]
+    "docs/screenshots/prism-forecast-release.jpg",
+    "docs/screenshots/prism-realdate-release.jpg"
+  ],
+  "live_primary_pages_verified": 21,
+  "checked_at": "2026-10-10T04:33:33.677Z"
 }

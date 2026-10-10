@@ -31,7 +31,7 @@ The live browser inspection identified a token-required CARTO basemap image. It 
 
 ## Automated validation
 
-84 tests pass in the dependency-free Node 24 build, including original regressions and new tests for geographic/track cache isolation, cache age and retention, storage failures, precipitation boundary correctness, duplicate timestamps, HALF-OPEN reporting, authenticated quarantine, device-coordinate validation, named-location routing and route metadata. Test transports contain explicit fixtures; those fixtures do not enter production artifacts.
+91 tests pass in the dependency-free Node 24 build, including original regressions and new tests for geographic/track cache isolation, cache age and retention, storage failures, precipitation boundary correctness, duplicate timestamps, HALF-OPEN reporting, authenticated quarantine, device-coordinate validation, named-location routing and route metadata. Test transports contain explicit fixtures; those fixtures do not enter production artifacts.
 
 ## Operator configuration
 
@@ -60,3 +60,5 @@ Live completion checks: GDACS, CHIRPS and daily-archive envelopes returned `ok: 
 The existing site now includes the detailed forecast workspace, hourly model wind/gusts, humidity, apparent temperature and precipitation probability, seven rolling accumulation windows, explicit per-variable coverage, accessible charts/table, complete hourly CSV/JSON and print exports. The OpenAPI specification covers principal implemented read interfaces. Readiness distinguishes application reachability from four-core-feed availability (HTTP 503 when degraded). The tenth MCP tool and Officer weather-detail consultation share the original weather family; they do not increase independent consensus.
 
 The extended provider variables follow [official Open-Meteo documentation](https://open-meteo.com/en/docs). Live upstream validation returned 168 usable future slots for all seven variables. Commercial provider plans, secrets, calibrated hazard models and durable operational services remain explicit launch gates.
+
+The 0.4.1 real-date correction uses server-synchronized time, hourly forecast cache expiry and explicit archive/stale/undated labels. Daily collection rejects future or old publication/retrieval timestamps. Twenty-one primary pages returned HTTP 200 live; 208 sitemap routes passed local metadata checks. Fourteen of nineteen source interfaces returned data. FIRMS, OpenAQ and ReliefWeb require provider configuration; WorldPop and OSM require spatial integrations. These checks do not certify calibrated hazard models or all production features. See REAL_DATE_AUDIT.json and DEPLOYMENT.json.
