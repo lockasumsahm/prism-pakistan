@@ -1,0 +1,567 @@
+{
+  "checked_at": "2026-10-10T11:46:06.193424+00:00",
+  "release": "0.5.1",
+  "deployment_id": "dpl_8sAnXJ4bhiPBSiMzJg7ySsYhhxcU",
+  "source_commit": "5933bb8c499387ba861f6709ed3731a72bf48d3e",
+  "advisories": {
+    "ok": true,
+    "data": {
+      "advisories": [
+        {
+          "title": "NDMA Weather Advisory -9 Oct 2026",
+          "published_date": "2026-10-09",
+          "url": "https://www.ndma.gov.pk//storage/advisories/October2026/6ac8cfe46ded5.pdf"
+        },
+        {
+          "title": "NDMA Weather Advisory - 05 October 2026",
+          "published_date": "2026-10-05",
+          "url": "https://www.ndma.gov.pk//storage/advisories/October2026/6ac38d525bbfa.pdf"
+        },
+        {
+          "title": "NDMA Weather Advisory - 11 Sep 2026",
+          "published_date": "2026-09-11",
+          "url": "https://www.ndma.gov.pk//storage/advisories/September2026/6aa3edb7dfd18.pdf"
+        },
+        {
+          "title": "NDMA Weather Advisory - 2 Sep 2026",
+          "published_date": "2026-09-02",
+          "url": "https://www.ndma.gov.pk//storage/advisories/September2026/6a981c869e237.pdf"
+        },
+        {
+          "title": "NDMA Weather Advisory dated 28 Aug 2026",
+          "published_date": "2026-08-28",
+          "url": "https://www.ndma.gov.pk//storage/advisories/August2026/6a91749fbdd5d.pdf"
+        },
+        {
+          "title": "NDMA Weather Advisory dated 21 Aug 2026",
+          "published_date": "2026-08-21",
+          "url": "https://www.ndma.gov.pk//storage/advisories/August2026/6a885045d4e15.pdf"
+        },
+        {
+          "title": "NDMA Weather Advisory dated 16 August 2026",
+          "published_date": "2026-08-16",
+          "url": "https://www.ndma.gov.pk//storage/advisories/August2026/6a86c3402ee86.pdf"
+        },
+        {
+          "title": "NDMA Weather Advisory - 12 August 2026",
+          "published_date": "2026-08-12",
+          "url": "https://www.ndma.gov.pk//storage/advisories/August2026/6a7c660b2e26b.pdf"
+        },
+        {
+          "title": "NDMA Weather Advisory - 28 July 2026",
+          "published_date": "2026-07-28",
+          "url": "https://www.ndma.gov.pk//storage/advisories/July2026/6a687cf015ff4.pdf"
+        }
+      ],
+      "latest_published_date": "2026-10-09",
+      "scope": "First page of the official national advisory index; not a complete historical or district-filtered warning feed.",
+      "note": "Publication dates have no supplied time of day. Open the official PDF to verify affected areas, instructions and validity. Older documents may have expired. Index availability and an absent district name never establish safety."
+    },
+    "source": {
+      "id": "ndma",
+      "name": "NDMA \u00b7 Official advisory index",
+      "url": "https://ndma.gov.pk/advisories/search",
+      "endpoint": "https://ndma.gov.pk/advisories/search",
+      "tier": 4,
+      "family": "ndma",
+      "temporal_kind": "report",
+      "stale_after_minutes": 60,
+      "license": "Official government publication; source documents retain their rights.",
+      "methodology": "Published titles, date-only labels and document links from the first page of the official NDMA advisory index. Does not interpret PDF contents, validity periods, district applicability or absence of hazards.",
+      "latency_ms": 1488,
+      "updated_at": null,
+      "retrieved_at": "2026-10-10T11:41:42.156Z"
+    },
+    "trace_id": "4a47f757-8e1d-4382-a1b2-32573d2d6ede",
+    "cached": false,
+    "error": null
+  },
+  "sources": [
+    {
+      "id": "open-meteo-weather",
+      "ok": true,
+      "source": {
+        "id": "open-meteo-weather",
+        "name": "Open-Meteo Weather",
+        "url": "https://open-meteo.com/en/docs",
+        "endpoint": "https://api.open-meteo.com/v1/forecast",
+        "tier": 3,
+        "family": "numerical-weather-models",
+        "methodology": "Numerical weather forecast. UTC windows are anchored to request time, not array index. Forecast valid time is not model issuance time.",
+        "temporal_kind": "forecast",
+        "stale_after_minutes": 90,
+        "license": "CC BY 4.0; free API subject to non-commercial limits",
+        "latency_ms": 615,
+        "updated_at": "2026-10-10T11:00:00.000Z",
+        "retrieved_at": "2026-10-10T11:42:13.726Z"
+      },
+      "error": null
+    },
+    {
+      "id": "open-meteo-detail",
+      "ok": true,
+      "source": {
+        "id": "open-meteo-detail",
+        "name": "Open-Meteo \u00b7 Detailed Forecast",
+        "url": "https://open-meteo.com/en/docs",
+        "endpoint": "https://api.open-meteo.com/v1/forecast",
+        "tier": 3,
+        "family": "numerical-weather-models",
+        "methodology": "Seven-day point model outlook with hourly humidity, apparent temperature, precipitation probability and 10 m wind/gusts. Same upstream family as the core weather snapshot.",
+        "temporal_kind": "forecast",
+        "stale_after_minutes": 90,
+        "license": "CC BY 4.0; free API subject to non-commercial limits",
+        "latency_ms": 585,
+        "updated_at": "2026-10-10T12:00:00.000Z",
+        "retrieved_at": "2026-10-10T11:42:13.698Z"
+      },
+      "error": null
+    },
+    {
+      "id": "open-meteo-flood",
+      "ok": true,
+      "source": {
+        "id": "open-meteo-flood",
+        "name": "GloFAS \u00b7 Open-Meteo Flood",
+        "url": "https://open-meteo.com/en/docs/flood-api",
+        "endpoint": "https://flood-api.open-meteo.com/v1/flood",
+        "tier": 3,
+        "family": "glofas",
+        "methodology": "Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.",
+        "temporal_kind": "forecast",
+        "stale_after_minutes": 1440,
+        "license": "CC BY 4.0; free API subject to non-commercial limits",
+        "latency_ms": 402,
+        "updated_at": null,
+        "retrieved_at": "2026-10-10T11:42:13.516Z"
+      },
+      "error": null
+    },
+    {
+      "id": "open-meteo-air",
+      "ok": true,
+      "source": {
+        "id": "open-meteo-air",
+        "name": "CAMS \u00b7 Open-Meteo Air",
+        "url": "https://open-meteo.com/en/docs/air-quality-api",
+        "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality",
+        "tier": 3,
+        "family": "cams",
+        "methodology": "Modelled surface air quality; not a physical ground monitor.",
+        "temporal_kind": "forecast",
+        "stale_after_minutes": 90,
+        "license": "CC BY 4.0; free API subject to non-commercial limits",
+        "latency_ms": 403,
+        "updated_at": "2026-10-10T11:00Z",
+        "retrieved_at": "2026-10-10T11:42:13.519Z"
+      },
+      "error": null
+    },
+    {
+      "id": "elevation",
+      "ok": true,
+      "source": {
+        "id": "elevation",
+        "name": "Copernicus DEM \u00b7 Open-Meteo",
+        "url": "https://open-meteo.com/en/docs/elevation-api",
+        "endpoint": "https://api.open-meteo.com/v1/elevation",
+        "tier": 3,
+        "family": "copernicus-dem",
+        "methodology": "Single-point terrain elevation; slope cannot be derived from a single sample.",
+        "temporal_kind": "static",
+        "stale_after_minutes": 525600,
+        "license": "Provider terms; see linked source",
+        "latency_ms": 589,
+        "updated_at": null,
+        "retrieved_at": "2026-10-10T11:42:13.705Z"
+      },
+      "error": null
+    },
+    {
+      "id": "usgs",
+      "ok": true,
+      "source": {
+        "id": "usgs",
+        "name": "USGS Earthquake Hazards",
+        "url": "https://earthquake.usgs.gov",
+        "endpoint": "https://earthquake.usgs.gov/fdsnws/event/1/query",
+        "tier": 1,
+        "family": "usgs",
+        "methodology": "Instrument-derived events within a rectangular monitoring area; includes cross-border events. No geographic district attribution.",
+        "temporal_kind": "observation",
+        "stale_after_minutes": 15,
+        "license": "Provider terms; see linked source",
+        "latency_ms": 318,
+        "updated_at": "2026-10-10T11:42:13.000Z",
+        "retrieved_at": "2026-10-10T11:42:13.435Z"
+      },
+      "error": null
+    },
+    {
+      "id": "rainviewer",
+      "ok": true,
+      "source": {
+        "id": "rainviewer",
+        "name": "RainViewer Radar",
+        "url": "https://www.rainviewer.com/api/transition-faq.html",
+        "endpoint": "https://api.rainviewer.com/public/weather-maps.json",
+        "tier": 2,
+        "family": "radar-networks",
+        "methodology": "Past radar tile metadata only. Local coverage is not guaranteed. Public nowcast discontinued January 2026.",
+        "temporal_kind": "observation",
+        "stale_after_minutes": 20,
+        "license": "Provider terms; see linked source",
+        "latency_ms": 331,
+        "updated_at": "2026-10-10T11:40:00.000Z",
+        "retrieved_at": "2026-10-10T11:42:13.449Z"
+      },
+      "error": null
+    },
+    {
+      "id": "noaa",
+      "ok": true,
+      "source": {
+        "id": "noaa",
+        "name": "NOAA Space Weather",
+        "url": "https://www.swpc.noaa.gov",
+        "endpoint": "https://services.swpc.noaa.gov/json/planetary_k_index_1m.json",
+        "tier": 1,
+        "family": "noaa",
+        "methodology": "Estimated planetary Kp index. Global geomagnetic context; not a local climate hazard.",
+        "temporal_kind": "observation",
+        "stale_after_minutes": 15,
+        "license": "Provider terms; see linked source",
+        "latency_ms": 44,
+        "updated_at": "2026-10-10T11:39:00.000Z",
+        "retrieved_at": "2026-10-10T11:42:13.163Z"
+      },
+      "error": null
+    },
+    {
+      "id": "reliefweb",
+      "ok": false,
+      "source": {
+        "id": "reliefweb",
+        "name": "UN OCHA ReliefWeb",
+        "url": "https://reliefweb.int",
+        "endpoint": "https://api.reliefweb.int/v2/reports",
+        "tier": 4,
+        "family": "ocha",
+        "methodology": "Human-curated Pakistan reports. Report time and retrieval time remain separate.",
+        "temporal_kind": "report",
+        "stale_after_minutes": 1440,
+        "license": "Provider terms; see linked source",
+        "latency_ms": 13,
+        "updated_at": null,
+        "retrieved_at": "2026-10-10T11:42:13.133Z"
+      },
+      "error": {
+        "code": "CONFIGURATION_REQUIRED",
+        "message": "Approved ReliefWeb application name is not configured"
+      }
+    },
+    {
+      "id": "firms",
+      "ok": true,
+      "source": {
+        "id": "firms",
+        "name": "NASA FIRMS \u00b7 VIIRS SNPP",
+        "url": "https://firms.modaps.eosdis.nasa.gov/api/area/",
+        "endpoint": "https://firms.modaps.eosdis.nasa.gov/data/active_fire/suomi-npp-viirs-c2/csv/SUOMI_VIIRS_C2_South_Asia_24h.csv",
+        "tier": 2,
+        "family": "viirs",
+        "methodology": "Public NASA South Asia VIIRS SNPP file, filtered to the monitoring rectangle. Provider file timestamps can lag; detections are not confirmed wildfire perimeters.",
+        "temporal_kind": "observation",
+        "stale_after_minutes": 360,
+        "license": "Provider terms; see linked source",
+        "latency_ms": 102,
+        "updated_at": "2026-10-09T21:50:00Z",
+        "retrieved_at": "2026-10-10T11:42:13.222Z"
+      },
+      "error": null
+    },
+    {
+      "id": "eonet",
+      "ok": true,
+      "source": {
+        "id": "eonet",
+        "name": "NASA EONET",
+        "url": "https://eonet.gsfc.nasa.gov/docs/v3",
+        "endpoint": "https://eonet.gsfc.nasa.gov/api/v3/events",
+        "tier": 4,
+        "family": "curated-event-catalog",
+        "methodology": "Curated event metadata intersecting the monitoring rectangle; upstream references can overlap other sources.",
+        "temporal_kind": "report",
+        "stale_after_minutes": 1440,
+        "license": "Provider terms; see linked source",
+        "latency_ms": 2824,
+        "updated_at": null,
+        "retrieved_at": "2026-10-10T11:42:15.945Z"
+      },
+      "error": null
+    },
+    {
+      "id": "openaq",
+      "ok": false,
+      "source": {
+        "id": "openaq",
+        "name": "OpenAQ Ground Monitors",
+        "url": "https://docs.openaq.org/resources/latest",
+        "endpoint": "https://api.openaq.org/v3/locations",
+        "tier": 1,
+        "family": "ground-monitor-providers",
+        "methodology": "Latest PM2.5 readings joined to station sensor metadata. Samples up to five fixed Pakistan stations, not nationwide coverage.",
+        "temporal_kind": "observation",
+        "stale_after_minutes": 90,
+        "license": "Provider terms; see linked source",
+        "latency_ms": 10,
+        "updated_at": null,
+        "retrieved_at": "2026-10-10T11:42:13.133Z"
+      },
+      "error": {
+        "code": "CONFIGURATION_REQUIRED",
+        "message": "OpenAQ API key is not configured"
+      }
+    },
+    {
+      "id": "power",
+      "ok": true,
+      "source": {
+        "id": "power",
+        "name": "NASA POWER Daily Archive",
+        "url": "https://power.larc.nasa.gov/docs/services/api/temporal/daily/",
+        "endpoint": "https://power.larc.nasa.gov/api/temporal/daily/point",
+        "tier": 3,
+        "family": "nasa-power",
+        "methodology": "Daily gridded solar and meteorological archive, UTC, seven-day window ending seven days before retrieval. Not a climate baseline or ground observation.",
+        "temporal_kind": "observation",
+        "stale_after_minutes": 14400,
+        "license": "Provider terms; see linked source",
+        "latency_ms": 488,
+        "updated_at": null,
+        "retrieved_at": "2026-10-10T11:42:13.612Z"
+      },
+      "error": null
+    },
+    {
+      "id": "gdacs",
+      "ok": true,
+      "source": {
+        "id": "gdacs",
+        "name": "GDACS Disaster Alerts",
+        "url": "https://www.gdacs.org/feed_reference.aspx",
+        "endpoint": "https://www.gdacs.org/gdacsapi/api/events/geteventlist/SEARCH",
+        "tier": 4,
+        "family": "gdacs",
+        "methodology": "GDACS reported events explicitly naming Pakistan as an affected country. Seven-day event-end search, bounded pagination; no district impact inference. No reported events does not establish safety.",
+        "temporal_kind": "report",
+        "stale_after_minutes": 30,
+        "license": "GDACS attribution required; provider disclaimer applies",
+        "latency_ms": 1255,
+        "updated_at": "2026-10-10T11:21:45.000Z",
+        "retrieved_at": "2026-10-10T11:42:14.380Z"
+      },
+      "error": null
+    },
+    {
+      "id": "ndma",
+      "ok": true,
+      "source": {
+        "id": "ndma",
+        "name": "NDMA \u00b7 Official advisory index",
+        "url": "https://ndma.gov.pk/advisories/search",
+        "endpoint": "https://ndma.gov.pk/advisories/search",
+        "tier": 4,
+        "family": "ndma",
+        "temporal_kind": "report",
+        "stale_after_minutes": 60,
+        "license": "Official government publication; source documents retain their rights.",
+        "methodology": "Published titles, date-only labels and document links from the first page of the official NDMA advisory index. Does not interpret PDF contents, validity periods, district applicability or absence of hazards.",
+        "latency_ms": 1488,
+        "updated_at": null,
+        "retrieved_at": "2026-10-10T11:41:42.156Z"
+      },
+      "error": null
+    },
+    {
+      "id": "chirps",
+      "ok": true,
+      "source": {
+        "id": "chirps",
+        "name": "CHIRPS \u00b7 ClimateSERV",
+        "url": "https://climateserv.servirglobal.net/develop-api",
+        "endpoint": "https://climateserv.servirglobal.net/api/submitDataRequest/",
+        "tier": 2,
+        "family": "chirps-station-satellite-blend",
+        "methodology": "Daily CHIRPS area-mean rainfall over a 0.05\u00b0 square around the selected point. Latest thirty usable calendar days within a ninety-day query ending ten days before retrieval; publication lag and missing granules remain explicit. Not a forecast or gauge reading.",
+        "temporal_kind": "observation",
+        "stale_after_minutes": 43200,
+        "license": "UCSB CHIRPS / ClimateSERV provider terms; attribution required",
+        "latency_ms": 4636,
+        "updated_at": "2026-08-31T00:00:00Z",
+        "retrieved_at": "2026-10-10T11:42:17.763Z"
+      },
+      "error": null
+    },
+    {
+      "id": "daily-archive",
+      "ok": true,
+      "source": {
+        "id": "daily-archive",
+        "name": "PRISM scheduled evidence archive",
+        "url": "https://github.com/lockasumsahm/prism-pakistan/actions/workflows/daily-briefings.yml",
+        "endpoint": "https://raw.githubusercontent.com/lockasumsahm/prism-pakistan/main/data/daily-briefings.json",
+        "tier": 4,
+        "family": "prism-derived-archive",
+        "methodology": "Daily derived snapshot of public evidence briefings; inherits original connector families, timestamps and limitations. This archive is not an independent source. GitHub scheduling may be delayed.",
+        "temporal_kind": "report",
+        "stale_after_minutes": 1800,
+        "license": "Original upstream licences apply to embedded evidence",
+        "latency_ms": 114,
+        "updated_at": "2026-10-10T04:32:30.918Z",
+        "retrieved_at": "2026-10-10T11:42:13.243Z"
+      },
+      "error": null
+    },
+    {
+      "id": "worldpop",
+      "ok": true,
+      "source": {
+        "id": "worldpop",
+        "name": "WorldPop Population Context",
+        "url": "https://api.worldpop.org/v2/",
+        "endpoint": "https://api.worldpop.org/v2/population",
+        "tier": 3,
+        "family": "worldpop-global2",
+        "methodology": "Provider-calculated 2025 population estimate in a 0.01-degree square around the selected point, using 100 m WorldPop data. Not district population, current census or flood-exposed population.",
+        "temporal_kind": "static",
+        "stale_after_minutes": 1440,
+        "license": "CC BY 4.0 \u00b7 WorldPop",
+        "latency_ms": 1661,
+        "updated_at": null,
+        "retrieved_at": "2026-10-10T11:42:14.791Z"
+      },
+      "error": null
+    },
+    {
+      "id": "osm",
+      "ok": true,
+      "source": {
+        "id": "osm",
+        "name": "OpenStreetMap Nearby Facilities",
+        "url": "https://wiki.openstreetmap.org/wiki/API_v0.6",
+        "endpoint": "https://api.openstreetmap.org/api/0.6/map.json",
+        "tier": 4,
+        "family": "openstreetmap",
+        "methodology": "Mapped school, hospital, clinic and fire-station nodes and ways in a 0.01-degree query square. Way coordinates are bounding-box centres, not entrances. Relations, mapping completeness, opening status and route safety are not assessed.",
+        "temporal_kind": "static",
+        "stale_after_minutes": 1440,
+        "license": "ODbL \u00b7 \u00a9 OpenStreetMap contributors",
+        "latency_ms": 845,
+        "updated_at": null,
+        "retrieved_at": "2026-10-10T11:42:13.976Z"
+      },
+      "error": null
+    },
+    {
+      "id": "nasa-gibs",
+      "ok": true,
+      "source": {
+        "id": "nasa-gibs",
+        "name": "NASA GIBS Flood Imagery",
+        "url": "https://nasa-gibs.github.io/gibs-api-docs/access-basics/",
+        "endpoint": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi",
+        "tier": 2,
+        "family": "modis-viirs",
+        "methodology": "NASA LANCE MODIS 3-day flood classification and VIIRS imagery. Metadata describes global publication periods, not clear-sky coverage at a coordinate. Clouds and insufficient data do not mean no flooding.",
+        "temporal_kind": "observation",
+        "stale_after_minutes": 1440,
+        "license": "NASA Earthdata open imagery; acknowledge NASA GIBS/LANCE",
+        "latency_ms": 160,
+        "updated_at": null,
+        "retrieved_at": "2026-10-10T11:41:57.342Z"
+      },
+      "error": null
+    }
+  ],
+  "officer": {
+    "sections": [
+      {
+        "title": "Executive Answer",
+        "text": "Sukkur: PRISM cannot determine local flood danger, route safety, school closures or evacuation needs from the available model evidence. Check the dated official advisories below and confirm instructions with local authorities. Available source-backed readings follow; missing calibration is not an API outage."
+      },
+      {
+        "title": "Current Situation",
+        "text": "Model forecast valid 2026-10-10T11:00:00.000Z: temperature 37.7 \u00b0C, next 24-hour rainfall 0.0 mm. NDMA latest listed publication: NDMA Weather Advisory -9 Oct 2026, published 2026-10-09 (date only). Source: https://www.ndma.gov.pk//storage/advisories/October2026/6ac8cfe46ded5.pdf. Publication dates have no supplied time of day. Open the official PDF to verify affected areas, instructions and validity. Older documents may have expired. Index availability and an absent district name never establish safety."
+      },
+      {
+        "title": "What May Happen Next",
+        "text": "Modelled seven-day cumulative rainfall: 0.0 mm. This is a forecast, not an observed rainfall total."
+      },
+      {
+        "title": "Why It Matters",
+        "text": "Population exposure, road disruption and infrastructure impacts cannot be quantified without validated geospatial evidence."
+      },
+      {
+        "title": "Confidence & Evidence",
+        "text": "INSUFFICIENT for critical alerts. 5/5 consulted connectors returned data. Availability is not a calibrated confidence score or independent hazard consensus."
+      },
+      {
+        "title": "Recommended Operational Actions",
+        "text": "Check official PMD and NDMA advisories before decisions. Do not treat an unavailable or unassessed status as safe. Avoid entering floodwater when an official warning is issued. Read the latest NDMA source document: https://www.ndma.gov.pk//storage/advisories/October2026/6ac8cfe46ded5.pdf. PRISM has not interpreted its PDF or verified that it applies to Sukkur."
+      },
+      {
+        "title": "Verifiable Sources",
+        "text": "Open-Meteo Weather: retrieved 2026-10-10T11:42:13.705Z \u00b7 GloFAS \u00b7 Open-Meteo Flood: retrieved 2026-10-10T11:42:13.570Z \u00b7 CAMS \u00b7 Open-Meteo Air: retrieved 2026-10-10T11:42:13.572Z \u00b7 Copernicus DEM \u00b7 Open-Meteo: retrieved 2026-10-10T11:42:13.611Z \u00b7 NDMA \u00b7 Official advisory index: retrieved 2026-10-10T11:42:15.147Z"
+      }
+    ],
+    "tool_calls": [
+      {
+        "tool": "district_snapshot",
+        "arguments": {
+          "slug": "sukkur"
+        },
+        "sources": [
+          "open-meteo-weather",
+          "open-meteo-flood",
+          "open-meteo-air",
+          "elevation"
+        ]
+      },
+      {
+        "tool": "official_advisories",
+        "arguments": {},
+        "sources": [
+          "ndma"
+        ]
+      }
+    ],
+    "coverage": {
+      "available": 5,
+      "total": 5,
+      "meaning": "Connector availability, not hazard confidence"
+    }
+  },
+  "configuration": {
+    "configuration": [
+      {
+        "name": "OPENAQ_KEY",
+        "purpose": "Physical PM2.5 monitors",
+        "configured": false
+      },
+      {
+        "name": "RELIEFWEB_APPNAME",
+        "purpose": "Approved ReliefWeb report client",
+        "configured": false
+      },
+      {
+        "name": "PRISM_OPERATOR_TOKEN",
+        "purpose": "Authenticated connector quarantine",
+        "configured": false
+      }
+    ],
+    "districts": 160,
+    "hazard_calibrated": false
+  },
+  "scope": "Retrieval availability is separate from freshness, official advisory validity, local applicability, hazard calibration and production certification."
+}

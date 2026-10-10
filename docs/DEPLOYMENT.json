@@ -1,28 +1,11 @@
 {
   "provider": "Vercel",
   "url": "https://prism-pakistan.vercel.app",
-  "deployment_id": "dpl_Hdg4jwiHccJh6Yh8r69Sfkc5KSbA",
+  "deployment_id": "dpl_8sAnXJ4bhiPBSiMzJg7ySsYhhxcU",
   "project_id": "prj_1SpCnkoqrkq0D0xpKcz8mLVO3DKm",
   "team_id": "team_uusrGZOTWX7CvZKOiZNfojtt",
   "target": "production",
   "state": "READY",
-  "live_checks": {
-    "home": 200,
-    "dashboard": 200,
-    "briefings": 200,
-    "app_js": 200,
-    "styles_css": 200,
-    "health": 200,
-    "karachi_snapshot": 200,
-    "reference_overview": 200,
-    "reference_locations": 12,
-    "available_weather_locations": 12,
-    "nasa_publication_metadata": 200,
-    "nasa_flood_png_tile": 200,
-    "nasa_viirs_jpeg_tile": 200,
-    "coordinate_snapshot": 200,
-    "nasa_pixel_decode": 200
-  },
   "github_upload": "release source and verification record committed to the existing repository",
   "limitations": [
     "Calibrated hazard models, gauge thresholds and district-wide spatial aggregation remain unavailable",
@@ -32,10 +15,10 @@
     "Real-device PWA/offline and local WebGPU model generation remain unverified"
   ],
   "github_repository": "https://github.com/lockasumsahm/prism-pakistan",
-  "release": "0.5.0",
+  "release": "0.5.1",
   "source_base_commit": "4fec591007108379ad58279478e56101acac52e4",
-  "source_artifact_sha256": "ccba7dedc4540dc2d458de77047c73c73790707a201e630aafa15970df3d90ab",
-  "local_tests_passed": 100,
+  "source_artifact_sha256": "7d7b38f22a988ab2c5323fcfdc00712581d23094aee5b1f827570b70d19adf75",
+  "local_tests_passed": 104,
   "browser_checks": [
     "reference readings loaded",
     "interactive Leaflet atlas loaded",
@@ -55,51 +38,48 @@
     "All 19 source cards distinguish forecast, archive, static, report and offline states",
     "CHIRPS retains 31 August 2026 upstream archive date",
     "Karachi community context displayed real WorldPop 2025 estimate and seven mapped facilities with separate source envelopes",
-    "Community context layout and query scope verified on final deployment"
+    "Community context layout and query scope verified on final deployment",
+    "Sukkur distinguishes 4/4 returned core feeds from FLOOD RISK NOT ASSESSED and links to official advisories",
+    "Final alerts page displays nine official NDMA document links with date-only publication labels; no horizontal overflow in desktop viewport"
   ],
-  "source_commit": "9e46dd9d025fef758a9095e7841fd69e1b9d8fac",
+  "source_commit": "5933bb8c499387ba861f6709ed3731a72bf48d3e",
   "district_registry_records": 160,
   "named_location_routes": 162,
-  "local_sitemap_routes_verified": 208,
+  "local_sitemap_routes_verified": 209,
   "latest_live_checks": [
     {
-      "path": "time",
-      "http": 200
-    },
-    {
       "path": "health",
-      "http": 200
+      "http": 200,
+      "version": "0.5.1"
     },
     {
-      "path": "readiness",
-      "http": 200
+      "path": "advisories",
+      "http": 200,
+      "ok": true,
+      "documents": 9
     },
     {
-      "path": "districts/karachi-south",
-      "http": 200
+      "path": "sources",
+      "http": 200,
+      "returned_data": 18,
+      "registered": 20
     },
     {
-      "path": "districts/sukkur",
-      "http": 200
-    },
-    {
-      "path": "districts/quetta",
-      "http": 200
-    },
-    {
-      "path": "weather-detail?location=lahore",
-      "http": 200
-    },
-    {
-      "path": "districts/gilgit",
-      "http": 200
+      "path": "/api/officer",
+      "http": 200,
+      "sections": 7,
+      "tools": [
+        "district_snapshot",
+        "official_advisories"
+      ]
     }
   ],
   "github_workflows": {
     "verification": {
       "run_id": 38035286869,
       "conclusion": "success",
-      "commit": "9e46dd9d025fef758a9095e7841fd69e1b9d8fac"
+      "commit": "9e46dd9d025fef758a9095e7841fd69e1b9d8fac",
+      "scope": "Historical 0.5.0 run; latest 0.5.1 verified locally with 104 passing tests"
     },
     "daily_publication": {
       "run_id": 38024420245,
@@ -107,126 +87,186 @@
       "commit": "8f39b49d944126f89c95be94107d51b5c50baa3f"
     }
   },
-  "previous_release_deployment_id": "dpl_43ikyf3rBxgEHpHS7h14gydmUosU",
+  "previous_release_deployment_id": "dpl_Hdg4jwiHccJh6Yh8r69Sfkc5KSbA",
   "screenshots": [
     "docs/screenshots/prism-release.jpg",
     "docs/screenshots/prism-forecast-release.jpg",
     "docs/screenshots/prism-realdate-release.jpg",
-    "docs/screenshots/prism-community-final.jpg"
+    "docs/screenshots/prism-community-final.jpg",
+    "docs/screenshots/prism-ndma-advisories.jpg"
   ],
   "live_primary_pages_verified": 21,
-  "checked_at": "2026-10-10T07:43:54.761614+00:00",
-  "connector_source_commit": "a9c0626141ea04246db6acfac916df918def9a0f",
-  "sources_returned_data": 17,
-  "sources_registered": 19,
+  "checked_at": "2026-10-10T11:46:06.193424+00:00",
+  "connector_source_commit": "5dbda530bd7c8039632e51b4990d2911530c0c78",
+  "sources_returned_data": 18,
+  "sources_registered": 20,
   "latest_live_routes": {
-    "checked_at": "2026-10-10T07:43:16.340597+00:00",
+    "checked_at": "2026-10-10T11:46:06.193424+00:00",
     "routes": [
       {
         "path": "/",
-        "http": 200,
-        "metadata": true
-      },
-      {
-        "path": "/forecast",
-        "http": 200,
-        "metadata": true
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
         "path": "/map",
-        "http": 200,
-        "metadata": true
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
+      },
+      {
+        "path": "/forecast",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
         "path": "/dashboard",
-        "http": 200,
-        "metadata": true
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
         "path": "/officer",
-        "http": 200,
-        "metadata": true
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
         "path": "/briefings",
-        "http": 200,
-        "metadata": true
-      },
-      {
-        "path": "/watch",
-        "http": 200,
-        "metadata": true
-      },
-      {
-        "path": "/widget",
-        "http": 200,
-        "metadata": true
-      },
-      {
-        "path": "/sources",
-        "http": 200,
-        "metadata": true
-      },
-      {
-        "path": "/ops",
-        "http": 200,
-        "metadata": true
-      },
-      {
-        "path": "/methodology",
-        "http": 200,
-        "metadata": true
-      },
-      {
-        "path": "/api",
-        "http": 200,
-        "metadata": true
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
         "path": "/alerts",
-        "http": 200,
-        "metadata": true
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
-        "path": "/auth",
-        "http": 200,
-        "metadata": true
+        "path": "/watch",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
-        "path": "/reset-password",
-        "http": 200,
-        "metadata": true
+        "path": "/widget",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
-        "path": "/settings.connectors",
-        "http": 200,
-        "metadata": true
+        "path": "/sources",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
-        "path": "/settings.developer",
-        "http": 200,
-        "metadata": true
+        "path": "/ops",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
+      },
+      {
+        "path": "/methodology",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
         "path": "/privacy",
-        "http": 200,
-        "metadata": true
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
         "path": "/terms",
-        "http": 200,
-        "metadata": true
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
         "path": "/changelog",
-        "http": 200,
-        "metadata": true
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       },
       {
         "path": "/contact",
-        "http": 200,
-        "metadata": true
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
+      },
+      {
+        "path": "/auth",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
+      },
+      {
+        "path": "/reset-password",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
+      },
+      {
+        "path": "/settings.connectors",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
+      },
+      {
+        "path": "/settings.developer",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
+      },
+      {
+        "path": "/api",
+        "status": 200,
+        "title": true,
+        "canonical": true,
+        "opengraph": true
       }
     ]
+  },
+  "historical_live_checks": {
+    "home": 200,
+    "dashboard": 200,
+    "briefings": 200,
+    "app_js": 200,
+    "styles_css": 200,
+    "health": 200,
+    "karachi_snapshot": 200,
+    "reference_overview": 200,
+    "reference_locations": 12,
+    "available_weather_locations": 12,
+    "nasa_publication_metadata": 200,
+    "nasa_flood_png_tile": 200,
+    "nasa_viirs_jpeg_tile": 200,
+    "coordinate_snapshot": 200,
+    "nasa_pixel_decode": 200
   }
 }
