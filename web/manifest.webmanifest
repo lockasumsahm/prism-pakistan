@@ -1,1 +1,33 @@
-{"name":"PRISM Pakistan Climate Intelligence","short_name":"PRISM","start_url":"/widget","display":"standalone","background_color":"#ffffff","theme_color":"#172b25","icons":[{"src":"/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}
+{
+  "name": "PRISM Pakistan Climate Intelligence",
+  "short_name": "PRISM",
+  "start_url": "/widget",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#172b25",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "id": "/",
+  "scope": "/",
+  "description": "Traceable climate evidence for Pakistan",
+  "shortcuts": [
+    {
+      "name": "Climate widget",
+      "url": "/widget"
+    },
+    {
+      "name": "My saved places",
+      "url": "/watch"
+    },
+    {
+      "name": "Evidence officer",
+      "url": "/officer"
+    }
+  ]
+}

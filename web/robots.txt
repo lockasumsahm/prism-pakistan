@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/officer
+Sitemap: https://prism-pakistan.vercel.app/sitemap.xml

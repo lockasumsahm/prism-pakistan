@@ -5,7 +5,7 @@ export const nasaLayers = {
  flood: { id:'MODIS_Combined_Flood_3-Day', title:'NASA MODIS · 3-day flood composite', format:'png', matrix:'GoogleMapsCompatible_Level9', maxZoom:9 },
  truecolor: { id:'VIIRS_SNPP_CorrectedReflectance_TrueColor', title:'NASA VIIRS · true colour', format:'jpg', matrix:'GoogleMapsCompatible_Level9', maxZoom:9 },
 };
-const nasaSpec:SourceSpec={id:'nasa-gibs',name:'NASA GIBS Flood Imagery',url:'https://nasa-gibs.github.io/gibs-api-docs/access-basics/',tier:2,family:'modis-viirs',methodology:'NASA LANCE MODIS 3-day flood classification and VIIRS imagery. Metadata describes global publication periods, not clear-sky coverage at a coordinate. Clouds and insufficient data do not mean no flooding.',temporal_kind:'observation',stale_after_minutes:1440,license:'NASA Earthdata open imagery; acknowledge NASA GIBS/LANCE'};
+const nasaSpec:SourceSpec={id:'nasa-gibs',name:'NASA GIBS Flood Imagery',url:'https://nasa-gibs.github.io/gibs-api-docs/access-basics/',endpoint:'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi',tier:2,family:'modis-viirs',methodology:'NASA LANCE MODIS 3-day flood classification and VIIRS imagery. Metadata describes global publication periods, not clear-sky coverage at a coordinate. Clouds and insufficient data do not mean no flooding.',temporal_kind:'observation',stale_after_minutes:1440,license:'NASA Earthdata open imagery; acknowledge NASA GIBS/LANCE'};
 export function domainLatest(xml:string):string {
  if(/<!DOCTYPE|<!ENTITY/i.test(xml))throw new FeedError('INVALID_PAYLOAD','XML entities are not permitted');
  const domain=xml.match(/<(?:\w+:)?Domain\b[^>]*>([^<]+)<\/(?:\w+:)?Domain>/)?.[1];

@@ -6,6 +6,12 @@ An evidence-first climate intelligence pilot for Pakistan. A responsive institut
 
 **Live pilot:** https://prism-pakistan.vercel.app
 
+## Release 0.2 — existing-site update
+
+Adds scoped historical widget caching, remembered places, PWA shortcuts, per-reading provenance inspection, missing-data briefing footers, GPS point evidence, named-question location routing, server-rendered route metadata, public API documentation and crawler files. Rainfall aggregation now respects Open-Meteo preceding-hour intervals. The operations ledger reports recovery state and supports authenticated, instance-local quarantine.
+
+See [the production verification matrix](docs/PRODUCTION_VERIFICATION.md) for the supplied checklist and remaining certification requirements. 59 automated tests pass; this remains a pilot with 12 reference points and unassessed hazard scores.
+
 ## Run
 
 Requires Node.js 24 or newer. No dependency installation is needed.
@@ -62,6 +68,7 @@ Use deployment secrets or the process environment, never client-side settings or
 - `OPENAQ_KEY`: OpenAQ v3 key.
 - `NASA_FIRMS_KEY`: NASA FIRMS MAP_KEY.
 - `RELIEFWEB_APPNAME`: approved ReliefWeb application name.
+- `PRISM_OPERATOR_TOKEN`: optional server-side token of at least 32 characters for instance-local quarantine controls.
 
 For local use, export required variables in your shell before `npm run dev`. The app does not automatically load `.env`. Cloudflare `env` bindings are passed into the connector configuration. Public responses never include keys or credential-bearing request URLs.
 
@@ -88,6 +95,8 @@ Open-Meteo's free endpoint is subject to its non-commercial limits. Review provi
 | `GET /api/public/v1/active-fires` | Thermal anomalies, not verified wildfire extent |
 | `GET /api/public/v1/events` | NASA EONET event metadata |
 | `GET /api/public/v1/advisories` | Explicit unavailable official-advisory status |
+| `GET /api/public/v1/point?lat=24.8607&lon=67.0011` | Device-coordinate model evidence; no district attribution |
+| `POST /api/ops/quarantine` | Operator-authorized instance-local pause/release |
 | `POST /api/officer` | `{ "message": "...", "location": "karachi" }` |
 | `POST /mcp` | Stateless MCP JSON-RPC initialize / tools/list / tools/call |
 

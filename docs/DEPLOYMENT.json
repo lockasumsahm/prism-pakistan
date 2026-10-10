@@ -1,10 +1,9 @@
 {
   "provider": "Vercel",
   "url": "https://prism-pakistan.vercel.app",
-  "deployment_id": "dpl_65o6pjAN9AeQKphVdFbB3uN2BKYr",
+  "deployment_id": "dpl_7P4uxamcftR854pxjLsg2fqsr3RJ",
   "project_id": "prj_1SpCnkoqrkq0D0xpKcz8mLVO3DKm",
   "team_id": "team_uusrGZOTWX7CvZKOiZNfojtt",
-  "source_commit": "96a78a7",
   "target": "production",
   "state": "READY",
   "live_checks": {
@@ -24,13 +23,25 @@
     "coordinate_snapshot": 200,
     "nasa_pixel_decode": 200
   },
-  "github_upload": "verified",
+  "github_upload": "release source and verification record committed to the existing repository",
   "limitations": [
-    "Browser rendering unverified",
-    "Local WebGPU AI model download/generation unverified",
-    "Cloud auth and hosted LLM not configured",
-    "Hazard risk calibration unavailable"
+    "160-district registry and calibrated hazard models unavailable",
+    "CHIRPS/GDACS integrations incomplete",
+    "Key-dependent source credentials not configured",
+    "Hosted LLM tool calling not configured; local WebGPU model generation unverified",
+    "Real-device flight-mode/PWA installability not verified",
+    "Operational state and quarantine remain instance-local"
   ],
   "github_repository": "https://github.com/lockasumsahm/prism-pakistan",
-  "github_source_commit": "fe4394ce15bb47bf1a26c9ec5920535aa7a962f1"
+  "release": "0.2.0",
+  "source_base_commit": "3350186ef19f2d1aeae67ea30d9ac1956bcd7f49",
+  "source_artifact_sha256": "2c71e30d9a733193c3ffdd3851aad4a932788f481952d0f46083c8c37acb6dd6",
+  "local_tests_passed": 59,
+  "browser_checks": [
+    "reference readings loaded",
+    "interactive Leaflet atlas loaded",
+    "NASA imagery date and pixel check loaded",
+    "seven-section Lahore family briefing returned",
+    "Karachi watchlist save persisted across navigation"
+  ]
 }

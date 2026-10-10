@@ -1,9 +1,22 @@
 import { readFile, writeFile, mkdir, readdir, rename } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { stripTypeScriptTypes } from 'node:module';
-const modules=['lib/climate/connectors/base.ts','lib/climate/locations.ts','lib/climate/consensus.ts','lib/climate/connectors/feeds.ts','lib/climate/connectors/imagery.ts','lib/climate/service.ts'];
+const modules=['lib/climate/connectors/base.ts','lib/climate/locations.ts','lib/climate/consensus.ts','lib/climate/connectors/feeds.ts','lib/climate/connectors/imagery.ts','lib/climate/service.ts','lib/climate/pages.ts'];
 const assets={};
 const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.webmanifest':'application/manifest+json'};
 for(const file of await readdir('web')){const extension=file.slice(file.lastIndexOf('.'));assets['/'+file]={body:await readFile('web/'+file,'utf8'),type:types[extension]??'text/plain'};}
+// Fingerprint browser assets so a new deployment cannot execute an older cached module.
+const fingerprint=body=>createHash('sha256').update(body).digest('hex').slice(0,12);
+const cachePath='/evidence-cache.js?v='+fingerprint(assets['/evidence-cache.js'].body);
+assets['/app.js'].body=assets['/app.js'].body.replace("'/evidence-cache.js'",JSON.stringify(cachePath));
+for(const name of ['live-map','free-ai'])assets['/app.js'].body=assets['/app.js'].body.replace("'./"+name+".js'",JSON.stringify('/'+name+'.js?v='+fingerprint(assets['/'+name+'.js'].body)));
+const appPath='/app.js?v='+fingerprint(assets['/app.js'].body);
+const stylePath='/styles.css?v='+fingerprint(assets['/styles.css'].body);
+assets['/index.html'].body=assets['/index.html'].body.replace('src="/app.js"','src="'+appPath+'"').replace('href="/styles.css"','href="'+stylePath+'"');
+assets['/sw.js'].body=assets['/sw.js'].body.replace("prism-shell-v2","prism-shell-"+fingerprint(appPath+stylePath)).replace("'/app.js'",JSON.stringify(appPath)).replace("'/styles.css'",JSON.stringify(stylePath)).replace("'/evidence-cache.js'",JSON.stringify(cachePath));
+for(const name of ['live-map','free-ai'])assets['/sw.js'].body=assets['/sw.js'].body.replace("'/"+name+".js'",JSON.stringify('/'+name+'.js?v='+fingerprint(assets['/'+name+'.js'].body)));
+await mkdir('dist/public',{recursive:true});
+for(const [path,asset] of Object.entries(assets))await writeFile('dist/public'+path,asset.body);
 let output='// PRISM reproducible Worker artifact. Generated from authored source.\nconst STATIC_ASSETS = '+JSON.stringify(assets)+';\n';
 for(const file of modules){let text=stripTypeScriptTypes(await readFile(file,'utf8'),{mode:'transform'});text=text.replace(/^import .*?;\s*$/gm,'').replace(/^export \{.*?\};?\s*$/gm,'').replace(/\bexport (?=(?:abstract )?(?:class|function|async|const|let))/g,'');output+='\n// '+file+'\n'+text;}
 let entry=stripTypeScriptTypes(await readFile('worker/index.ts','utf8'),{mode:'transform'}).replace(/^import .*?;\s*$/gm,'');output+='\n'+entry;

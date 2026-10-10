@@ -2,6 +2,8 @@ import type { Envelope, SourceSpec } from '../envelope.ts';
 export class FeedError extends Error { constructor(public code: string, message: string) { super(message); } }
 type State<T> = { failures: number; opened: number; probing: boolean; cache?: { expires: number; envelope: Envelope<T> }; pending?: Promise<Envelope<T>> };
 export abstract class BaseConnector<T> {
+  private quarantined=false;
+  setQuarantined(value:boolean){this.quarantined=value;}
   private states = new Map<string, State<T>>();
   constructor(public spec: SourceSpec, private options = { ttl: 300_000, timeout: 4_000, retries: 1, threshold: 5, cooldown: 60_000 }, private transport: typeof fetch = fetch, private clock: () => number = Date.now) {}
   protected abstract load(args: Record<string, unknown>): Promise<{ data: T; updated_at: string | null }>;
@@ -21,7 +23,7 @@ export abstract class BaseConnector<T> {
       } catch (error) {
         const transient = error instanceof FeedError ? /^HTTP_5/.test(error.code) || error.code === 'HTTP_429' : true;
         if (!transient || attempt >= this.options.retries) throw error;
-        await new Promise(resolve => setTimeout(resolve, Math.min(2000, 250 * 2 ** attempt + Math.random() * 100)));
+        await new Promise(resolve => setTimeout(resolve, Math.min(2000, 250 * 2 ** attempt)));
       }
     }
   }
@@ -30,6 +32,7 @@ export abstract class BaseConnector<T> {
     const key = JSON.stringify(args); const now = this.clock();
     let state = this.states.get(key);
     if (!state) { if (this.states.size >= 256) this.states.delete(this.states.keys().next().value!); state = { failures: 0, opened: 0, probing: false }; this.states.set(key, state); }
+    if(this.quarantined)return this.offline(state,'MANUAL_QUARANTINE','An operator paused this connector in the current server instance');
     if (state.cache && now < state.cache.expires) return { ...state.cache.envelope, cached: true, trace_id: crypto.randomUUID() };
     if (state.pending) return state.pending;
     if (state.opened && (now - state.opened < this.options.cooldown || state.probing)) return this.offline(state, 'CIRCUIT_OPEN', 'Repeated upstream failures; retry after the circuit cooldown');
@@ -55,7 +58,7 @@ export abstract class BaseConnector<T> {
       const envelope = this.offline(state, code, message); envelope.source.latency_ms = this.clock() - start; return envelope;
     }
   }
-  health() { return { id: this.spec.id, ...this.spec, circuit: [...this.states.values()].some(s => s.opened) ? 'OPEN' : 'CLOSED', failures: Math.max(0, ...[...this.states.values()].map(s => s.failures)), cached_locations: this.states.size }; }
+  health() { return { id: this.spec.id, ...this.spec, quarantined:this.quarantined, circuit: [...this.states.values()].some(s => s.probing) ? 'HALF-OPEN' : [...this.states.values()].some(s => s.opened && this.clock() - s.opened < this.options.cooldown) ? 'OPEN' : [...this.states.values()].some(s => s.opened) ? 'HALF-OPEN' : 'CLOSED', failures: Math.max(0, ...[...this.states.values()].map(s => s.failures)), cached_locations: this.states.size }; }
 }
 export function numeric(value: unknown, field: string): number { if (typeof value !== 'number' || !Number.isFinite(value)) throw new FeedError('INVALID_PAYLOAD', 'Missing or invalid ' + field); return value; }
 export function series(values: unknown, field: string): number[] { if (!Array.isArray(values) || values.length === 0) throw new FeedError('NO_COVERAGE', 'No coverage for ' + field); return values.map(v => numeric(v, field)); }

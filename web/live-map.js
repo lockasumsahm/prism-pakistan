@@ -6,7 +6,7 @@ export class LiveAtlas {
  async start(){
   try{const L=await leaflet();if(this.disposed||!this.element.isConnected)return;this.L=L;
    this.map=L.map(this.element,{minZoom:4,maxZoom:12,zoomControl:true,preferCanvas:true}).setView(this.view?.center??[30.5,69.3],this.view?.zoom??5);
-   L.tileLayer('https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors © CARTO',maxZoom:19}).addTo(this.map);
+   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',maxZoom:19}).addTo(this.map);
    this.map.createPane('flood');this.map.getPane('flood').style.zIndex=450;
    L.control.scale({imperial:false}).addTo(this.map);
    for(const loc of this.locations){L.circleMarker([loc.lat,loc.lon],{radius:5,color:'#fff',weight:2,fillColor:'#1266a3',fillOpacity:1}).addTo(this.map).bindTooltip(loc.name,{direction:'top'}).on('click',()=>this.onLocation(loc.slug));}

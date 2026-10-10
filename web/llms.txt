@@ -1,0 +1,38 @@
+# PRISM — Pakistan Climate Intelligence
+
+PRISM is an independent evidence-first monitoring pilot, not an official warning service.
+
+## Scientific integrity
+- Never interpret missing measurements as zero or safety.
+- Forecasts and modelled air/discharge are not physical gauge observations.
+- Coverage: 12 registered reference coordinates; not 160 validated districts.
+- Flood risk remains UNASSESSED. No calibrated inundation, return periods or GLOF predictions.
+- Seven-section officer responses are deterministic evidence briefs. Optional browser-local WebLLM selects existing facts; hosted LLM tool calling is not configured.
+- NASA GIBS map layers and nearest visualization-pixel classification are supported, with cloud/no-data ambiguity. These are not validated inundation or ground confirmation.
+- RainViewer exposes past radar metadata, not guaranteed Pakistan coverage or future nowcast.
+
+## Pages
+- [Overview](/)
+- [Atlas](/map)
+- [Analytics](/dashboard)
+- [Officer](/officer)
+- [Briefings](/briefings)
+- [Watch](/watch)
+- [Offline widget](/widget)
+- [API documentation](/api)
+- [Source ledger](/sources)
+- [Operations](/ops)
+- [Methodology](/methodology)
+- [Privacy](/privacy)
+- [Terms](/terms)
+
+## Machine interfaces
+GET /api/public/v1/locations
+GET /api/public/v1/districts/:slug
+GET /api/public/v1/point?lat=24.8607&lon=67.0011
+GET /api/public/v1/sources
+GET /api/public/v1/briefings?kind=family&location=karachi
+POST /api/officer
+POST /mcp — JSON-RPC initialize, tools/list, tools/call
+
+An envelope retains source identity, documentation URL, evidence tier, model family, latency, retrieval timestamp and source valid timestamp. Failure data is null; error code and reason are explicit. Source health is isolate-local rather than globally durable.

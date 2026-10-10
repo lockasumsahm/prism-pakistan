@@ -1,35 +1,27 @@
-# Validation record
+# Release 0.2 validation — 2026-10-10
 
-## Passed locally
+## Current result
 
-- Dependency-free Worker artifact generation.
-- Syntax validation of the Worker and browser modules.
-- 41 automated tests covering failure envelopes, cache expiry, historical-data separation, breaker recovery, half-open deduplication, non-transient HTTP behavior, key redaction, numeric validation, independent-family consensus, incompatible inputs, staleness, primary routes, point snapshots, briefing tracks, officer responses, request size limits, advisory missingness and MCP calls.
-- Fixture telemetry is explicitly test-only. It is absent from the production build.
+59 combined tests pass after merging upstream commit `3350186`. Node 24 Worker generation, browser-module syntax and Vercel adapter checks pass. Tests cover the existing NASA imagery decoder/AI selection constraints and the new history isolation, precipitation time boundaries, half-open recovery, quarantine authorization, coordinate assessment, metadata and asset fingerprints.
 
-## Not verified
+The existing production project `prj_1SpCnkoqrkq0D0xpKcz8mLVO3DKm` was updated in place. Deployment `dpl_7P4uxamcftR854pxjLsg2fqsr3RJ` is READY at https://prism-pakistan.vercel.app.
 
-- Additional upstream integration testing beyond the live checks recorded below. The terminal itself still cannot resolve external domains.
-- Browser UI end-to-end or visual QA: this environment denies binding a local preview port (`listen EPERM`). A direct Worker Request/Response harness verifies route/API behavior, not browser rendering.
-- Cloudflare Sites deployment: source publication remains blocked by DNS. The Vercel fallback has deployed successfully.
-- Git CLI networking remains unavailable; GitHub source upload and reads were verified through the connected integration.
-- Optional SQL migration: no database is provisioned; migration is unapplied.
-- Real keys, account sign-in, model tool calling, official warnings, schedules, push delivery or production rate protection.
+## Live evidence
 
-The isolate-local limiter is a best-effort safeguard, not distributed enforcement. Cross-isolate caching and circuit state are not durable. The optional key-dependent feeds have implementation contracts but require live testing before operational use.
+- HTTP checks on the release returned 200 for named pages, crawler files, manifest, core APIs and metadata. Unknown dynamic paths are separately tested as 404.
+- The browser loaded real weather forecasts for all 12 reference locations and real Karachi weather, discharge, air and elevation.
+- The merged atlas loaded Leaflet, NASA publication dates and a NASA MODIS visualization-pixel result. River hindcast/forecast trends and a fourteen-day discharge chart rendered.
+- A Lahore school-safety question returned seven evidence sections with real connector values, source timestamps and explicit unassessed road/school impacts.
+- Saving Karachi in the browser watchlist persisted across navigation.
+- The original CARTO basemap displayed a token-required watermark. Standard OSM viewport tiles with attribution and normal HTTP caching replaced it.
+- Browser asset fingerprints now prevent older cached JS from running after a deployment. The service worker precaches the matching local module versions.
 
-## Live Vercel verification
+## Verification limits
 
-Production deployment `dpl_EVRTF3peMAt7HGomnWzJTpYTYFwy` is READY at https://prism-pakistan.vercel.app. The home, dashboard, briefing page, browser script, stylesheet, health endpoint, Karachi snapshot, source ledger and 12-reference-point overview returned HTTP 200. All 12 reference points returned valid weather forecast envelopes. Karachi weather, discharge, air quality and elevation came from real upstream responses.
+Local WebGPU model download/generation, actual flight-mode behavior, PWA installation and a representative mobile-device matrix remain unverified. Cache isolation, retention, privacy and failure behavior have automated coverage; that is not the same as a real-device test. Browser metadata errors emitted by the automation extension are not evidence of an application failure.
 
-The source ledger returned valid responses for weather, discharge, modelled air, elevation, USGS, RainViewer past metadata and NASA EONET. The NOAA one-minute response could not be decoded and correctly remained offline; no replacement Kp value was produced. Key-dependent and unimplemented feeds remained explicitly unavailable.
+NASA visualization classes are not a validated inundation model or a ground confirmation. Model discharge is not a river gauge. No calibrated hazard scores, 160-district coverage or unsupported emergency directives were added.
 
-These HTTP checks do not establish browser rendering, installability, calibrated hazard prediction or production readiness.
+Source ledger probes returned real data for weather, discharge, modelled air, elevation, USGS, radar metadata, NOAA, EONET and NASA POWER on the earlier release during this session. FIRMS/OpenAQ/ReliefWeb remained CONFIGURATION_REQUIRED; CHIRPS/WorldPop/GDACS/OSM infrastructure joins remained INTEGRATION_UNAVAILABLE. The merged edition retains those semantics and adds NASA GIBS.
 
-Update: deployment dpl_Bm7xUXTXexQ3jCaKzHcKK936njBU is READY. NASA POWER and MCP discovery returned HTTP 200; POWER returned real archive humidity/temperature while missing solar remained null. GitHub access was subsequently corrected: all 32 source files uploaded to main; package, worker and CI workflow verified through GitHub.
-
-## Flood atlas upgrade
-
-Preview dpl_AS7vPJm46T6fzL4GuF8bbEyWNcSB returned real NASA metadata and a valid decoded point pixel at Sukkur. Earlier preview dpl_25mAc1YRtuKgyA38nH99SQReNGUw returned HTTP 200 for NASA flood PNG and VIIRS JPEG tiles, arbitrary-coordinate telemetry, map HTML and AI module. GloFAS returned a real fourteen-day hindcast/forecast series.
-
-Local Chrome launch exited 134 without rendering; browser interactions, responsive visuals, WebGPU model download and generation remain unverified. AI selection validation, PNG decoding, coordinate bounds and current-day discharge indexing are covered by automated tests.
+See `PRODUCTION_VERIFICATION.md` for the detailed checklist verdict. **This is an improved operational pilot, not a full production certification.**
