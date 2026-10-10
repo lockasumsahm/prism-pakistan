@@ -1,0 +1,26 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+// Explicit deterministic upstream fixtures are used only in this test process.
+const today=Math.floor(Date.now()/86400000)*86400;
+const hours=Array.from({length:192},(_,i)=>today+i*3600);
+globalThis.fetch=async (input:RequestInfo|URL)=>{const url=new URL(String(input));const path=url.pathname;let data;
+ if(path==='/v1/forecast')data={hourly_units:{precipitation:'mm',temperature_2m:'°C'},hourly:{time:hours,precipitation:hours.map(()=>1),temperature_2m:hours.map(()=>25),soil_moisture_0_to_7cm:hours.map(()=>.25)}};
+ else if(path==='/v1/flood')data={daily_units:{river_discharge:'m³/s'},daily:{time:['2026-10-09','2026-10-10'],river_discharge:[100,120]}};
+ else if(path==='/v1/air-quality')data={current_units:{pm2_5:'μg/m³'},current:{time:new Date().toISOString().slice(0,16),pm2_5:12,pm10:20,us_aqi:50}};
+ else if(path==='/v1/elevation')data={elevation:[20]};
+ else return new Response('{}',{status:503});
+ return Response.json(data);
+};
+const {default:worker}=await import('../dist/server/index.js');
+const request=(path:string,init?:RequestInit)=>worker.fetch(new Request('https://prism.test'+path,init));
+test('all primary routes serve the institutional shell and privacy headers',async()=>{for(const path of ['/','/map','/officer','/dashboard','/briefings','/sources','/ops','/watch','/widget','/settings.connectors','/settings.developer']){const r=await request(path);assert.equal(r.status,200,path);assert.equal(r.headers.get('X-Content-Type-Options'),'nosniff');assert.match(r.headers.get('Content-Security-Policy')! ,/frame-ancestors 'none'/);assert.match(await r.text(),/PRISM/);}});
+test('unknown paths return HTTP 404',async()=>{assert.equal((await request('/does-not-exist')).status,404);});
+test('snapshot path preserves envelope provenance and refuses invented hazard scores',async()=>{const r=await request('/api/public/v1/districts/karachi');const s=await r.json();assert.equal(s.weather.ok,true);assert.equal(s.weather.data.rain_next_24h_mm,24);assert.equal(s.weather.data.rain_next_7d_mm,168);assert.equal(s.weather.source.temporal_kind,'forecast');assert.equal(s.risk.score,null);assert.equal(s.risk.level,'UNASSESSED');assert.equal(s.flood.data.return_period,null);assert.equal(s.elevation.data.slope,null);});
+test('unknown districts do not map to fabricated coordinates',async()=>{const r=await request('/api/public/v1/districts/fake-location');assert.equal(r.status,400);});
+test('national API explicitly limits geography to reference points',async()=>{const r=await request('/api/public/v1/districts');const b=await r.json();assert.equal(b.locations.length,12);assert.match(b.scope,/not complete/);});
+test('officer produces seven source-backed sections and discloses deterministic mode',async()=>{const r=await request('/api/officer',{method:'POST',body:JSON.stringify({message:'Give me evacuation orders',location:'karachi'})});const b=await r.json();assert.equal(b.sections.length,7);assert.equal(b.mode,'deterministic-evidence-brief');assert.match(b.notice,/not configured/);assert.ok(b.evidence.every((e:any)=>e.source.id&&e.trace_id));});
+test('oversized officer request is rejected',async()=>{const r=await request('/api/officer',{method:'POST',body:JSON.stringify({message:'x'.repeat(5000)})});assert.equal(r.status,400);});
+test('briefing tracks use distinct context and bounded geographic scope',async()=>{for(const kind of ['national','regional','family','agriculture']){const r=await request('/api/public/v1/briefings?kind='+kind+'&location=karachi');const b=await r.json();assert.equal(b.kind,kind);assert.equal(b.sections.length,7);if(kind==='national')assert.match(b.sections[0].text,/12\/12/);if(kind==='family')assert.match(b.sections[0].text,/PM2.5/);if(kind==='agriculture')assert.match(b.sections[0].text,/topsoil/);}});
+test('missing advisories remain unknown, not an empty safe result',async()=>{const r=await request('/api/public/v1/advisories');const b=await r.json();assert.equal(b.alerts,null);assert.equal(b.status,'UNASSESSED');});
+test('MCP JSON-RPC initialization and discovery work',async()=>{const init=await request('/mcp',{method:'POST',body:JSON.stringify({jsonrpc:'2.0',id:1,method:'initialize'})});assert.equal((await init.json()).result.serverInfo.name,'prism-evidence');const r=await request('/mcp',{method:'POST',body:JSON.stringify({jsonrpc:'2.0',id:2,method:'tools/list'})});assert.equal((await r.json()).result.tools.length,5);});
+test('MCP tool calls return the same verified evidence contract',async()=>{const r=await request('/mcp',{method:'POST',body:JSON.stringify({jsonrpc:'2.0',id:3,method:'tools/call',params:{name:'district_snapshot',arguments:{slug:'karachi'}}})});const b=await r.json();const s=JSON.parse(b.result.content[0].text);assert.equal(s.risk.score,null);assert.equal(s.weather.data.rain_next_24h_mm,24);});

@@ -1,0 +1,29 @@
+{
+  "provider": "Vercel",
+  "url": "https://prism-pakistan.vercel.app",
+  "deployment_id": "dpl_Bm7xUXTXexQ3jCaKzHcKK936njBU",
+  "project_id": "prj_1SpCnkoqrkq0D0xpKcz8mLVO3DKm",
+  "team_id": "team_uusrGZOTWX7CvZKOiZNfojtt",
+  "source_commit": "bbfd534",
+  "target": "production",
+  "state": "READY",
+  "live_checks": {
+    "home": 200,
+    "dashboard": 200,
+    "briefings": 200,
+    "app_js": 200,
+    "styles_css": 200,
+    "health": 200,
+    "karachi_snapshot": 200,
+    "reference_overview": 200,
+    "reference_locations": 12,
+    "available_weather_locations": 12
+  },
+  "github_upload": "blocked_integration_write_permission_403",
+  "limitations": [
+    "Browser rendering unverified",
+    "Cloud auth and LLM not configured",
+    "Hazard risk calibration unavailable"
+  ],
+  "github_repository": "https://github.com/lockasumsahm/prism-pakistan"
+}

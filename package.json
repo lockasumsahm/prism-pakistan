@@ -1,0 +1,16 @@
+{
+  "name": "prism-pakistan",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --experimental-transform-types --test tests/*.test.ts",
+    "check": "node scripts/build.mjs && node --check dist/server/index.js",
+    "start": "node scripts/serve.mjs"
+  }
+}
