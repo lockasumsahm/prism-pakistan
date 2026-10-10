@@ -5,7 +5,7 @@ PRISM is an independent evidence-first monitoring pilot, not an official warning
 ## Scientific integrity
 - Never interpret missing measurements as zero or safety.
 - Forecasts and modelled air/discharge are not physical gauge observations.
-- Coverage: 12 registered reference coordinates; not 160 validated districts.
+- Coverage: 12 national-comparison reference coordinates; 160 dated district records are available separately.
 - Flood risk remains UNASSESSED. No calibrated inundation, return periods or GLOF predictions.
 - Seven-section officer responses are deterministic evidence briefs. Optional browser-local WebLLM selects existing facts; hosted LLM tool calling is not configured.
 - NASA GIBS map layers and nearest visualization-pixel classification are supported, with cloud/no-data ambiguity. These are not validated inundation or ground confirmation.
@@ -36,3 +36,6 @@ POST /api/officer
 POST /mcp — JSON-RPC initialize, tools/list, tools/call
 
 An envelope retains source identity, documentation URL, evidence tier, model family, latency, retrieval timestamp and source valid timestamp. Failure data is null; error code and reason are explicit. Source health is isolate-local rather than globally durable.
+
+## District expansion and archives
+160 dated OCHA/WFP COD-AB v01 district records (valid 2022-09-09, reviewed 2024-09-27); 162 unique named routes preserve Karachi/Chitral city references. National comparison remains 12 city samples. /api/public/v1/district-registry contains source and PCodes. /api/public/v1/gdacs provides country-attributed source reports. /api/public/v1/chirps?location=karachi polls ClimateSERV and shows a publication-lag-aware archive; partial totals remain null. Neither source establishes absence of hazard.

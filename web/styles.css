@@ -27,3 +27,5 @@ body{background:#fafbf8}main{max-width:1640px;padding-top:44px}.topbar{backgroun
 .tiles{filter:saturate(.5);opacity:.88}.map-attribution{font-size:9px;padding:5px 8px}.map-marker span{background:#ffffffd9;border-radius:3px;padding:3px 5px;text-shadow:none}
 
 .source-card[hidden]{display:none}
+
+#place-search{min-width:160px;max-width:240px;padding:10px 12px;border:1px solid var(--line,#dce5df);border-radius:8px;background:#fff;font:inherit} .location-select{flex-wrap:wrap} .article input[type=file]{max-width:230px} @media(max-width:600px){#place-search{max-width:100%;width:100%}.toolbar{flex-wrap:wrap}}

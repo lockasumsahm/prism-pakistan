@@ -1,0 +1,8 @@
+import {BaseConnector,FeedError} from './base.ts';
+import type {SourceSpec} from '../envelope.ts';
+const archiveSpec:SourceSpec={id:'daily-archive',name:'PRISM scheduled evidence archive',url:'https://github.com/lockasumsahm/prism-pakistan/actions/workflows/daily-briefings.yml',endpoint:'https://raw.githubusercontent.com/lockasumsahm/prism-pakistan/main/data/daily-briefings.json',tier:4,family:'prism-derived-archive',methodology:'Daily derived snapshot of public evidence briefings; inherits original connector families, timestamps and limitations. This archive is not an independent source. GitHub scheduling may be delayed.',temporal_kind:'report',stale_after_minutes:1800,license:'Original upstream licences apply to embedded evidence'};
+export class DailyArchiveConnector extends BaseConnector<{generated_at:string;scope:string;briefings:any[];historical:true;age_minutes:number}> {
+ constructor(){super(archiveSpec,{ttl:300000,timeout:8000,retries:0,threshold:5,cooldown:60000});}
+ protected async load(){const r=await this.json(archiveSpec.endpoint!);const age=Date.now()-Date.parse(r.generated_at);if(r.schema!=='prism-daily-v1'||!Number.isFinite(age)||age< -60000||age>7*86400000||!Array.isArray(r.briefings)||r.briefings.length>20||r.briefings.some((b:any)=>!Array.isArray(b.sections)||b.sections.length!==7||!Array.isArray(b.evidence)||b.evidence.some((e:any)=>!e.source?.retrieved_at||e.ok===false&&e.data!==null)))throw new FeedError('INVALID_ARCHIVE','Scheduled archive is expired or violates the evidence contract');return {updated_at:r.generated_at,data:{generated_at:r.generated_at,scope:String(r.scope),briefings:r.briefings,historical:true,age_minutes:Math.max(0,Math.floor(age/60000))}};}
+}
+export const dailyArchive=new DailyArchiveConnector();

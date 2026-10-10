@@ -6,11 +6,11 @@ An evidence-first climate intelligence pilot for Pakistan. A responsive institut
 
 **Live pilot:** https://prism-pakistan.vercel.app
 
-## Release 0.2 — existing-site update
+## Existing-site completion update
 
 Adds scoped historical widget caching, remembered places, PWA shortcuts, per-reading provenance inspection, missing-data briefing footers, GPS point evidence, named-question location routing, server-rendered route metadata, public API documentation and crawler files. Rainfall aggregation now respects Open-Meteo preceding-hour intervals. The operations ledger reports recovery state and supports authenticated, instance-local quarantine.
 
-See [the production verification matrix](docs/PRODUCTION_VERIFICATION.md) for the supplied checklist and remaining certification requirements. 59 automated tests pass; this remains a pilot with 12 reference points and unassessed hazard scores.
+See [the production verification matrix](docs/PRODUCTION_VERIFICATION.md) for the supplied checklist and remaining certification requirements. 70 automated tests pass. The dated OCHA/WFP registry includes 160 district names, while national comparison samples 12 city references; hazard scores remain unassessed.
 
 ## Run
 
@@ -29,6 +29,15 @@ npm run check
 ```
 
 `npm test` assumes the Worker has been built. Fixtures live only in `tests/`; they never enter the deployed artifact. The build uses Node's experimental TypeScript transformation and emits one dependency-free Cloudflare Worker at `dist/server/index.js`, with embedded HTML, CSS, JavaScript, and PWA assets.
+
+## Latest additions
+
+- 160 sourced OCHA/WFP district records with PCodes, provider centre coordinates and dated attribution; district search, centre forecasts and saved-place routes.
+- GDACS country-attributed reports and a real USGS hazard-report page.
+- ClimateSERV asynchronous CHIRPS jobs, bounded polling, retained instance job IDs and a publication-lag-aware thirty-day archive selected from actual returned granules. Incomplete totals remain null.
+- Streaming NDJSON Officer status/evidence/seven sections, with inspected tool consultations for seismic, fire and GDACS questions; deterministic routing remains explicit.
+- Daily public briefing archive: ten national/provincial/family/agricultural briefs, GitHub scheduled collection at approximately 06:17 Pakistan time. Schedules can be delayed; data age is always shown. See `.github/workflows/daily-briefings.yml`.
+- Working developer/configuration pages and private device-workspace watchlist JSON import/export.
 
 ## What works
 
@@ -51,11 +60,11 @@ npm run check
 
 This is **a working pilot, not the complete production blueprint**. It intentionally does not claim:
 
-- Complete 160-district coverage, verified administrative polygons or river station/basin digital twins. The registry contains 12 reference coordinates across seven regions.
+- Current legal boundary certification, district-wide raster aggregates or river station/basin digital twins. The 160 district records are the published 2022 OCHA/WFP reference, reviewed in 2024; the original city coordinates remain in national comparison; matching district detail routes now use published centre coordinates.
 - Calibrated risk scores, flood return periods, district inundation, GLOF prediction, population exposure, road safety, evacuation advice or validated alert thresholds.
 - Hosted conversational LLM tool calling. Free local WebLLM selects existing evidence facts; generated factual claims are never displayed.
-- Hosted PostgreSQL, cloud sign-in, user-role workflows, email/push notification delivery, scheduled monitoring or deployed public developer keys.
-- Implemented CHIRPS async jobs, WorldPop zonal statistics, GDACS XML geography, NASA POWER historical baselines or Overpass infrastructure intersection. CHIRPS, WorldPop, GDACS and Overpass have explicit offline envelopes. NASA POWER daily archive is implemented; calibrated historical baselines remain unavailable.
+- Hosted PostgreSQL, cloud sign-in, user-role workflows, email/push notification delivery, minute-level scheduled monitoring or deployed public developer keys.
+- WorldPop zonal statistics, Overpass infrastructure intersection or calibrated NASA POWER historical baselines. WorldPop and Overpass remain explicitly unavailable. CHIRPS asynchronous polling and GDACS GeoJSON reports are implemented; their live availability remains subject to the providers.
 
 The referenced React/TanStack/Lovable stack was adapted to a standalone Cloudflare Worker and native browser modules after npm/DNS access failed in the build environment. This keeps the current implementation runnable without network installation. It is not a React or TanStack Start implementation. The domain contracts are isolated so a future framework client can reuse them.
 
@@ -81,7 +90,12 @@ Open-Meteo's free endpoint is subject to its non-commercial limits. Review provi
 | `GET /api/public/v1/imagery` | NASA published imagery domains and classification legend |
 | `GET /api/public/v1/flood-observation?lat=27.7056&lon=68.8574` | Nearest displayed NASA flood pixel and limitations |
 | `GET /api/public/v1/snapshot?lat=27.7056&lon=68.8574` | Arbitrary coordinate forecast/discharge/elevation envelopes |
-| `GET /api/public/v1/locations` | Explicit reference-coordinate registry |
+| `GET /api/public/v1/locations` | District centres and preserved city references |
+| `GET /api/public/v1/district-registry` | 160 district records and OCHA/WFP provenance |
+| `GET /api/public/v1/gdacs` | Country-attributed seven-day GDACS reports |
+| `GET /api/public/v1/chirps?location=karachi` | Asynchronously polled satellite rainfall archive |
+| `GET /api/public/v1/scheduled-briefings` | Historical daily published evidence archive |
+| `GET /api/public/v1/capabilities` | Configuration presence; never secret values |
 | `GET /api/public/v1/districts` | Reference-point forecasts and unassessed risk |
 | `GET /api/public/v1/districts/:slug` | Point snapshot with four envelopes |
 | `GET /api/public/v1/briefings?kind=family&location=karachi` | Seven-section evidence brief |

@@ -1,12 +1,13 @@
+import { gdacs, chirps } from './connectors/extended.ts';
 import { nasaImagery } from './connectors/imagery.ts';
-import { locations, locationFor } from './locations.ts';
+import { locations, referenceLocations, locationFor } from './locations.ts';
 import { weather, flood, air, elevation, quakes, radar, space, reports, connectors, unavailable,firms,eonet,openaq,power } from './connectors/feeds.ts';
 export async function snapshot(slug: string) { const location=locationFor(slug); if(!location)throw new Error('Unknown monitoring location');return pointSnapshot(location); }
 export async function pointSnapshot(location: {slug:string;name:string;province:string;lat:number;lon:number;profile:string}) { const args={lat:location.lat,lon:location.lon};const [w,f,a,e]=await Promise.all([weather.execute(args),flood.execute(args),air.execute(args),elevation.execute(args)]);return {location,weather:w,flood:f,air:a,elevation:e,risk:{level:'UNASSESSED',score:null,reason:'Calibrated local thresholds, slope and independent hazard evidence are not available. Missing inputs are never replaced with zero.'},generated_at:new Date().toISOString()}; }
 export async function overview(){ const rows=[]; // bounded concurrency protects provider budgets
- for(let i=0;i<locations.length;i+=4)rows.push(...await Promise.all(locations.slice(i,i+4).map(l=>snapshot(l.slug))));
+ for(let i=0;i<referenceLocations.length;i+=4)rows.push(...await Promise.all(referenceLocations.slice(i,i+4).map(l=>pointSnapshot(l))));
  return { locations:rows,scope:'12 reference locations; not complete administrative district coverage',generated_at:new Date().toISOString(),warning:'Forecast models are not ground observations. PRISM does not issue official evacuation alerts.' }; }
-export async function sourceLedger(){return Promise.all([...connectors,nasaImagery].map(async c=>{const envelope=await c.execute(['open-meteo-weather','open-meteo-flood','open-meteo-air','elevation','power'].includes(c.spec.id)?{lat:24.8607,lon:67.0011}:{});return {health:c.health(),envelope};}));}
+export async function sourceLedger(){return Promise.all([...connectors,nasaImagery].map(async c=>{const envelope=await c.execute(['open-meteo-weather','open-meteo-flood','open-meteo-air','elevation','power','chirps'].includes(c.spec.id)?{lat:24.8607,lon:67.0011}:{});return {health:c.health(),envelope};}));}
 export async function briefing(kind='national',slug='karachi'){
  if(!['national','regional','family','agriculture','officer'].includes(kind))throw new Error('Invalid briefing kind');
  const s=await snapshot(slug);

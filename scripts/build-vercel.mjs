@@ -49,5 +49,5 @@ const config={version:2,functions:{'api/prism.mjs':{maxDuration:60}},rewrites:[
  ...pageRoutes.map(page=>({source:'/'+page,destination:'/api/prism?prism_path=/'+page})),
 ],headers:[{source:'/(.*)',headers:[{key:'X-Content-Type-Options',value:'nosniff'},{key:'Referrer-Policy',value:'strict-origin-when-cross-origin'}]}]};
 await writeFile(directory+'/vercel.json',JSON.stringify(config,null,2));
-await writeFile(directory+'/package.json',JSON.stringify({name:'prism-pakistan',version:'0.2.0',type:'module',private:true,engines:{node:'24.x'}}));
+await writeFile(directory+'/package.json',JSON.stringify({name:'prism-pakistan',version:'0.3.0',type:'module',private:true,engines:{node:'24.x'}}));
 console.log('Prepared dependency-free Vercel upload');

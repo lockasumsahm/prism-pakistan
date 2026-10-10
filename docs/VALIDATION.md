@@ -25,3 +25,9 @@ NASA visualization classes are not a validated inundation model or a ground conf
 Source ledger probes returned real data for weather, discharge, modelled air, elevation, USGS, radar metadata, NOAA, EONET and NASA POWER on the earlier release during this session. FIRMS/OpenAQ/ReliefWeb remained CONFIGURATION_REQUIRED; CHIRPS/WorldPop/GDACS/OSM infrastructure joins remained INTEGRATION_UNAVAILABLE. The merged edition retains those semantics and adds NASA GIBS.
 
 See `PRODUCTION_VERIFICATION.md` for the detailed checklist verdict. **This is an improved operational pilot, not a full production certification.**
+
+## District / archive completion pass
+
+70 local tests pass. Added tests cover the 160-record sourced registry, 162 preserved named routes, GDACS country attribution/geometry/report validation, CHIRPS zero/missing/duplicate/date/epoch/publication-lag contracts, real job polling, district-name overlap resolution and Officer streaming. Initial daily archive collection successfully retrieved ten live source-backed briefings.
+
+Live upstream investigation used official ClimateSERV submit/progress/result endpoints and GDACS GeoJSON. ClimateSERV returned a successful job with older rainfall granules and missing newer days; PRISM therefore selects the archive end from returned usable days and shows archive lag. This is not a claim that current rainfall observations are available. The local proxy exceeded short connector timeouts, so production HTTP validation is separate from parser verification.

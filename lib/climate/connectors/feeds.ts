@@ -1,3 +1,4 @@
+import { gdacs, chirps } from './extended.ts';
 import { BaseConnector, FeedError, numeric, series } from './base.ts';
 import type { SourceSpec } from '../envelope.ts';
 function spec(id: string, name: string, url: string, tier: 1|2|3|4, family: string, methodology: string, temporal_kind: SourceSpec['temporal_kind'] = 'observation', stale_after_minutes = 90): SourceSpec { const endpoints:Record<string,string>={'open-meteo-weather':'https://api.open-meteo.com/v1/forecast','open-meteo-flood':'https://flood-api.open-meteo.com/v1/flood','open-meteo-air':'https://air-quality-api.open-meteo.com/v1/air-quality',elevation:'https://api.open-meteo.com/v1/elevation',usgs:'https://earthquake.usgs.gov/fdsnws/event/1/query',rainviewer:'https://api.rainviewer.com/public/weather-maps.json',noaa:'https://services.swpc.noaa.gov/json/planetary_k_index_1m.json',reliefweb:'https://api.reliefweb.int/v1/reports',firms:'https://firms.modaps.eosdis.nasa.gov/api/area/csv/',eonet:'https://eonet.gsfc.nasa.gov/api/v3/events',openaq:'https://api.openaq.org/v3/locations',power:'https://power.larc.nasa.gov/api/temporal/daily/point'};return { id, name, url, endpoint:endpoints[id], tier, family, methodology, temporal_kind, stale_after_minutes, license: id.startsWith('open-meteo') ? 'CC BY 4.0; free API subject to non-commercial limits' : 'Provider terms; see linked source' }; }
@@ -101,9 +102,7 @@ export class UnavailableConnector extends BaseConnector<never> {
 }
 export const weather=new WeatherConnector(), flood=new FloodConnector(), air=new AirConnector(), elevation=new ElevationConnector(), quakes=new QuakeConnector(), radar=new RadarConnector(), space=new SpaceConnector(), reports=new ReportsConnector();
 export const unavailable = [
- new UnavailableConnector('chirps','CHIRPS · ClimateSERV','https://climateserv.servirglobal.net',2,'Asynchronous CHIRPS integration requires verified job contract and publication window'),
  new UnavailableConnector('worldpop','WorldPop Exposure','https://www.worldpop.org',3,'Population raster release and geospatial zonal calculation are not configured'),
- new UnavailableConnector('gdacs','GDACS Disaster Alerts','https://www.gdacs.org',4,'GDACS XML geometry and alert validation are not yet implemented'),
  new UnavailableConnector('osm','OpenStreetMap Infrastructure','https://www.openstreetmap.org',4,'Infrastructure query and verified geospatial intersection are not yet implemented'),
 ];
-export const connectors=[weather,flood,air,elevation,quakes,radar,space,reports,firms,eonet,openaq,power,...unavailable];
+export const connectors=[weather,flood,air,elevation,quakes,radar,space,reports,firms,eonet,openaq,power,gdacs,chirps,...unavailable];

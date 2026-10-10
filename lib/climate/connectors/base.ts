@@ -51,7 +51,7 @@ export abstract class BaseConnector<T> {
       const envelope: Envelope<T> = { ok: true, data: result.data, source: { ...this.spec, latency_ms: this.clock() - start, updated_at: result.updated_at, retrieved_at: new Date(this.clock()).toISOString() }, trace_id: crypto.randomUUID(), cached: false, error: null };
       state.failures = 0; state.opened = 0; state.cache = { expires: this.clock() + this.options.ttl, envelope }; return envelope;
     } catch (error) {
-      state.failures++; if (state.failures >= this.options.threshold || state.opened) state.opened = this.clock();
+      if (!(error instanceof FeedError && error.code === 'JOB_PENDING')) { state.failures++; if (state.failures >= this.options.threshold || state.opened) state.opened = this.clock(); }
       const code = error instanceof FeedError ? error.code : error instanceof Error && /timeout|abort/i.test(error.name) ? 'TIMEOUT' : error instanceof SyntaxError ? 'INVALID_PAYLOAD' : 'NETWORK_ERROR';
       // Never include credential-bearing URLs or raw upstream errors in the public ledger.
       const message = error instanceof FeedError ? error.message : code === 'TIMEOUT' ? 'Upstream request exceeded its timeout' : code === 'INVALID_PAYLOAD' ? 'Upstream response could not be decoded' : 'Upstream could not be reached';
