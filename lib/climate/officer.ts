@@ -1,3 +1,4 @@
+import { population, infrastructure } from './connectors/spatial.ts';
 import { detailedForecast } from './connectors/forecast.ts';
 import { briefing } from './service.ts';
 import { locationFor } from './locations.ts';
@@ -12,6 +13,12 @@ export async function officerBrief(message:string,slug:string,kind:string,onEven
  if(/earthquake|seismic|tremor|fault/i.test(message)){onEvent({type:'status',text:'Consulting the USGS catalog…'});const e=await quakes.execute();consultations.push(e);calls.push({tool:'earthquakes',arguments:{slug},sources:[e.source.id]});if(e.ok)b.sections[1].text+=` USGS regional catalog: ${e.data.events.length} M2.5+ events in the monitoring rectangle during seven days. ${e.data.events[0]?`Latest: M${e.data.events[0].magnitude}, ${e.data.events[0].place}, ${e.data.events[0].time}, depth ${e.data.events[0].depth_km} km.`:'No matching events returned; this is not a prediction.'}`;}
  if(/fire|wildfire|thermal/i.test(message)){onEvent({type:'status',text:'Consulting NASA FIRMS…'});const e=await firms.execute();consultations.push(e);calls.push({tool:'active_fires',arguments:{},sources:[e.source.id]});if(e.ok)b.sections[1].text+=` NASA FIRMS returned ${e.data.detections.length} thermal anomalies in the monitoring rectangle. These are not confirmed wildfire perimeters or district impacts.`;}
  if(/gdacs|disaster report|official alert|warning|situation report/i.test(message)){onEvent({type:'status',text:'Consulting GDACS reports…'});const e=await gdacs.execute();consultations.push(e);calls.push({tool:'gdacs_alerts',arguments:{},sources:[e.source.id]});if(e.ok)b.sections[1].text+=` GDACS returned ${e.data.events.length} Pakistan-attributed reports for ${e.data.window.start}–${e.data.window.end}. ${e.data.note}`;}
+ if(/population|people|exposure|school|hospital|clinic|facilit|infrastructure/i.test(message)){
+  onEvent({type:'status',text:'Retrieving dated population context and mapped nearby facilities…'});
+  const args={lat:location.lat,lon:location.lon};const [p,i]=await Promise.all([population.execute(args),infrastructure.execute(args)]);consultations.push(p,i);calls.push({tool:'population_context',arguments:{slug},sources:[p.source.id]},{tool:'nearby_facilities',arguments:{slug},sources:[i.source.id]});
+  if(p.ok)b.sections[3].text+=` WorldPop ${p.data.data_year} estimates ${p.data.total_population.toFixed(0)} people in the ${p.data.area_km2.toFixed(3)} km² query square around this reference point. This is not district population or the number exposed to flooding.`;
+  if(i.ok)b.sections[3].text+=` OpenStreetMap returned ${i.data.features.length} mapped schools, hospitals, clinics and fire stations near this reference point. Their opening status, flood impact and safe access are not verified.`;
+ }
  for(const e of consultations){if(!e.ok){b.sections[1].text+=` ${e.source.name}: unavailable (${e.error.code} — ${e.error.message}).`;b.missing_data.push({source:e.source.name,code:e.error.code,reason:e.error.message});}onEvent({type:'evidence',evidence:[e]});}
  b.evidence.push(...consultations);b.coverage.available=b.evidence.filter(e=>e.ok).length;b.coverage.total=b.evidence.length;
  b.sections[4].text=`INSUFFICIENT for critical alerts. ${b.coverage.available}/${b.coverage.total} consulted connectors returned data. Availability is not a calibrated confidence score or independent hazard consensus.`;

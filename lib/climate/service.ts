@@ -1,3 +1,4 @@
+import { population, infrastructure } from './connectors/spatial.ts';
 import { gdacs, chirps } from './connectors/extended.ts';
 import { nasaImagery } from './connectors/imagery.ts';
 import { locations, referenceLocations, locationFor } from './locations.ts';
@@ -7,7 +8,7 @@ export async function pointSnapshot(location: {slug:string;name:string;province:
 export async function overview(){ const rows=[]; // bounded concurrency protects provider budgets
  for(let i=0;i<referenceLocations.length;i+=4)rows.push(...await Promise.all(referenceLocations.slice(i,i+4).map(l=>pointSnapshot(l))));
  return { locations:rows,scope:'12 reference locations; not complete administrative district coverage',generated_at:new Date().toISOString(),warning:'Forecast models are not ground observations. PRISM does not issue official evacuation alerts.' }; }
-export async function sourceLedger(){return Promise.all([...connectors,nasaImagery].map(async c=>{const envelope=await c.execute(['open-meteo-weather','open-meteo-detail','open-meteo-flood','open-meteo-air','elevation','power','chirps'].includes(c.spec.id)?{lat:24.8607,lon:67.0011}:{});return {health:c.health(),envelope};}));}
+export async function sourceLedger(){return Promise.all([...connectors,nasaImagery].map(async c=>{const envelope=await c.execute(['open-meteo-weather','open-meteo-detail','open-meteo-flood','open-meteo-air','elevation','power','chirps','worldpop','osm'].includes(c.spec.id)?{lat:24.8607,lon:67.0011}:{});return {health:c.health(),envelope};}));}
 export async function briefing(kind='national',slug='karachi'){
  if(!['national','regional','family','agriculture','officer'].includes(kind))throw new Error('Invalid briefing kind');
  const s=await snapshot(slug);
@@ -29,3 +30,5 @@ export async function coordinateSnapshot(lat:number,lon:number){
  const location={slug:`point-${lat.toFixed(4)}-${lon.toFixed(4)}`,name:`${lat.toFixed(4)}° N, ${lon.toFixed(4)}° E`,province:"Selected map coordinate",profile:"Local hazard calibration unavailable",lat,lon};
  const args={lat,lon};const [w,f,a,e]=await Promise.all([weather.execute(args),flood.execute(args),air.execute(args),elevation.execute(args)]);return {location,weather:w,flood:f,air:a,elevation:e,risk:{level:"UNASSESSED",score:null,reason:"No calibrated local hazard thresholds. Model output is not a ground warning."},generated_at:new Date().toISOString()};
 }
+
+export async function communityContext(slug:string){const l=locationFor(slug);if(!l)throw new Error('Unknown monitoring location');const args={lat:l.lat,lon:l.lon};const [p,i]=await Promise.all([population.execute(args),infrastructure.execute(args)]);return {location:l,population:p,infrastructure:i,generated_at:new Date().toISOString(),note:'Both sources use a 0.01-degree query square. These are geographic context, not exposed people, safe routes or facility availability.'};}

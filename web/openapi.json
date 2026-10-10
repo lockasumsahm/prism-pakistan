@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "PRISM Public Evidence API",
-    "version": "0.4.1",
+    "version": "0.5.0",
     "description": "Principal public contracts for the existing PRISM monitoring pilot. Forecasts are model outputs, district centres are points, and risk remains UNASSESSED. No authentication is required for these read interfaces. Provider usage and commercial licensing terms apply."
   },
   "servers": [
@@ -427,6 +427,75 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/public/v1/population": {
+      "get": {
+        "summary": "WorldPop 2025 population in a query square; not district population or exposure.",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "karachi"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Source-backed evidence or explicit offline envelope"
+          },
+          "400": {
+            "description": "Unknown location"
+          }
+        }
+      }
+    },
+    "/api/public/v1/infrastructure": {
+      "get": {
+        "summary": "Mapped OSM facilities near reference point; opening status and safe access unverified.",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "karachi"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Source-backed evidence or explicit offline envelope"
+          },
+          "400": {
+            "description": "Unknown location"
+          }
+        }
+      }
+    },
+    "/api/public/v1/community-context": {
+      "get": {
+        "summary": "Combined dated population and mapped facility provenance envelopes.",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "karachi"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Source-backed evidence or explicit offline envelope"
+          },
+          "400": {
+            "description": "Unknown location"
           }
         }
       }

@@ -48,3 +48,7 @@ GET /api/public/v1/readiness checks the four core Karachi point feeds. HTTP 503 
 
 ## Real date and freshness (0.4.1)
 GET /api/public/v1/time returns uncached server UTC time with the Asia/Karachi display timezone. Browser clocks are anchored to server time and a monotonic timer. Forecast caches expire at UTC hour boundaries, including midnight; source badges distinguish forecasts, archives, static data, stale observations and unverified timestamps. Archive data is never relabelled as today. Daily publication rejects future or old generation/retrieval times.
+
+## Community context (0.5.0)
+NASA FIRMS uses the public South Asia VIIRS SNPP CSV filtered to the monitoring rectangle; provider observation timestamps can lag. No key is required for that download. ReliefWeb now targets v2 and still requires approved RELIEFWEB_APPNAME. OpenAQ requires OPENAQ_KEY.
+Population, infrastructure and community-context public v1 endpoints accept a registered location. Population is a WorldPop 2025 model estimate for a query square, not a district census or exposed population. OSM facilities retain source identity and database timestamp; names may be missing and operational status is unverified. The Officer consults these sources for population/facility questions.

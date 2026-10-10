@@ -10,7 +10,7 @@ An evidence-first climate intelligence pilot for Pakistan. A responsive institut
 
 Adds scoped historical widget caching, remembered places, PWA shortcuts, per-reading provenance inspection, missing-data briefing footers, GPS point evidence, named-question location routing, server-rendered route metadata, public API documentation and crawler files. Rainfall aggregation now respects Open-Meteo preceding-hour intervals. The operations ledger reports recovery state and supports authenticated, instance-local quarantine.
 
-See [the production verification matrix](docs/PRODUCTION_VERIFICATION.md) for the supplied checklist and remaining certification requirements. 91 automated tests pass. The dated OCHA/WFP registry includes 160 district names, while national comparison samples 12 city references; hazard scores remain unassessed.
+See [the production verification matrix](docs/PRODUCTION_VERIFICATION.md) for the supplied checklist and remaining certification requirements. 100 automated tests pass. The dated OCHA/WFP registry includes 160 district names, while national comparison samples 12 city references; hazard scores remain unassessed.
 
 ## Run
 
@@ -67,7 +67,7 @@ This is **a working pilot, not the complete production blueprint**. It intention
 - Calibrated risk scores, flood return periods, district inundation, GLOF prediction, population exposure, road safety, evacuation advice or validated alert thresholds.
 - Hosted conversational LLM tool calling. Free local WebLLM selects existing evidence facts; generated factual claims are never displayed.
 - Hosted PostgreSQL, cloud sign-in, user-role workflows, email/push notification delivery, minute-level scheduled monitoring or deployed public developer keys.
-- WorldPop zonal statistics, Overpass infrastructure intersection or calibrated NASA POWER historical baselines. WorldPop and Overpass remain explicitly unavailable. CHIRPS asynchronous polling and GDACS GeoJSON reports are implemented; their live availability remains subject to the providers.
+- WorldPop zonal statistics, Overpass infrastructure intersection or calibrated NASA POWER historical baselines. WorldPop query-square estimates and small OSM v0.6 facility lookups are connected; district exposure and hazard-footprint intersections remain unavailable. CHIRPS asynchronous polling and GDACS GeoJSON reports are implemented; their live availability remains subject to the providers.
 
 The referenced React/TanStack/Lovable stack was adapted to a standalone Cloudflare Worker and native browser modules after npm/DNS access failed in the build environment. This keeps the current implementation runnable without network installation. It is not a React or TanStack Start implementation. The domain contracts are isolated so a future framework client can reuse them.
 
@@ -78,7 +78,7 @@ See [implementation decisions](docs/DECISIONS.md), [coverage matrix](docs/COVERA
 Use deployment secrets or the process environment, never client-side settings or tracked files:
 
 - `OPENAQ_KEY`: OpenAQ v3 key.
-- `NASA_FIRMS_KEY`: NASA FIRMS MAP_KEY.
+- NASA FIRMS: public regional CSV download; no key required.
 - `RELIEFWEB_APPNAME`: approved ReliefWeb application name.
 - `PRISM_OPERATOR_TOKEN`: optional server-side token of at least 32 characters for instance-local quarantine controls.
 
@@ -151,3 +151,6 @@ For release checks, incidents, rollback and remaining launch gates, see [the ope
 ## Real-date correction (0.4.1)
 
 The clock/date use uncached server time, shown in PKT, rather than trusting device wall-clock settings. Server forecast and browser evidence caches expire at UTC hour rollover. Freshness labels distinguish model outlooks, historical archives, static data and stale/undated observations. Daily publication validates both generation and evidence retrieval timestamps. Tests cover PKT midnight, UTC midnight, future/old timestamps and honest archive semantics.
+
+## Connected community data (0.5)
+NASA FIRMS now downloads the public South Asia VIIRS SNPP file and filters detections to the monitoring rectangle without a map key. Observation timestamps can lag. WorldPop v2 calculates a 2025 population estimate for a small query square. The OSM v0.6 API supplies mapped facility nodes and ways for the same square, cached for 24 hours. New community-context API and Officer tools keep separate provenance; these are not flood-exposure, facility operating-status or route-safety assessments. ReliefWeb v2 requires approved RELIEFWEB_APPNAME; ground monitors require OPENAQ_KEY. Never commit these credentials.
