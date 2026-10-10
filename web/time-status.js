@@ -5,6 +5,11 @@ export class ServerClock {
  now(){return this.anchor?this.anchor.unix+Math.max(0,this.monotonic()-this.anchor.tick):null;}
 }
 export function cacheDeadline(now,ttl=300000){return Math.min(now+ttl,(Math.floor(now/3600000)+1)*3600000);}
+export function operationalClocks(now){
+ if(now===null||!Number.isFinite(now))return 'SERVER TIME UNAVAILABLE';
+ const date=new Date(now),options={hour:'2-digit',minute:'2-digit',hour12:false};
+ return new Intl.DateTimeFormat('en-GB',{...options,timeZone:'UTC'}).format(date)+' UTC · '+new Intl.DateTimeFormat('en-GB',{...options,timeZone:'Asia/Karachi'}).format(date)+' PKT';
+}
 export function evidenceStatus(envelope,now){
  if(!envelope?.ok)return envelope?.error?.code==='JOB_PENDING'?'PROCESSING':'OFFLINE';
  const s=envelope.source;

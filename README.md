@@ -94,3 +94,7 @@ The primary artifact is a standalone Cloudflare Worker with embedded browser ass
 Independent project; no government affiliation is claimed.
 
 Provider data, maps, and imagery carry their own attribution and usage terms. References and provider notes are retained in the [detailed implementation record](docs/IMPLEMENTATION_NOTES.md).
+
+## Latest source integration
+
+NOAA GOES solar X-ray observations are available at `/api/public/v1/solar-weather` and consulted by the Officer. The header displays synchronized UTC and PKT; the source ledger explains each provider’s timestamp semantics. 119 automated tests pass for this update. Live PMD gauge ingestion and production OpenAQ/ReliefWeb credentials remain unconfigured.

@@ -62,3 +62,9 @@ Population, infrastructure and community-context public v1 endpoints accept a re
 ## Hazard desk (0.6.0)
 `/alerts` combines a selected-district model forecast, official NDMA publications, GDACS reports, regional USGS earthquakes and NASA VIIRS detections. It checks every five minutes while visible and on return to the tab; provider caches and publication schedules apply. A failed browser request in one channel does not hide the other channels.
 GDACS uses explicit `country=PAK`, all six registered hazard types and Green/Orange/Red filters. A bounded 90-day search is partitioned into a seven-day event-end window and a dated archive. Neither GDACS Green nor a historical report indicates local safety or an active incident.
+
+## Source timing and NOAA GOES integration
+
+The header shows server-synchronized UTC and PKT. Sources explain observation times, forecast valid times, catalog generation, publication dates, static release years and retrieval times separately. RainViewer public future nowcast is discontinued; WorldPop query-square population is not flood exposure. PMD river pages currently reject this server with HTTP 403; official links are provided, not substituted gauge data. OpenAQ and ReliefWeb require production credentials.
+
+GET /api/public/v1/solar-weather provides NOAA SWPC GOES primary one-minute solar X-ray observations, preserving bands, satellite identity, corrected/observed flux in W/m² and observation times. Electron-contaminated readings are excluded. Solar questions in the Officer consult NOAA Kp and GOES evidence. ReliefWeb now sends the approved appname in the URL as required. 119 automated tests pass for the release.

@@ -78,3 +78,9 @@ Location registry, Officer streaming, and server clock synchronization now use A
 ## Daily discharge and zero-cell interpretation
 
 The flood feed explicitly requests GMT daily boundaries and validates consecutive daily values. API data now exposes requested and provider grid coordinates, current UTC model day, daily cadence and an all-zero flag. All-zero model series are labelled no modelled flow rather than steady; original zero values remain visible. The panel exposes retrieval time separately from the unknown provider issue time, daily model cadence, raw values and the absence of connected live gauges. 114 tests pass, including all-zero, positive-change and upstream-outage UI cases. This does not establish calibrated flood risk or add a river-gauge connection.
+
+## Source timing and NOAA GOES integration
+
+The header shows server-synchronized UTC and PKT. Sources explain observation times, forecast valid times, catalog generation, publication dates, static release years and retrieval times separately. RainViewer public future nowcast is discontinued; WorldPop query-square population is not flood exposure. PMD river pages currently reject this server with HTTP 403; official links are provided, not substituted gauge data. OpenAQ and ReliefWeb require production credentials.
+
+GET /api/public/v1/solar-weather provides NOAA SWPC GOES primary one-minute solar X-ray observations, preserving bands, satellite identity, corrected/observed flux in W/m² and observation times. Electron-contaminated readings are excluded. Solar questions in the Officer consult NOAA Kp and GOES evidence. ReliefWeb now sends the approved appname in the URL as required. 119 automated tests pass for the release.

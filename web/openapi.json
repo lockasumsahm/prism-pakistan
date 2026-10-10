@@ -510,6 +510,17 @@
           }
         }
       }
+    },
+    "/api/public/v1/solar-weather": {
+      "get": {
+        "summary": "NOAA GOES one-minute solar X-ray observations",
+        "description": "Latest unflagged observation per wavelength band; original observation time, corrected and observed flux in W/m\u00b2, satellite identity and provenance. Global solar context, not a local hazard warning.",
+        "responses": {
+          "200": {
+            "description": "Connector envelope; inspect ok, error and source timestamps."
+          }
+        }
+      }
     }
   },
   "components": {

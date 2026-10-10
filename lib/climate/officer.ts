@@ -3,7 +3,7 @@ import { population, infrastructure } from './connectors/spatial.ts';
 import { detailedForecast } from './connectors/forecast.ts';
 import { briefing } from './service.ts';
 import { locationFor } from './locations.ts';
-import { quakes, firms } from './connectors/feeds.ts';
+import { quakes, firms, space, solar } from './connectors/feeds.ts';
 import { gdacs } from './connectors/extended.ts';
 export async function officerBrief(message:string,slug:string,kind:string,onEvent:(event:unknown)=>void=()=>{}){
  const location=locationFor(slug);if(!location)throw new Error('Unknown location');
@@ -20,6 +20,15 @@ export async function officerBrief(message:string,slug:string,kind:string,onEven
  if(/flood|risk|warning|alert|advisory|advisories|school|close|evacuat/i.test(message)){
   onEvent({type:'status',text:'Consulting official NDMA advisory publications…'});const e=await ndma.execute();consultations.push(e);calls.push({tool:'official_advisories',arguments:{},sources:[e.source.id]});
   if(e.ok){b.sections[1].text+=` NDMA latest listed publication: ${e.data.advisories[0].title}, published ${e.data.latest_published_date} (date only). Source: ${e.data.advisories[0].url}. ${e.data.note}`;b.sections[5].text+=` Read the latest NDMA source document: ${e.data.advisories[0].url}. PRISM has not interpreted its PDF or verified that it applies to ${location.name}.`;}
+ }
+ if(/solar|sun|flare|space.weather|geomagnetic|\bkp\b/i.test(message)){
+  onEvent({type:'status',text:'Consulting NOAA planetary Kp and GOES solar observations…'});
+  const [k,x]=await Promise.all([space.execute(),solar.execute()]);consultations.push(k,x);calls.push({tool:'space_weather',arguments:{},sources:[k.source.id]},{tool:'solar_weather',arguments:{},sources:[x.source.id]});
+  const facts=[];
+  if(k.ok)facts.push(`NOAA estimated three-hour planetary Kp ${k.data.kp}, record ${k.data.time}.`);
+  if(x.ok)facts.push(...x.data.channels.map(c=>`GOES-${c.satellite} ${c.energy} corrected X-ray flux ${c.flux_w_m2.toExponential(3)} W/m², observed ${c.observed_at}.`));
+  b.sections[0].text=`NOAA global solar and geomagnetic evidence: ${facts.length?facts.join(' '):'No usable readings returned.'} These readings do not establish a local climate hazard or confirmed flare impact.`;
+  b.sections[1].text+=' '+facts.join(' ');
  }
  if(/population|people|exposure|school|hospital|clinic|facilit|infrastructure/i.test(message)){
   onEvent({type:'status',text:'Retrieving dated population context and mapped nearby facilities…'});
