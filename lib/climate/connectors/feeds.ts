@@ -1,3 +1,4 @@
+import { ndma } from './advisories.ts';
 import { population, infrastructure } from './spatial.ts';
 import { detailedForecast } from './forecast.ts';
 import { dailyArchive } from './archive.ts';
@@ -105,4 +106,4 @@ export class UnavailableConnector extends BaseConnector<never> {
 }
 export const weather=new WeatherConnector(), flood=new FloodConnector(), air=new AirConnector(), elevation=new ElevationConnector(), quakes=new QuakeConnector(), radar=new RadarConnector(), space=new SpaceConnector(), reports=new ReportsConnector();
 export const unavailable:UnavailableConnector[] = [];
-export const connectors=[weather,detailedForecast,flood,air,elevation,quakes,radar,space,reports,firms,eonet,openaq,power,gdacs,chirps,dailyArchive,population,infrastructure,...unavailable];
+export const connectors=[weather,detailedForecast,flood,air,elevation,quakes,radar,space,reports,firms,eonet,openaq,power,gdacs,ndma,chirps,dailyArchive,population,infrastructure,...unavailable];

@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "PRISM Public Evidence API",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "description": "Principal public contracts for the existing PRISM monitoring pilot. Forecasts are model outputs, district centres are points, and risk remains UNASSESSED. No authentication is required for these read interfaces. Provider usage and commercial licensing terms apply."
   },
   "servers": [
@@ -496,6 +496,17 @@
           },
           "400": {
             "description": "Unknown location"
+          }
+        }
+      }
+    },
+    "/api/public/v1/advisories": {
+      "get": {
+        "summary": "Official NDMA first-page advisory titles, date-only publication labels and source PDF links",
+        "description": "ConnectorEnvelope. Not a district warning classification; PDF expiry and applicability are not inferred. Failure returns data:null and exact error code.",
+        "responses": {
+          "200": {
+            "description": "Provenance envelope with advisories on success; explicit offline error on failure"
           }
         }
       }

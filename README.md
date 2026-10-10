@@ -114,13 +114,13 @@ Open-Meteo's free endpoint is subject to its non-commercial limits. Review provi
 | `GET /api/public/v1/openaq` | Up to five fixed Pakistan stations and PM2.5 measurements |
 | `GET /api/public/v1/active-fires` | Thermal anomalies, not verified wildfire extent |
 | `GET /api/public/v1/events` | NASA EONET event metadata |
-| `GET /api/public/v1/advisories` | Explicit unavailable official-advisory status |
+| `GET /api/public/v1/advisories` | NDMA official advisory index with published dates and source PDF links |
 | `GET /api/public/v1/point?lat=24.8607&lon=67.0011` | Device-coordinate model evidence; no district attribution |
 | `POST /api/ops/quarantine` | Operator-authorized instance-local pause/release |
 | `POST /api/officer` | `{ "message": "...", "location": "karachi" }` |
 | `POST /mcp` | Stateless MCP JSON-RPC initialize / tools/list / tools/call |
 
-The historical `districts` path is retained for blueprint compatibility, but responses clearly identify reference-point coverage. Unavailable advisories return `alerts: null`, never an empty list interpreted as safety.
+The historical `districts` path is retained for blueprint compatibility, but responses clearly identify reference-point coverage. NDMA advisory failures return `data: null` in a provenance envelope. Published PDF links do not establish current validity or district applicability; read the official document.
 
 ## Deployment
 
