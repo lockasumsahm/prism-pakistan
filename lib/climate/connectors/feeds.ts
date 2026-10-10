@@ -23,19 +23,21 @@ export class WeatherConnector extends BaseConnector<Weather> {
     return { updated_at: new Date(times[first]*1000).toISOString(), data: { temp_c: temps[first], rain_past_24h_mm: past.length===24?past.reduce((sum,x)=>sum+rain[x.i],0):null, past_rain_kind:'modelled', soil_moisture: soil[first], rain_next_24h_mm: indexes.filter(x => x.t <= now+86400).reduce((s,x)=>s+rain[x.i],0), rain_next_7d_mm: indexes.reduce((s,x)=>s+rain[x.i],0), peak_hourly_next_48h_mm: Math.max(...indexes.filter(x=>x.t<=now+48*3600).map(x=>rain[x.i])), window_start:new Date(now*1000).toISOString(), precipitation_semantics:'Each hourly timestamp ends the preceding-hour accumulation', hours: indexes.map(x=>({time:new Date(x.t*1000).toISOString(),rain:rain[x.i],temp:temps[x.i]})) } };
   }
 }
-export class FloodConnector extends BaseConnector<{ discharge_cms:number;peak_7d_cms:number;return_period:null;trend:string;change_24h_pct:number|null;peak_change_pct:number|null;days:{time:string;discharge:number;period:string}[] }> {
+export class FloodConnector extends BaseConnector<{ discharge_cms:number;peak_7d_cms:number;return_period:null;trend:string;change_24h_pct:number|null;peak_change_pct:number|null;model_day:string;model_grid:{lat:number;lon:number}|null;requested_point:{lat:number;lon:number};all_zero:boolean;update_cadence:string;days:{time:string;discharge:number;period:string}[] }> {
  constructor(){super(spec('open-meteo-flood','GloFAS · Open-Meteo Flood','https://open-meteo.com/en/docs/flood-api',3,'glofas','Daily modelled discharge, seven-day hindcast and seven-day forecast for the largest river in a 5 km area. Trends describe model output, not a flood warning or gauge reading.','forecast',1440));}
  protected async load(a:Record<string,unknown>){
-  const r=await this.json(`https://flood-api.open-meteo.com/v1/flood?${coords(a)}&daily=river_discharge&forecast_days=7&past_days=7`);
+  const r=await this.json(`https://flood-api.open-meteo.com/v1/flood?${coords(a)}&daily=river_discharge&forecast_days=7&past_days=7&timezone=GMT`);
   if(r.daily_units?.river_discharge!=='m³/s')throw new FeedError('INVALID_UNITS','Discharge unit must be m³/s');
   const values=series(r.daily?.river_discharge,'river discharge'),dates=r.daily?.time;
   if(!Array.isArray(dates)||dates.length!==values.length||values.some(v=>v<0)||dates.some((d:any)=>typeof d!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(d)))throw new FeedError('INVALID_PAYLOAD','Invalid discharge dates or values');
   const today=new Date().toISOString().slice(0,10),index=dates.indexOf(today);
   if(index<0)throw new FeedError('NO_COVERAGE','No model discharge for the current UTC day');
   const future=values.slice(index,index+7);if(future.length<7)throw new FeedError('NO_COVERAGE','Incomplete discharge outlook');
-  const current=values[index],previous=index>0?values[index-1]:null;
+  if(dates.some((d:any,i:number)=>i>0&&Date.parse(d+'T00:00:00Z')-Date.parse(dates[i-1]+'T00:00:00Z')!==86400000))throw new FeedError('INVALID_PAYLOAD','Discharge days must be consecutive UTC dates');
+  const current=values[index],previous=index>0?values[index-1]:null,allZero=values.every(v=>v===0);
+  const modelGrid=typeof r.latitude==='number'&&Number.isFinite(r.latitude)&&Math.abs(r.latitude)<=90&&typeof r.longitude==='number'&&Number.isFinite(r.longitude)&&Math.abs(r.longitude)<=180?{lat:r.latitude,lon:r.longitude}:null;
   const change=previous!==null&&previous>0?(current-previous)/previous*100:null,peak=Math.max(...future);
-  return {updated_at:null,data:{discharge_cms:current,peak_7d_cms:peak,return_period:null,change_24h_pct:change,peak_change_pct:current>0?(peak-current)/current*100:null,trend:previous===null?'comparison unavailable':previous===0?(current===0?'steady':'rising from zero'):change!>5?'rising':change!< -5?'falling':'steady',days:values.map((v,i)=>({time:dates[i],discharge:v,period:dates[i]<today?'hindcast':'forecast'}))}};
+  return {updated_at:null,data:{discharge_cms:current,peak_7d_cms:peak,return_period:null,model_day:today,model_grid:modelGrid,requested_point:{lat:Number(a.lat),lon:Number(a.lon)},all_zero:allZero,update_cadence:'Daily provider model updates; not live gauge telemetry',change_24h_pct:change,peak_change_pct:current>0?(peak-current)/current*100:null,trend:allZero?'no modelled flow':previous===null?'comparison unavailable':previous===0?(current===0?'steady':'rising from zero'):change!>5?'rising':change!< -5?'falling':'steady',days:values.map((v,i)=>({time:dates[i],discharge:v,period:dates[i]<today?'hindcast':'forecast'}))}};
  }
 }
 export class AirConnector extends BaseConnector<{ pm25: number; pm10: number; us_aqi: number }> {

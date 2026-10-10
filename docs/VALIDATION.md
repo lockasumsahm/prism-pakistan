@@ -74,3 +74,7 @@ Final source commit 5933bb8c499387ba861f6709ed3731a72bf48d3e, READY deployment d
 ## Browser timeout compatibility
 
 Location registry, Officer streaming, and server clock synchronization now use AbortController deadlines instead of AbortSignal.timeout. Cancellation covers response bodies and timers are released on success or failure. The helper is fingerprinted and included in the offline shell. 111 automated tests pass, including a location JSON regression with AbortSignal.timeout unavailable and stalled-operation cancellation. Browser compatibility does not change upstream feed availability or missing-data semantics.
+
+## Daily discharge and zero-cell interpretation
+
+The flood feed explicitly requests GMT daily boundaries and validates consecutive daily values. API data now exposes requested and provider grid coordinates, current UTC model day, daily cadence and an all-zero flag. All-zero model series are labelled no modelled flow rather than steady; original zero values remain visible. The panel exposes retrieval time separately from the unknown provider issue time, daily model cadence, raw values and the absence of connected live gauges. 114 tests pass, including all-zero, positive-change and upstream-outage UI cases. This does not establish calibrated flood risk or add a river-gauge connection.
