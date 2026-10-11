@@ -1,3 +1,4 @@
+import { publishedRiverArchive } from '../river-archive.ts';
 import { BaseConnector, FeedError, numeric } from './base.ts';
 
 export function distanceKm(a:{lat:number;lon:number},b:{lat:number;lon:number}) {
@@ -40,6 +41,7 @@ export function parseRiverRegistry(raw:any){
 }
 export class RiverRegistryConnector extends BaseConnector<ReturnType<typeof parseRiverRegistry>>{
  constructor(transport:typeof fetch=fetch){super({...ffdSpec,id:'pmd-river-registry',endpoint:'https://ffd.pmd.gov.pk/flood-assistant/rivers',temporal_kind:'static',stale_after_minutes:1440,methodology:'Official public flood-assistant river and station directory; no protected map endpoint is accessed.'},{ttl:3600000,timeout:10000,retries:1,threshold:5,cooldown:60000},transport);}
+ async execute(args:Record<string,unknown>={}){const e=await super.execute(args);if(e.ok||e.last_success||e.error?.code==='MANUAL_QUARANTINE')return e;return {...e,last_success:{data:parseRiverRegistry(publishedRiverArchive.registry.raw),retrieved_at:publishedRiverArchive.registry.retrieved_at}};}
  protected async load(){return {updated_at:null,data:parseRiverRegistry(await this.json('https://ffd.pmd.gov.pk/flood-assistant/rivers'))};}
 }
 function optionalReading(value:unknown,label:string){if(value===null||value===undefined)return null;const n=numeric(value,label);if(n<0)throw new FeedError('INVALID_PAYLOAD','Negative '+label);return n;}
@@ -54,6 +56,7 @@ export function parseRiverStation(raw:any,id:number,now=Date.now()){
 }
 export class RiverStationConnector extends BaseConnector<ReturnType<typeof parseRiverStation>>{
  constructor(transport:typeof fetch=fetch){super({...ffdSpec,id:'pmd-river-station',endpoint:'https://ffd.pmd.gov.pk/flood-assistant/station',temporal_kind:'observation',stale_after_minutes:720,methodology:'Official FFD public station report: actual report time, inflow/outflow, station classification and separately labelled outlook. Not instantaneous telemetry.'},{ttl:300000,timeout:10000,retries:1,threshold:5,cooldown:60000},transport);}
+ async execute(args:Record<string,unknown>={}){const e=await super.execute(args),saved=Number.isInteger(args.id)?publishedRiverArchive.stations[String(args.id)]:undefined;if(e.ok||e.last_success||!saved||e.error?.code==='MANUAL_QUARANTINE')return e;return {...e,last_success:{data:parseRiverStation(saved.raw,Number(args.id)),retrieved_at:saved.retrieved_at}};}
  protected async load(a:Record<string,unknown>){const id=numeric(a.id,'station id');if(!Number.isInteger(id)||id<1||id>10000)throw new FeedError('INVALID_STATION','Invalid station identifier');const raw=await this.json('https://ffd.pmd.gov.pk/flood-assistant/station/'+id+'?lang=en');const data=parseRiverStation(raw,id);return {updated_at:data.current?.observed_at??null,data};}
 }
 export const airportWeather=new MetarConnector(),riverRegistry=new RiverRegistryConnector(),riverStation=new RiverStationConnector();

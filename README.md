@@ -112,3 +112,5 @@ The location snapshot and forecast workspace show nearby airport observations se
 | `/api/public/v1/river-station?id=74` | Shahdara report with original observation time and units |
 
 Upstream failures return explicit unavailable envelopes. Missing values stay null; stale station readings are flagged. River classifications apply to the named station and do not establish urban drainage conditions or route safety.
+
+Production verification found PMD returning HTTP 403 to the Vercel host. During this block, `ok` remains false and `data` remains null. The official directory and three reports retrieved during verification (Shahdara, Sukkur, Mangla Dam) are retained under `last_success` with their actual retrieval time. The UI prominently labels these as saved reports; it does not imply that they refresh or that other stations are available. Resolving automatic PMD access requires provider-authorized hosting/API access. No proxy or access-control bypass is used.

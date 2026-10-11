@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { readFile, writeFile, mkdir, readdir, rename } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { stripTypeScriptTypes } from 'node:module';
-const modules=['lib/climate/connectors/base.ts','lib/climate/districts.ts','lib/climate/locations.ts','lib/climate/consensus.ts','lib/climate/connectors/extended.ts','lib/climate/connectors/archive.ts','lib/climate/connectors/forecast.ts','lib/climate/connectors/spatial.ts','lib/climate/connectors/advisories.ts','lib/climate/connectors/observations.ts','lib/climate/connectors/feeds.ts','lib/climate/connectors/imagery.ts','lib/climate/service.ts','lib/climate/officer.ts','lib/climate/pages.ts'];
+const modules=['lib/climate/connectors/base.ts','lib/climate/districts.ts','lib/climate/locations.ts','lib/climate/consensus.ts','lib/climate/connectors/extended.ts','lib/climate/connectors/archive.ts','lib/climate/connectors/forecast.ts','lib/climate/connectors/spatial.ts','lib/climate/connectors/advisories.ts','lib/climate/river-archive.ts','lib/climate/connectors/observations.ts','lib/climate/connectors/feeds.ts','lib/climate/connectors/imagery.ts','lib/climate/service.ts','lib/climate/officer.ts','lib/climate/pages.ts'];
 const assets={};
 const types={'.json':'application/json; charset=utf-8','.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.webmanifest':'application/manifest+json'};
 for(const file of await readdir('web')){const extension=file.slice(file.lastIndexOf('.'));assets['/'+file]={body:await readFile('web/'+file,'utf8'),type:types[extension]??'text/plain'};}
