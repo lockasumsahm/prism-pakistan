@@ -1,5 +1,8 @@
 // Provider semantics are documentation, never replacement measurements.
 export const sourceGuides={
+ 'airport-weather':['Airport observation time','Last 24 hours of nearby METAR observations. Today follows Pakistan midnight. Weather codes confirm reported rain events; no district-wide rainfall total is inferred.'],
+ 'pmd-river-registry':['Provider update time not supplied','Official public PMD / FFD river and station directory. Station groups retain the provider roster.'],
+ 'pmd-river-station':['Official station observation time','Published PMD / FFD gauge and reservoir readings. Historical readings and official outlooks are separate; this is not instantaneous telemetry.'],
  'open-meteo-weather':['Hourly forecast valid time','Numerical weather model; rainfall and soil moisture are model output, not local gauge measurements.'],
  'open-meteo-detail':['Forecast valid time','Hourly point forecasts. Provider model selection and publication schedules apply.'],
  'open-meteo-flood':['Provider issue time not supplied','Daily GloFAS grid-cell forecast, not a live river gauge. The selected cell may miss the intended river.'],

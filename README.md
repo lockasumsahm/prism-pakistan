@@ -97,4 +97,18 @@ Provider data, maps, and imagery carry their own attribution and usage terms. Re
 
 ## Latest source integration
 
-NOAA GOES solar X-ray observations are available at `/api/public/v1/solar-weather` and consulted by the Officer. The header displays synchronized UTC and PKT; the source ledger explains each provider’s timestamp semantics. 119 automated tests pass for this update. Live PMD gauge ingestion and production OpenAQ/ReliefWeb credentials remain unconfigured.
+NOAA GOES solar X-ray observations are available at `/api/public/v1/solar-weather` and consulted by the Officer. The header displays synchronized UTC and PKT; the source ledger explains each provider’s timestamp semantics. PMD / FFD published river station readings and nearby airport observations are now connected. Production OpenAQ/ReliefWeb credentials remain unconfigured.
+
+### Observed weather and official river monitoring (0.7)
+
+The location snapshot and forecast workspace show nearby airport observations separately from future model rainfall. Rain reported today uses the Pakistan calendar day and observed METAR weather codes; TEMPO forecast groups are excluded. Airport coverage is limited to points within 100 km of configured reporting stations. Accumulated rainfall millimetres are not supplied by this feed.
+
+`/rivers` and the six main `/river/<name>` pages now use the official public PMD / FFD station directory and station reports. Select a barrage or reservoir to inspect its published observation time, classification, flows or reservoir level, daily history, thresholds and separately labelled official outlook. The Lahore entry links to Ravi / Shahdara. No protected map endpoint is accessed.
+
+| Endpoint | Evidence |
+| --- | --- |
+| `/api/public/v1/observed-weather?location=lahore` | Airport observations and today's reported rain events |
+| `/api/public/v1/rivers` | Official river/station directory |
+| `/api/public/v1/river-station?id=74` | Shahdara report with original observation time and units |
+
+Upstream failures return explicit unavailable envelopes. Missing values stay null; stale station readings are flagged. River classifications apply to the named station and do not establish urban drainage conditions or route safety.
