@@ -1,6 +1,6 @@
 {
   "schema": "prism-daily-v1",
-  "generated_at": "2026-11-15T07:55:06.184Z",
+  "generated_at": "2026-11-16T08:03:20.172Z",
   "scope": "Ten national/provincial/family/agricultural briefing selections; point evidence, not all-district warnings",
   "briefings": [
     {
@@ -17,11 +17,11 @@
       "sections": [
         {
           "title": "Executive Answer",
-          "text": "Pakistan reference locations: hazard status remains unassessed. 12/12 reference-location weather forecasts available. Highest next-24-hour forecast rainfall among these points: 0.4 mm. No count of warning or critical districts is produced because risk is unassessed."
+          "text": "Pakistan reference locations: hazard status remains unassessed. 9/12 reference-location weather forecasts available. Highest next-24-hour forecast rainfall among these points: 0.0 mm. No count of warning or critical districts is produced because risk is unassessed."
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-11-15T07:00:00.000Z: temperature 30.3 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-11-16T08:00:00.000Z: temperature 32.0 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -41,21 +41,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-11-15T07:55:02.648Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-15T07:55:02.955Z · CAMS · Open-Meteo Air: retrieved 2026-11-15T07:55:02.958Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-15T07:55:02.644Z"
+          "text": "Open-Meteo Weather: retrieved 2026-11-16T08:02:51.905Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-16T08:02:52.194Z · CAMS · Open-Meteo Air: retrieved 2026-11-16T08:02:52.208Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-16T08:02:51.901Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 30.3,
-            "rain_past_24h_mm": 2,
+            "temp_c": 32,
+            "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.094,
+            "soil_moisture": 0.087,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-11-15T07:00:00.000Z",
+            "window_start": "2026-11-16T08:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -69,21 +69,21 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 104,
-            "updated_at": "2026-11-15T07:00:00.000Z",
-            "retrieved_at": "2026-11-15T07:55:02.648Z"
+            "latency_ms": 117,
+            "updated_at": "2026-11-16T08:00:00.000Z",
+            "retrieved_at": "2026-11-16T08:02:51.905Z"
           },
-          "trace_id": "4277bf3d-6c1d-4348-b0dc-a567844f2172",
+          "trace_id": "9af16e96-dbc9-47cc-b366-3a1ca577051c",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "discharge_cms": 0.88,
-            "peak_7d_cms": 0.88,
+            "discharge_cms": 0.82,
+            "peak_7d_cms": 0.82,
             "return_period": null,
-            "model_day": "2026-11-15",
+            "model_day": "2026-11-16",
             "model_grid": {
               "lat": 24.875,
               "lon": 67.02501
@@ -94,9 +94,9 @@
             },
             "all_zero": false,
             "update_cadence": "Daily provider model updates; not live gauge telemetry",
-            "change_24h_pct": 6.024096385542174,
+            "change_24h_pct": -6.818181818181825,
             "peak_change_pct": 0,
-            "trend": "rising"
+            "trend": "falling"
           },
           "source": {
             "id": "open-meteo-flood",
@@ -109,20 +109,20 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 392,
+            "latency_ms": 389,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:02.955Z"
+            "retrieved_at": "2026-11-16T08:02:52.194Z"
           },
-          "trace_id": "13bc0376-8f73-420a-aaf8-a16a79f5b8ea",
+          "trace_id": "d3ac8ffe-18e1-499c-806e-e90543b2ad63",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 34.5,
-            "pm10": 71,
-            "us_aqi": 90
+            "pm25": 37.5,
+            "pm10": 55.2,
+            "us_aqi": 112
           },
           "source": {
             "id": "open-meteo-air",
@@ -135,11 +135,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 394,
-            "updated_at": "2026-11-15T07:00Z",
-            "retrieved_at": "2026-11-15T07:55:02.958Z"
+            "latency_ms": 402,
+            "updated_at": "2026-11-16T08:00Z",
+            "retrieved_at": "2026-11-16T08:02:52.208Z"
           },
-          "trace_id": "b510e99f-e3dc-44bc-af61-cafa0c1dd94e",
+          "trace_id": "4ba5c31c-b8f3-4527-9054-ea916f9e2625",
           "cached": false,
           "error": null
         },
@@ -160,11 +160,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 78,
+            "latency_ms": 93,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:02.644Z"
+            "retrieved_at": "2026-11-16T08:02:51.901Z"
           },
-          "trace_id": "12719d30-91e4-4ba1-af11-30a85f904a8e",
+          "trace_id": "47c3666e-7389-4e9d-85f2-ec2604118617",
           "cached": false,
           "error": null
         }
@@ -175,7 +175,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-11-15T07:55:02.958Z",
+      "generated_at": "2026-11-16T08:02:52.208Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -197,7 +197,7 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-11-15T07:00:00.000Z: temperature 30.3 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-11-16T08:00:00.000Z: temperature 32.0 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -217,21 +217,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-11-15T07:55:02.648Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-15T07:55:02.955Z · CAMS · Open-Meteo Air: retrieved 2026-11-15T07:55:02.958Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-15T07:55:02.644Z"
+          "text": "Open-Meteo Weather: retrieved 2026-11-16T08:02:51.905Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-16T08:02:52.194Z · CAMS · Open-Meteo Air: retrieved 2026-11-16T08:02:52.208Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-16T08:02:51.901Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 30.3,
-            "rain_past_24h_mm": 2,
+            "temp_c": 32,
+            "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.094,
+            "soil_moisture": 0.087,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-11-15T07:00:00.000Z",
+            "window_start": "2026-11-16T08:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -245,21 +245,21 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 104,
-            "updated_at": "2026-11-15T07:00:00.000Z",
-            "retrieved_at": "2026-11-15T07:55:02.648Z"
+            "latency_ms": 117,
+            "updated_at": "2026-11-16T08:00:00.000Z",
+            "retrieved_at": "2026-11-16T08:02:51.905Z"
           },
-          "trace_id": "d0d8de5f-c07e-4913-858e-472aa1938e33",
+          "trace_id": "57c278bc-9bd5-4a25-ba17-5faa39b0287a",
           "cached": true,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "discharge_cms": 0.88,
-            "peak_7d_cms": 0.88,
+            "discharge_cms": 0.82,
+            "peak_7d_cms": 0.82,
             "return_period": null,
-            "model_day": "2026-11-15",
+            "model_day": "2026-11-16",
             "model_grid": {
               "lat": 24.875,
               "lon": 67.02501
@@ -270,9 +270,9 @@
             },
             "all_zero": false,
             "update_cadence": "Daily provider model updates; not live gauge telemetry",
-            "change_24h_pct": 6.024096385542174,
+            "change_24h_pct": -6.818181818181825,
             "peak_change_pct": 0,
-            "trend": "rising"
+            "trend": "falling"
           },
           "source": {
             "id": "open-meteo-flood",
@@ -285,20 +285,20 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 392,
+            "latency_ms": 389,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:02.955Z"
+            "retrieved_at": "2026-11-16T08:02:52.194Z"
           },
-          "trace_id": "39694e38-ecee-49f1-9ab8-7484849365cb",
+          "trace_id": "e7d4b28e-b9e8-4e43-b45d-03bcddf987d7",
           "cached": true,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 34.5,
-            "pm10": 71,
-            "us_aqi": 90
+            "pm25": 37.5,
+            "pm10": 55.2,
+            "us_aqi": 112
           },
           "source": {
             "id": "open-meteo-air",
@@ -311,11 +311,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 394,
-            "updated_at": "2026-11-15T07:00Z",
-            "retrieved_at": "2026-11-15T07:55:02.958Z"
+            "latency_ms": 402,
+            "updated_at": "2026-11-16T08:00Z",
+            "retrieved_at": "2026-11-16T08:02:52.208Z"
           },
-          "trace_id": "5d4dd03d-5603-4b3e-8080-b7087a904d86",
+          "trace_id": "90704991-be0a-4df7-bde0-aa66f89592a3",
           "cached": true,
           "error": null
         },
@@ -336,11 +336,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 78,
+            "latency_ms": 93,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:02.644Z"
+            "retrieved_at": "2026-11-16T08:02:51.901Z"
           },
-          "trace_id": "5f30f3c1-5e65-4775-909a-8e2e1d0a304e",
+          "trace_id": "b53f637a-ce11-4973-b410-67e176fb7f8a",
           "cached": true,
           "error": null
         }
@@ -351,7 +351,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-11-15T07:55:04.330Z",
+      "generated_at": "2026-11-16T08:03:15.325Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -376,7 +376,7 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-11-15T07:00:00.000Z: temperature 26.0 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-11-16T08:00:00.000Z: temperature 25.7 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -396,21 +396,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-11-15T07:55:04.564Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-15T07:55:04.643Z · CAMS · Open-Meteo Air: retrieved 2026-11-15T07:55:04.644Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-15T07:55:04.564Z"
+          "text": "Open-Meteo Weather: retrieved 2026-11-16T08:03:18.354Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-16T08:03:18.433Z · CAMS · Open-Meteo Air: retrieved 2026-11-16T08:03:18.709Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-16T08:03:18.353Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 26,
+            "temp_c": 25.7,
             "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.117,
+            "soil_moisture": 0.112,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-11-15T07:00:00.000Z",
+            "window_start": "2026-11-16T08:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -424,11 +424,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 19,
-            "updated_at": "2026-11-15T07:00:00.000Z",
-            "retrieved_at": "2026-11-15T07:55:04.564Z"
+            "latency_ms": 21,
+            "updated_at": "2026-11-16T08:00:00.000Z",
+            "retrieved_at": "2026-11-16T08:03:18.354Z"
           },
-          "trace_id": "fbfa6a16-7d98-4d83-9b66-0bdaf1d5d66f",
+          "trace_id": "4f452509-777a-4265-825d-e48be87ccec6",
           "cached": false,
           "error": null
         },
@@ -438,7 +438,7 @@
             "discharge_cms": 0.1,
             "peak_7d_cms": 0.1,
             "return_period": null,
-            "model_day": "2026-11-15",
+            "model_day": "2026-11-16",
             "model_grid": {
               "lat": 31.475006,
               "lon": 74.425
@@ -449,9 +449,9 @@
             },
             "all_zero": false,
             "update_cadence": "Daily provider model updates; not live gauge telemetry",
-            "change_24h_pct": 11.111111111111121,
+            "change_24h_pct": 0,
             "peak_change_pct": 0,
-            "trend": "rising"
+            "trend": "steady"
           },
           "source": {
             "id": "open-meteo-flood",
@@ -464,20 +464,20 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 98,
+            "latency_ms": 100,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:04.643Z"
+            "retrieved_at": "2026-11-16T08:03:18.433Z"
           },
-          "trace_id": "46077e58-2690-4937-a9ae-be8a48025ee6",
+          "trace_id": "d8b6b3cb-d75d-4082-b52d-20be7dbb07be",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 71,
-            "pm10": 104.3,
-            "us_aqi": 182
+            "pm25": 23.9,
+            "pm10": 33.2,
+            "us_aqi": 154
           },
           "source": {
             "id": "open-meteo-air",
@@ -490,11 +490,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 99,
-            "updated_at": "2026-11-15T07:00Z",
-            "retrieved_at": "2026-11-15T07:55:04.644Z"
+            "latency_ms": 375,
+            "updated_at": "2026-11-16T08:00Z",
+            "retrieved_at": "2026-11-16T08:03:18.709Z"
           },
-          "trace_id": "e7ea5ef3-1ee4-496c-809d-08c6e0f2911f",
+          "trace_id": "2c05cea9-8a51-4e43-a268-d2daf52babfb",
           "cached": false,
           "error": null
         },
@@ -515,11 +515,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 19,
+            "latency_ms": 18,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:04.564Z"
+            "retrieved_at": "2026-11-16T08:03:18.353Z"
           },
-          "trace_id": "3f979cbd-d504-412d-970c-8ef943398850",
+          "trace_id": "785c2e93-cf41-432f-b344-f9ffc3c7c800",
           "cached": false,
           "error": null
         }
@@ -530,7 +530,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-11-15T07:55:04.644Z",
+      "generated_at": "2026-11-16T08:03:18.709Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -555,7 +555,7 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-11-15T07:00:00.000Z: temperature 21.8 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-11-16T08:00:00.000Z: temperature 21.8 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -575,7 +575,7 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-11-15T07:55:04.922Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-15T07:55:04.989Z · CAMS · Open-Meteo Air: retrieved 2026-11-15T07:55:04.990Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-15T07:55:04.909Z"
+          "text": "Open-Meteo Weather: retrieved 2026-11-16T08:03:18.902Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-16T08:03:18.980Z · CAMS · Open-Meteo Air: retrieved 2026-11-16T08:03:18.978Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-16T08:03:18.901Z"
         }
       ],
       "evidence": [
@@ -585,11 +585,11 @@
             "temp_c": 21.8,
             "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.393,
+            "soil_moisture": 0.369,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-11-15T07:00:00.000Z",
+            "window_start": "2026-11-16T08:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -603,21 +603,21 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 32,
-            "updated_at": "2026-11-15T07:00:00.000Z",
-            "retrieved_at": "2026-11-15T07:55:04.922Z"
+            "latency_ms": 20,
+            "updated_at": "2026-11-16T08:00:00.000Z",
+            "retrieved_at": "2026-11-16T08:03:18.902Z"
           },
-          "trace_id": "b21616fe-84a6-4bfa-9697-7f8fbdf6eac4",
+          "trace_id": "648e606c-188f-4677-9a27-70e475ff4b27",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "discharge_cms": 2.09,
-            "peak_7d_cms": 2.09,
+            "discharge_cms": 0.8,
+            "peak_7d_cms": 0.8,
             "return_period": null,
-            "model_day": "2026-11-15",
+            "model_day": "2026-11-16",
             "model_grid": {
               "lat": 33.675003,
               "lon": 72.975006
@@ -628,7 +628,7 @@
             },
             "all_zero": false,
             "update_cadence": "Daily provider model updates; not live gauge telemetry",
-            "change_24h_pct": -74.84957882069796,
+            "change_24h_pct": -61.72248803827751,
             "peak_change_pct": 0,
             "trend": "falling"
           },
@@ -645,18 +645,18 @@
             "license": "CC BY 4.0; free API subject to non-commercial limits",
             "latency_ms": 98,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:04.989Z"
+            "retrieved_at": "2026-11-16T08:03:18.980Z"
           },
-          "trace_id": "76fb136b-bb00-4597-91ec-15ea17f4dec3",
+          "trace_id": "99065a2a-c442-4a6c-9f4b-1e085f8d8588",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 21.8,
-            "pm10": 29,
-            "us_aqi": 97
+            "pm25": 21.7,
+            "pm10": 25.6,
+            "us_aqi": 90
           },
           "source": {
             "id": "open-meteo-air",
@@ -669,11 +669,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 99,
-            "updated_at": "2026-11-15T07:00Z",
-            "retrieved_at": "2026-11-15T07:55:04.990Z"
+            "latency_ms": 96,
+            "updated_at": "2026-11-16T08:00Z",
+            "retrieved_at": "2026-11-16T08:03:18.978Z"
           },
-          "trace_id": "45bb9c7b-a052-4dba-bc9e-486e957a18d4",
+          "trace_id": "12424b15-ee9e-402f-93b0-6631adad1d4e",
           "cached": false,
           "error": null
         },
@@ -694,11 +694,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 18,
+            "latency_ms": 19,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:04.909Z"
+            "retrieved_at": "2026-11-16T08:03:18.901Z"
           },
-          "trace_id": "d5fdb883-4c86-45a7-a723-dc9bf93eb5dd",
+          "trace_id": "d35f581a-ba79-4cf6-be6e-6f01cc72c5f6",
           "cached": false,
           "error": null
         }
@@ -709,7 +709,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-11-15T07:55:04.990Z",
+      "generated_at": "2026-11-16T08:03:18.980Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -734,7 +734,7 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-11-15T07:00:00.000Z: temperature 22.3 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-11-16T08:00:00.000Z: temperature 23.0 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -754,21 +754,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-11-15T07:55:05.272Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-15T07:55:05.247Z · CAMS · Open-Meteo Air: retrieved 2026-11-15T07:55:05.248Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-15T07:55:05.166Z"
+          "text": "Open-Meteo Weather: retrieved 2026-11-16T08:03:19.169Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-16T08:03:19.247Z · CAMS · Open-Meteo Air: retrieved 2026-11-16T08:03:19.245Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-16T08:03:19.168Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 22.3,
+            "temp_c": 23,
             "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.382,
+            "soil_moisture": 0.37,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-11-15T07:00:00.000Z",
+            "window_start": "2026-11-16T08:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -782,21 +782,21 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 123,
-            "updated_at": "2026-11-15T07:00:00.000Z",
-            "retrieved_at": "2026-11-15T07:55:05.272Z"
+            "latency_ms": 20,
+            "updated_at": "2026-11-16T08:00:00.000Z",
+            "retrieved_at": "2026-11-16T08:03:19.169Z"
           },
-          "trace_id": "06fddaff-168f-4a3c-ac49-c31f648093a5",
+          "trace_id": "28e29f2c-8716-4c42-97c7-8bcb07025c5b",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "discharge_cms": 0.42,
-            "peak_7d_cms": 0.42,
+            "discharge_cms": 0.28,
+            "peak_7d_cms": 0.28,
             "return_period": null,
-            "model_day": "2026-11-15",
+            "model_day": "2026-11-16",
             "model_grid": {
               "lat": 33.925003,
               "lon": 71.625015
@@ -807,7 +807,7 @@
             },
             "all_zero": false,
             "update_cadence": "Daily provider model updates; not live gauge telemetry",
-            "change_24h_pct": -37.313432835820905,
+            "change_24h_pct": -33.33333333333333,
             "peak_change_pct": 0,
             "trend": "falling"
           },
@@ -824,18 +824,18 @@
             "license": "CC BY 4.0; free API subject to non-commercial limits",
             "latency_ms": 98,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:05.247Z"
+            "retrieved_at": "2026-11-16T08:03:19.247Z"
           },
-          "trace_id": "19a20cd6-277d-4bbf-9209-08df7c7c62ef",
+          "trace_id": "8641eac9-df11-44bf-97de-7c38af5bc206",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 14.6,
-            "pm10": 19,
-            "us_aqi": 95
+            "pm25": 15.7,
+            "pm10": 18.2,
+            "us_aqi": 110
           },
           "source": {
             "id": "open-meteo-air",
@@ -848,11 +848,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 99,
-            "updated_at": "2026-11-15T07:00Z",
-            "retrieved_at": "2026-11-15T07:55:05.248Z"
+            "latency_ms": 96,
+            "updated_at": "2026-11-16T08:00Z",
+            "retrieved_at": "2026-11-16T08:03:19.245Z"
           },
-          "trace_id": "85dda51d-1944-4b05-ab8b-fcfc9c0a8a4b",
+          "trace_id": "774912c4-42cb-4f1d-9176-9eb368933057",
           "cached": false,
           "error": null
         },
@@ -873,11 +873,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 16,
+            "latency_ms": 19,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:05.166Z"
+            "retrieved_at": "2026-11-16T08:03:19.168Z"
           },
-          "trace_id": "2a262070-0150-44bc-93f0-bd086a1fcfb5",
+          "trace_id": "9cda1edd-0d17-4c34-a38e-3989cae5732e",
           "cached": false,
           "error": null
         }
@@ -888,7 +888,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-11-15T07:55:05.272Z",
+      "generated_at": "2026-11-16T08:03:19.247Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -913,7 +913,7 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-11-15T07:00:00.000Z: temperature 10.4 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-11-16T08:00:00.000Z: temperature 11.6 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -933,21 +933,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-11-15T07:55:05.450Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-15T07:55:05.531Z · CAMS · Open-Meteo Air: retrieved 2026-11-15T07:55:05.531Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-15T07:55:05.450Z"
+          "text": "Open-Meteo Weather: retrieved 2026-11-16T08:03:19.439Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-16T08:03:19.515Z · CAMS · Open-Meteo Air: retrieved 2026-11-16T08:03:19.513Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-16T08:03:19.438Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 10.4,
+            "temp_c": 11.6,
             "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.14,
+            "soil_moisture": 0.138,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-11-15T07:00:00.000Z",
+            "window_start": "2026-11-16T08:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -961,11 +961,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 19,
-            "updated_at": "2026-11-15T07:00:00.000Z",
-            "retrieved_at": "2026-11-15T07:55:05.450Z"
+            "latency_ms": 23,
+            "updated_at": "2026-11-16T08:00:00.000Z",
+            "retrieved_at": "2026-11-16T08:03:19.439Z"
           },
-          "trace_id": "be405ec7-abfe-4afb-88a9-2c9ce7c2b3fa",
+          "trace_id": "945e5583-b983-430a-8019-942710cc35a4",
           "cached": false,
           "error": null
         },
@@ -975,7 +975,7 @@
             "discharge_cms": 0,
             "peak_7d_cms": 0,
             "return_period": null,
-            "model_day": "2026-11-15",
+            "model_day": "2026-11-16",
             "model_grid": {
               "lat": 30.125,
               "lon": 67.07501
@@ -1001,20 +1001,20 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 100,
+            "latency_ms": 99,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:05.531Z"
+            "retrieved_at": "2026-11-16T08:03:19.515Z"
           },
-          "trace_id": "63bd9345-08fe-41aa-ad8b-a5f6e2a7462e",
+          "trace_id": "792d849c-4dcd-4cc0-9aef-30ad0fa9ef03",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 3.3,
-            "pm10": 4.6,
-            "us_aqi": 38
+            "pm25": 1.9,
+            "pm10": 2.7,
+            "us_aqi": 49
           },
           "source": {
             "id": "open-meteo-air",
@@ -1027,11 +1027,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 99,
-            "updated_at": "2026-11-15T07:00Z",
-            "retrieved_at": "2026-11-15T07:55:05.531Z"
+            "latency_ms": 97,
+            "updated_at": "2026-11-16T08:00Z",
+            "retrieved_at": "2026-11-16T08:03:19.513Z"
           },
-          "trace_id": "b72ffce4-cc34-49b2-960a-eedf3d19a8ad",
+          "trace_id": "83365136-c699-4466-b4cb-a1948268010e",
           "cached": false,
           "error": null
         },
@@ -1052,11 +1052,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 18,
+            "latency_ms": 22,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:05.450Z"
+            "retrieved_at": "2026-11-16T08:03:19.438Z"
           },
-          "trace_id": "b3fcbbdf-c25a-4e55-9ecf-7b4e9a0adb1a",
+          "trace_id": "7d2a5ac2-ba87-40a4-8c02-e3d27a31e98b",
           "cached": false,
           "error": null
         }
@@ -1067,7 +1067,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-11-15T07:55:05.531Z",
+      "generated_at": "2026-11-16T08:03:19.515Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -1092,7 +1092,7 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-11-15T07:00:00.000Z: temperature 3.9 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-11-16T08:00:00.000Z: temperature 2.3 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -1112,21 +1112,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-11-15T07:55:05.612Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-15T07:55:05.692Z · CAMS · Open-Meteo Air: retrieved 2026-11-15T07:55:05.694Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-15T07:55:05.611Z"
+          "text": "Open-Meteo Weather: retrieved 2026-11-16T08:03:19.664Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-16T08:03:19.743Z · CAMS · Open-Meteo Air: retrieved 2026-11-16T08:03:19.740Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-16T08:03:19.662Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 3.9,
+            "temp_c": 2.3,
             "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.393,
+            "soil_moisture": 0.385,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-11-15T07:00:00.000Z",
+            "window_start": "2026-11-16T08:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -1140,11 +1140,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 19,
-            "updated_at": "2026-11-15T07:00:00.000Z",
-            "retrieved_at": "2026-11-15T07:55:05.612Z"
+            "latency_ms": 21,
+            "updated_at": "2026-11-16T08:00:00.000Z",
+            "retrieved_at": "2026-11-16T08:03:19.664Z"
           },
-          "trace_id": "0888b820-4849-4fb5-a06c-725fd68d6de7",
+          "trace_id": "7cdec2f5-5d6b-4ad3-8a1c-878c1e1c61e2",
           "cached": false,
           "error": null
         },
@@ -1154,7 +1154,7 @@
             "discharge_cms": 0.16,
             "peak_7d_cms": 0.16,
             "return_period": null,
-            "model_day": "2026-11-15",
+            "model_day": "2026-11-16",
             "model_grid": {
               "lat": 35.975006,
               "lon": 74.52501
@@ -1182,17 +1182,17 @@
             "license": "CC BY 4.0; free API subject to non-commercial limits",
             "latency_ms": 99,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:05.692Z"
+            "retrieved_at": "2026-11-16T08:03:19.743Z"
           },
-          "trace_id": "43466acd-a73c-4471-9f3d-3f2fbec19286",
+          "trace_id": "bb8ce075-9475-444a-9633-f434dc735ec5",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 6.9,
-            "pm10": 9,
+            "pm25": 8,
+            "pm10": 11,
             "us_aqi": 59
           },
           "source": {
@@ -1206,11 +1206,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 101,
-            "updated_at": "2026-11-15T07:00Z",
-            "retrieved_at": "2026-11-15T07:55:05.694Z"
+            "latency_ms": 96,
+            "updated_at": "2026-11-16T08:00Z",
+            "retrieved_at": "2026-11-16T08:03:19.740Z"
           },
-          "trace_id": "ef479736-2f3f-4c12-a304-a56ab0ac73cf",
+          "trace_id": "ce1e2d22-82f0-4e75-ae63-af2dff905b2d",
           "cached": false,
           "error": null
         },
@@ -1233,9 +1233,9 @@
             "license": "Provider terms; see linked source",
             "latency_ms": 18,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:05.611Z"
+            "retrieved_at": "2026-11-16T08:03:19.662Z"
           },
-          "trace_id": "1fac5442-eb33-4a90-906a-8a08ff4b77ae",
+          "trace_id": "6ba672c1-604b-428a-84e1-ff563f9494d1",
           "cached": false,
           "error": null
         }
@@ -1246,7 +1246,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-11-15T07:55:05.694Z",
+      "generated_at": "2026-11-16T08:03:19.743Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -1271,7 +1271,7 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-11-15T07:00:00.000Z: temperature 15.6 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-11-16T08:00:00.000Z: temperature 17.5 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -1291,21 +1291,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-11-15T07:55:05.771Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-15T07:55:05.851Z · CAMS · Open-Meteo Air: retrieved 2026-11-15T07:55:05.852Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-15T07:55:05.771Z"
+          "text": "Open-Meteo Weather: retrieved 2026-11-16T08:03:19.840Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-16T08:03:19.920Z · CAMS · Open-Meteo Air: retrieved 2026-11-16T08:03:19.917Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-16T08:03:19.839Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 15.6,
-            "rain_past_24h_mm": 0.1,
+            "temp_c": 17.5,
+            "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.482,
+            "soil_moisture": 0.465,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-11-15T07:00:00.000Z",
+            "window_start": "2026-11-16T08:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -1319,21 +1319,21 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 19,
-            "updated_at": "2026-11-15T07:00:00.000Z",
-            "retrieved_at": "2026-11-15T07:55:05.771Z"
+            "latency_ms": 20,
+            "updated_at": "2026-11-16T08:00:00.000Z",
+            "retrieved_at": "2026-11-16T08:03:19.840Z"
           },
-          "trace_id": "96708ce3-8782-46f4-b55a-1356851aed61",
+          "trace_id": "9fdd8905-9d96-4e01-a1d6-703f8e566f3d",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "discharge_cms": 0.12,
-            "peak_7d_cms": 0.12,
+            "discharge_cms": 0.1,
+            "peak_7d_cms": 0.1,
             "return_period": null,
-            "model_day": "2026-11-15",
+            "model_day": "2026-11-16",
             "model_grid": {
               "lat": 34.325005,
               "lon": 73.57501
@@ -1344,9 +1344,9 @@
             },
             "all_zero": false,
             "update_cadence": "Daily provider model updates; not live gauge telemetry",
-            "change_24h_pct": 0,
+            "change_24h_pct": -16.66666666666666,
             "peak_change_pct": 0,
-            "trend": "steady"
+            "trend": "falling"
           },
           "source": {
             "id": "open-meteo-flood",
@@ -1361,17 +1361,17 @@
             "license": "CC BY 4.0; free API subject to non-commercial limits",
             "latency_ms": 99,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:05.851Z"
+            "retrieved_at": "2026-11-16T08:03:19.920Z"
           },
-          "trace_id": "217ecbb3-786c-4624-800a-b844daf33161",
+          "trace_id": "f4dafbfa-326b-4c70-955d-97e5f6b8cd5b",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 9.7,
-            "pm10": 15.4,
+            "pm25": 7.9,
+            "pm10": 12.2,
             "us_aqi": 77
           },
           "source": {
@@ -1385,11 +1385,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 99,
-            "updated_at": "2026-11-15T07:00Z",
-            "retrieved_at": "2026-11-15T07:55:05.852Z"
+            "latency_ms": 96,
+            "updated_at": "2026-11-16T08:00Z",
+            "retrieved_at": "2026-11-16T08:03:19.917Z"
           },
-          "trace_id": "387f4b82-09b5-4d85-9ed2-042bbf1df48e",
+          "trace_id": "3bcf57a4-2eb6-40dc-a546-47d95294d3d9",
           "cached": false,
           "error": null
         },
@@ -1412,9 +1412,9 @@
             "license": "Provider terms; see linked source",
             "latency_ms": 18,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:05.771Z"
+            "retrieved_at": "2026-11-16T08:03:19.839Z"
           },
-          "trace_id": "47c40204-0fd8-42a4-a657-3bc45a8b2f96",
+          "trace_id": "b738bdda-4857-4cb8-a02c-78273c87d2e7",
           "cached": false,
           "error": null
         }
@@ -1425,7 +1425,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-11-15T07:55:05.852Z",
+      "generated_at": "2026-11-16T08:03:19.920Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -1443,11 +1443,11 @@
       "sections": [
         {
           "title": "Executive Answer",
-          "text": "Karachi: hazard status remains unassessed. Modelled PM2.5 34.5 µg/m³; US AQI 90. Road waterlogging, visibility and route safety are not assessed."
+          "text": "Karachi: hazard status remains unassessed. Modelled PM2.5 37.5 µg/m³; US AQI 112. Road waterlogging, visibility and route safety are not assessed."
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-11-15T07:00:00.000Z: temperature 30.3 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-11-16T08:00:00.000Z: temperature 32.0 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -1467,21 +1467,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-11-15T07:55:02.648Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-15T07:55:02.955Z · CAMS · Open-Meteo Air: retrieved 2026-11-15T07:55:02.958Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-15T07:55:02.644Z"
+          "text": "Open-Meteo Weather: retrieved 2026-11-16T08:02:51.905Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-16T08:02:52.194Z · CAMS · Open-Meteo Air: retrieved 2026-11-16T08:02:52.208Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-16T08:02:51.901Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 30.3,
-            "rain_past_24h_mm": 2,
+            "temp_c": 32,
+            "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
-            "soil_moisture": 0.094,
+            "soil_moisture": 0.087,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-11-15T07:00:00.000Z",
+            "window_start": "2026-11-16T08:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -1495,21 +1495,21 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 104,
-            "updated_at": "2026-11-15T07:00:00.000Z",
-            "retrieved_at": "2026-11-15T07:55:02.648Z"
+            "latency_ms": 117,
+            "updated_at": "2026-11-16T08:00:00.000Z",
+            "retrieved_at": "2026-11-16T08:02:51.905Z"
           },
-          "trace_id": "2e5cab01-31df-4768-83fe-7378ebc3e801",
+          "trace_id": "49419f26-1809-4c60-8794-ab5c7a9e870d",
           "cached": true,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "discharge_cms": 0.88,
-            "peak_7d_cms": 0.88,
+            "discharge_cms": 0.82,
+            "peak_7d_cms": 0.82,
             "return_period": null,
-            "model_day": "2026-11-15",
+            "model_day": "2026-11-16",
             "model_grid": {
               "lat": 24.875,
               "lon": 67.02501
@@ -1520,9 +1520,9 @@
             },
             "all_zero": false,
             "update_cadence": "Daily provider model updates; not live gauge telemetry",
-            "change_24h_pct": 6.024096385542174,
+            "change_24h_pct": -6.818181818181825,
             "peak_change_pct": 0,
-            "trend": "rising"
+            "trend": "falling"
           },
           "source": {
             "id": "open-meteo-flood",
@@ -1535,20 +1535,20 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 392,
+            "latency_ms": 389,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:02.955Z"
+            "retrieved_at": "2026-11-16T08:02:52.194Z"
           },
-          "trace_id": "c0b23500-ec3a-470d-8049-ecdee9961ff6",
+          "trace_id": "0a97e806-3b61-4ca3-ab9d-43e47647ced7",
           "cached": true,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 34.5,
-            "pm10": 71,
-            "us_aqi": 90
+            "pm25": 37.5,
+            "pm10": 55.2,
+            "us_aqi": 112
           },
           "source": {
             "id": "open-meteo-air",
@@ -1561,11 +1561,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 394,
-            "updated_at": "2026-11-15T07:00Z",
-            "retrieved_at": "2026-11-15T07:55:02.958Z"
+            "latency_ms": 402,
+            "updated_at": "2026-11-16T08:00Z",
+            "retrieved_at": "2026-11-16T08:02:52.208Z"
           },
-          "trace_id": "4592ecbb-7ea7-4e3a-ad28-8dce90126c8f",
+          "trace_id": "0bca979c-116b-4d01-945e-8597c782335a",
           "cached": true,
           "error": null
         },
@@ -1586,11 +1586,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 78,
+            "latency_ms": 93,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:02.644Z"
+            "retrieved_at": "2026-11-16T08:02:51.901Z"
           },
-          "trace_id": "0bb8b1a5-9d74-4ee4-bd3d-542d9be20ef2",
+          "trace_id": "8cc19240-126c-4996-9433-db4e429d0988",
           "cached": true,
           "error": null
         }
@@ -1601,7 +1601,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-11-15T07:55:05.911Z",
+      "generated_at": "2026-11-16T08:03:19.985Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     },
@@ -1626,7 +1626,7 @@
         },
         {
           "title": "Current Situation",
-          "text": "Model forecast valid 2026-11-15T07:00:00.000Z: temperature 29.4 °C, next 24-hour rainfall 0.0 mm."
+          "text": "Model forecast valid 2026-11-16T08:00:00.000Z: temperature 29.9 °C, next 24-hour rainfall 0.0 mm."
         },
         {
           "title": "What May Happen Next",
@@ -1646,21 +1646,21 @@
         },
         {
           "title": "Verifiable Sources",
-          "text": "Open-Meteo Weather: retrieved 2026-11-15T07:55:06.078Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-15T07:55:06.159Z · CAMS · Open-Meteo Air: retrieved 2026-11-15T07:55:06.159Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-15T07:55:06.077Z"
+          "text": "Open-Meteo Weather: retrieved 2026-11-16T08:03:20.072Z · GloFAS · Open-Meteo Flood: retrieved 2026-11-16T08:03:20.150Z · CAMS · Open-Meteo Air: retrieved 2026-11-16T08:03:20.148Z · Copernicus DEM · Open-Meteo: retrieved 2026-11-16T08:03:20.071Z"
         }
       ],
       "evidence": [
         {
           "ok": true,
           "data": {
-            "temp_c": 29.4,
+            "temp_c": 29.9,
             "rain_past_24h_mm": 0,
             "past_rain_kind": "modelled",
             "soil_moisture": 0.05,
             "rain_next_24h_mm": 0,
             "rain_next_7d_mm": 0,
             "peak_hourly_next_48h_mm": 0,
-            "window_start": "2026-11-15T07:00:00.000Z",
+            "window_start": "2026-11-16T08:00:00.000Z",
             "precipitation_semantics": "Each hourly timestamp ends the preceding-hour accumulation"
           },
           "source": {
@@ -1674,11 +1674,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 19,
-            "updated_at": "2026-11-15T07:00:00.000Z",
-            "retrieved_at": "2026-11-15T07:55:06.078Z"
+            "latency_ms": 21,
+            "updated_at": "2026-11-16T08:00:00.000Z",
+            "retrieved_at": "2026-11-16T08:03:20.072Z"
           },
-          "trace_id": "5e813e54-33e0-47a1-857e-e779ab9e192a",
+          "trace_id": "71a17bf6-06d9-49a8-852e-26cf3bbae037",
           "cached": false,
           "error": null
         },
@@ -1688,7 +1688,7 @@
             "discharge_cms": 0,
             "peak_7d_cms": 0,
             "return_period": null,
-            "model_day": "2026-11-15",
+            "model_day": "2026-11-16",
             "model_grid": {
               "lat": 27.525002,
               "lon": 69.07501
@@ -1714,20 +1714,20 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 1440,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 99,
+            "latency_ms": 98,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:06.159Z"
+            "retrieved_at": "2026-11-16T08:03:20.150Z"
           },
-          "trace_id": "364a7491-01e7-447a-9104-06eca6aa0406",
+          "trace_id": "147e7ff5-9b18-46b0-9fcd-ee64701f401c",
           "cached": false,
           "error": null
         },
         {
           "ok": true,
           "data": {
-            "pm25": 70.1,
-            "pm10": 88,
-            "us_aqi": 164
+            "pm25": 38.4,
+            "pm10": 48.1,
+            "us_aqi": 131
           },
           "source": {
             "id": "open-meteo-air",
@@ -1740,11 +1740,11 @@
             "temporal_kind": "forecast",
             "stale_after_minutes": 90,
             "license": "CC BY 4.0; free API subject to non-commercial limits",
-            "latency_ms": 99,
-            "updated_at": "2026-11-15T07:00Z",
-            "retrieved_at": "2026-11-15T07:55:06.159Z"
+            "latency_ms": 96,
+            "updated_at": "2026-11-16T08:00Z",
+            "retrieved_at": "2026-11-16T08:03:20.148Z"
           },
-          "trace_id": "605103b2-0951-4675-b5a2-2e4431f26adf",
+          "trace_id": "d80a1454-8b09-451a-8c9b-8eafffe3b1a8",
           "cached": false,
           "error": null
         },
@@ -1765,11 +1765,11 @@
             "temporal_kind": "static",
             "stale_after_minutes": 525600,
             "license": "Provider terms; see linked source",
-            "latency_ms": 17,
+            "latency_ms": 19,
             "updated_at": null,
-            "retrieved_at": "2026-11-15T07:55:06.077Z"
+            "retrieved_at": "2026-11-16T08:03:20.071Z"
           },
-          "trace_id": "a7c6513f-09c2-4b95-8e2b-795fc5c4cbb1",
+          "trace_id": "36a519fc-60c6-4c3a-a602-566e5cdef5c3",
           "cached": false,
           "error": null
         }
@@ -1780,7 +1780,7 @@
         "total": 4,
         "meaning": "Connector availability, not hazard confidence"
       },
-      "generated_at": "2026-11-15T07:55:06.159Z",
+      "generated_at": "2026-11-16T08:03:20.150Z",
       "mode": "deterministic-evidence-brief",
       "archive_projection": "Summary measurements and full provenance retained; hourly/daily series omitted"
     }
